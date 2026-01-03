@@ -2,13 +2,259 @@ import { Major, Exam, Scholarship, PracticalPath, SiteContent, Locale } from './
 
 export type { Locale };
 
+const AUSBILDUNG_PATH_EN: PracticalPath = {
+  id: 'ausbildung',
+  title: 'Ausbildung',
+  subtitle: 'German Dual Vocational Training',
+  actuallyIs: 'Ausbildung is a 2–3.5 year vocational training program in Germany that combines workplace learning with classroom instruction. Unlike traditional university, you are an employee of a company from day one and receive a monthly salary while learning a specific trade.',
+  types: [
+    {
+      name: 'Technical / Industrial',
+      description: 'Mechatronics, IT specialist, electronics, car mechanics.',
+      realityForForeigners: 'Highest demand, but requires strong logic and solid German.',
+      realistic: true
+    },
+    {
+      name: 'Healthcare / Nursing',
+      description: 'Geriatric care, nursing, therapy assistants.',
+      realityForForeigners: 'Easiest visa path but extremely physically and emotionally taxing.',
+      realistic: true
+    },
+    {
+      name: 'Administration / Office',
+      description: 'Office management, accounting assistants.',
+      realityForForeigners: 'Very difficult for non-native speakers due to high language nuance.',
+      realistic: false
+    }
+  ],
+  whoFits: [
+    'Prefers hands-on work over theoretical lectures.',
+    'Wants financial independence (earning while learning).',
+    'Willing to learn German to a high level (B2).',
+    'Disciplined enough to handle a full-time job and school simultaneously.'
+  ],
+  whoShouldAvoid: [
+    'Students who only want "prestige" or a title of "student."',
+    'Those unwilling to perform manual or service-oriented tasks.',
+    'People who find learning a new language (German) overwhelming.',
+    'Those looking for a "quick escape" without long-term commitment.'
+  ],
+  languageReality: {
+    official: 'B1 or B2 German',
+    practical: 'Strong B2 / Early C1',
+    reasons: [
+      'Vocational school exams are in technical German.',
+      'Colleagues in workshops/hospitals rarely speak English.',
+      'Safety protocols must be understood perfectly.'
+    ],
+    trajectory: [
+      { level: 'A1-A2', time: '4-6 months' },
+      { level: 'B1-B2', time: '6-10 months' },
+      { level: 'Test/Apply', time: '2-3 months' }
+    ]
+  },
+  fieldCategories: [
+    {
+      name: 'Mechatronics',
+      acceptance: 'HIGH SHORTAGE',
+      salary: '€950 – €1,200',
+      successRate: 'Moderate',
+      whyAccessible: 'Heavy industrial demand for non-EU workers.',
+      challenges: 'Complex math and physics in German.',
+      languageNeed: 'B2 technical'
+    },
+    {
+      name: 'Nursing (Pflege)',
+      acceptance: 'CRITICAL SHORTAGE',
+      salary: '€1,100 – €1,350',
+      successRate: 'High',
+      whyAccessible: 'Germany has an aging population and desperate need for carers.',
+      challenges: 'Shift work, high stress, emotional load.',
+      languageNeed: 'B2 interpersonal'
+    }
+  ],
+  financialDeepDive: {
+    monthlySalary: [
+      { industry: 'Nursing', y1: '€1,100', y2: '€1,200', y3: '€1,350' },
+      { industry: 'IT/Tech', y1: '€950', y2: '€1,050', y3: '€1,150' },
+      { industry: 'Gastronomy', y1: '€850', y2: '€950', y3: '€1,050' }
+    ],
+    livingExpenses: [
+      { category: 'Rent', low: '€300', medium: '€450', high: '€600' },
+      { category: 'Insurance', low: '€100', medium: '€110', high: '€120' },
+      { category: 'Food/Other', low: '€250', medium: '€350', high: '€450' }
+    ],
+    mathReality: 'After taxes and insurance, a €1,000 gross salary becomes roughly €800. If your rent is €400, you have €400 left for everything else. It is survival, not luxury.',
+    comparison: [
+      { label: 'Vs University', details: 'You earn €30-40k over 3 years while students spend €30-40k.' },
+      { label: 'Vs Unskilled Work', details: 'Ausbildung leads to a "Skilled Worker" status and a €3,000+ starting salary after graduation.' }
+    ]
+  },
+  visaLegal: {
+    residenceAct: 'Section 16a of the Residence Act',
+    ageLimits: { rule: 'No legal limit', practice: 'Harder for those over 30 to find employers.' },
+    financialRequirement: 'Usually no blocked account needed if salary covers basic needs (~€934/mo).',
+    recognitionProcess: [
+      'Apostille of school diploma.',
+      'Official translation to German.',
+      'Recognition (Anerkennung) by German state authorities.'
+    ],
+    embassyTimeline: '4–12 weeks in Tashkent.'
+  },
+  downsidesExtended: [
+    { category: 'Cultural', content: 'German "Directness" can feel rude or aggressive to Uzbek students.' },
+    { category: 'Workload', content: '40 hours work + 12 hours school + Homework. No "student holidays".' },
+    { category: 'Isolation', content: 'Often placed in small villages where you may be the only foreigner.' }
+  ],
+  myths: [
+    { myth: 'It is easy to get in.', reality: 'Companies interview you like a real employee. 50+ applications is normal.' },
+    { myth: 'You can switch to Uni easily.', reality: 'Possible, but requires a separate university entrance qualification (Abitur/Studienkolleg).' }
+  ],
+  strategicAssessment: {
+    goodMove: ['Goal is permanent residency in Germany.', 'You want a high-paying technical job without 5 years of Uni.'],
+    badMove: ['You want to stay in UZ (German vocational titles carry less weight here).', 'You hate physical work or strict schedules.']
+  },
+  finalTimeline: [
+    { phase: 'Language (A1-B2)', duration: '12-18 Months' },
+    { phase: 'Application & Interview', duration: '3-6 Months' },
+    { phase: 'Visa Process', duration: '2-3 Months' },
+    { phase: 'Arrival & Start', duration: 'August/September' }
+  ],
+  strategicGood: [],
+  strategicBad: [],
+  realityCheck: 'A powerful social escalator for those willing to grind. Not for the lazy or the prestigious-minded.'
+};
+
+const AUSBILDUNG_PATH_UZ: PracticalPath = {
+  id: 'ausbildung',
+  title: 'Ausbildung',
+  subtitle: 'Germaniya Dual Kasb-hunar Ta’limi',
+  actuallyIs: 'Ausbildung — bu Germaniyada 2-3,5 yil davom etadigan kasb-hunar ta’limi dasturi bo‘lib, u ish joyidagi amaliyotni va o‘quv yurtidagi nazariyani birlashtiradi. Universitetdan farqli o‘laroq, siz birinchi kundan kompaniya xodimi hisoblanasiz va o‘qish davomida oylik maosh olasiz.',
+  types: [
+    {
+      name: 'Texnik / Sanoat',
+      description: 'Mexatronika, IT mutaxassisi, elektronika, avtomobil mexanikasi.',
+      realityForForeigners: 'Talab juda yuqori, lekin kuchli mantiq va yaxshi nemis tilini talab qiladi.',
+      realistic: true
+    },
+    {
+      name: 'Tibbiyot / Hamshiralik',
+      description: 'Keksalar parvarishi, hamshiralik, terapiya yordamchilari.',
+      realityForForeigners: 'Viza olish eng oson yo‘l, lekin jismoniy va hissiy jihatdan juda og‘ir.',
+      realistic: true
+    },
+    {
+      name: 'Ma’muriyat / Ofis',
+      description: 'Ofis boshqaruvi, buxgalteriya yordamchilari.',
+      realityForForeigners: 'Tilning nozik jihatlarini bilish talab qilingani uchun chet elliklar uchun juda qiyin.',
+      realistic: false
+    }
+  ],
+  whoFits: [
+    'Nazariy ma’ruzalardan ko‘ra amaliy ishni afzal ko‘radiganlar.',
+    'Moliyaviy mustaqillikka intiluvchilar (o‘qib turib pul topish).',
+    'Nemis tilini yuqori darajada (B2) o‘rganishga tayyor bo‘lganlar.',
+    'Bir vaqtning o‘zida to‘liq ish kuni va o‘qishni eplay oladigan intizomli yoshlar.'
+  ],
+  whoShouldAvoid: [
+    'Faqat "status" yoki "talaba" degan nomni xohlaydiganlar.',
+    'Jismoniy yoki xizmat ko‘rsatish sohasidagi ishlarni xohlamaydiganlar.',
+    'Yangi til (nemis tili) o‘rganishni o‘ta qiyin deb biladiganlar.',
+    'Uzoq muddatli mehnat qilmasdan, "tezda chiqib ketish" yo‘lini qidirayotganlar.'
+  ],
+  languageReality: {
+    official: 'B1 yoki B2 nemis tili',
+    practical: 'Kuchli B2 / Erta C1',
+    reasons: [
+      'Kasb-hunar maktabi imtihonlari texnik nemis tilida bo‘ladi.',
+      'Ustaxona yoki shifoxonalardagi hamkasblar kamdan-kam hollarda nemis tilidan boshqa tilda gaplashishadi.',
+      'Xavfsizlik protokollarini mukammal tushunish shart.'
+    ],
+    trajectory: [
+      { level: 'A1-A2', time: '4-6 oy' },
+      { level: 'B1-B2', time: '6-10 oy' },
+      { level: 'Test/Hujjat topshirish', time: '2-3 oy' }
+    ]
+  },
+  fieldCategories: [
+    {
+      name: 'Mexatronika',
+      acceptance: 'YUQORI TANQISLIK',
+      salary: '€950 – €1,200',
+      successRate: 'O‘rtacha',
+      whyAccessible: 'Yevropa Ittifoqidan bo‘lmagan ishchilar uchun sanoat talabi yuqori.',
+      challenges: 'Nemis tilidagi murakkab matematika va fizika.',
+      languageNeed: 'B2 texnik'
+    },
+    {
+      name: 'Hamshiralik (Pflege)',
+      acceptance: 'KRITIK TANQISLIK',
+      salary: '€1,100 – €1,350',
+      successRate: 'Yuqori',
+      whyAccessible: 'Germaniya aholisi qarib bormoqda va qarovchilarga ehtiyoj juda katta.',
+      challenges: 'Smenali ish, yuqori stress, hissiy yuklama.',
+      languageNeed: 'B2 muloqot'
+    }
+  ],
+  financialDeepDive: {
+    monthlySalary: [
+      { industry: 'Hamshiralik', y1: '€1,100', y2: '€1,200', y3: '€1,350' },
+      { industry: 'IT/Texnik', y1: '€950', y2: '€1,050', y3: '€1,150' },
+      { industry: 'Gastronomiya', y1: '€850', y2: '€950', y3: '€1,050' }
+    ],
+    livingExpenses: [
+      { category: 'Ijara', low: '€300', medium: '€450', high: '€600' },
+      { category: 'Sug‘urta', low: '€100', medium: '€110', high: '€120' },
+      { category: 'Oziq-ovqat/Boshqa', low: '€250', medium: '€350', high: '€450' }
+    ],
+    mathReality: 'Soliq va sug‘urtadan keyin 1000 yevro yalpi maosh taxminan 800 yevro bo‘lib qoladi. Agar ijara 400 yevro bo‘lsa, qolgan hamma narsa uchun 400 yevro qoladi. Bu hashamat emas, yashab qolish uchun yetarli pul.',
+    comparison: [
+      { label: 'Universitetga nisbatan', details: 'Siz 3 yil davomida 30-40 ming yevro ishlaysiz, talabalar esa shuncha pul sarflashadi.' },
+      { label: 'Malakasiz ishga nisbatan', details: 'Ausbildung sizni "Malakali mutaxassis" darajasiga olib chiqadi va o‘qishdan keyin 3000 yevrodan yuqori maosh beradi.' }
+    ]
+  },
+  visaLegal: {
+    residenceAct: 'Yashash to‘g‘risidagi qonunning 16a-bo‘limi',
+    ageLimits: { rule: 'Qonuniy chegara yo‘q', practice: '30 yoshdan oshganlar uchun ish beruvchi topish qiyinroq.' },
+    financialRequirement: 'Agar maosh asosiy ehtiyojlarni qoplasa (~934 yevro), odatda bloklangan hisob raqami talab qilinmaydi.',
+    recognitionProcess: [
+      'Maktab attestatini apostil qilish.',
+      'Nemis tiliga rasmiy tarjima.',
+      'Germaniya davlat organ tomonidan tan olinishi (Anerkennung).'
+    ],
+    embassyTimeline: 'Toshkentda 4–12 hafta.'
+  },
+  downsidesExtended: [
+    { category: 'Madaniy', content: 'Nemischa "to‘g‘ridan-to‘g‘ri gapirish" o‘zbek talabalari uchun qo‘pol tuyulishi mumkin.' },
+    { category: 'Ish yuklamasi', content: '40 soat ish + 12 soat o‘qish + uy vazifalari. "Talaba ta’tillari" yo‘q.' },
+    { category: 'Yolg‘izlik', content: 'Ko‘pincha siz yagona chet ellik bo‘lgan kachik qishloqlarga joylashtirilasiz.' }
+  ],
+  myths: [
+    { myth: 'Kirish oson.', reality: 'Kompaniyalar sizdan haqiqiy xodim kabi intervyu olishadi. 50 tadan ortiq hujjat topshirish odatiy hol.' },
+    { myth: 'Universitetga osongina o‘tish mumkin.', reality: 'Mumkin, lekin buning uchun alohida universitetga kirish malakasi (Abitur/Studienkolleg) talab qilinadi.' }
+  ],
+  strategicAssessment: {
+    goodMove: ['Maqsadingiz Germaniyada doimiy yashash.', '5 yil universitetda o‘qimasdan yuqori maoshli texnik ishni xohlaysiz.'],
+    badMove: ['O‘zbekistonda qolmoqchisiz (bu diplom bu yerda kamroq ahamiyatga ega).', 'Jismoniy ishni yoki qat’iy jadvalni yomon ko‘rasiz.'],
+  },
+  finalTimeline: [
+    { phase: 'Til o‘rganish (A1-B2)', duration: '12-18 Oy' },
+    { phase: 'Hujjat topshirish va suhbat', duration: '3-6 Oy' },
+    { phase: 'Viza jarayoni', duration: '2-3 Oy' },
+    { phase: 'Yetib borish va boshlash', duration: 'Avgust/Sentyabr' }
+  ],
+  strategicGood: [],
+  strategicBad: [],
+  realityCheck: 'Mehnat qilishga tayyor bo‘lganlar uchun kuchli ijtimoiy lift. Dangasalar yoki faqat "diplom" deb yashaydiganlar uchun emas.'
+};
+
 const EN_CONTENT: SiteContent = {
   ui: {
     seo: {
       home: { title: "ClearPath — Student Decision Guide in Uzbekistan", desc: "An objective information index for students in Uzbekistan. Honest data on majors, exams, and career paths." },
       majors: { title: "Majors Index — ClearPath", desc: "Objective analysis of university fields in Uzbekistan. Daily reality, income potential, and stress factors." },
       exams: { title: "Standardized Exams Index — ClearPath", desc: "Metrics and entry requirements for SAT, IELTS, and DET. Determine strategic relevance for admissions." },
-      scholarships: { title: "Scholarships & Funding — ClearPath", desc: "Analysis of funding opportunities like El-Yurt Umidi and Chevening for Uzbek students." },
+      scholarships: { title: "Scholarships & Funding — ClearPath", desc: "Analysis of funding opportunities like El-Yurt Umidi, Chevening, and Turkiye Burslari for Uzbek students." },
       paths: { title: "Practical Paths — ClearPath", desc: "Evaluations of high-viability, work-first alternatives to traditional university routes, including Ausbildung." },
       resources: { title: "Free Learning Assets — ClearPath", desc: "Filtered directory of high-quality free resources for students." },
       gapYear: { title: "Gap Year Strategy — ClearPath", desc: "Honest guidance on whether taking a gap year in Uzbekistan makes strategic sense." },
@@ -192,30 +438,10 @@ const EN_CONTENT: SiteContent = {
     gapYearTitleMain: "The Gap Year",
     gapYearTitleItalic: "Strategic Delay",
     gapYearIntro: "Delaying university is either the smartest move you'll ever make, or a massive waste of momentum. There is no middle ground.",
-    gapYearVerdictTitle: "The Verdict",
-    gapYearVerdictDesc: "In Uzbekistan, taking a gap year is often misunderstood as 'failing to get in.' We challenge this. A gap year is a high-risk, high-reward investment in your character.",
-    gapYearStrategicTitle: "When it's Strategic",
-    gapYearDeceptionTitle: "When it's Self-Deception",
-    gapYearRisksBenefitsTitle: "Risks vs Benefits",
-    gapYearUpsideTitle: "The Upside",
-    gapYearDownsideTitle: "The Downside",
-    gapYearWhatIsTitle: "What is a Gap Year?",
-    gapYearWhatIsDesc: "A Gap Year is a deliberate one-year break between high school and university. It is NOT 'failing' or 'resting.' It is a year used to build skills, work, or gain clarity that high school cannot provide.",
-    gapYearStrategic1Title: "True Burnout",
-    gapYearStrategic1Desc: "You are physically or mentally exhausted from high school and exams. Rest is a productivity tool.",
-    gapYearStrategic2Title: "Skill Mastery",
-    gapYearStrategic2Desc: "6-12 months of daily 6+ hour study to reach true fluency in a language or a technical skill.",
-    gapYearStrategic3Title: "Market Research",
-    gapYearStrategic3Desc: "You genuinely don't know what to study and want to intern or work in industries first.",
-    gapYearDeception1: "I'll figure out my major while relaxing.",
-    gapYearDeception2: "I'm delaying because I'm afraid of applications.",
-    gapYearDeception3: "I'll take some random online courses to see what I like.",
-    gapYearUpsideList: ["+ Emotional maturity", "+ Better college placement", "+ Unique resume signals", "+ Professional network"],
-    gapYearDownsideList: ["- Loss of academic momentum", "- Social isolation from peers", "- Delayed career earnings", "- Resetting study habits is hard"],
-    noPressureMsg: "If you're not ready to make a choice right now — that's also normal.",
+    noPressureMsg: "If you're not remember ready to make a choice right now — that's also normal.",
     specialistBtn: "🔒 Ask a specialist (coming soon)",
     specialistNote: "This is not guidance. It’s access to lived experience.",
-    officialMaterialsLabel: "Official SAT Materials",
+    officialMaterialsLabel: "Official Materials",
     prepBooksLabel: "Prep Books (High Scorers)",
     additionalPlatformsLabel: "Additional Practice Platforms",
     scoreGuidanceLabel: "Score Range Guidance",
@@ -266,7 +492,6 @@ const EN_CONTENT: SiteContent = {
     livingExpLabel: "Living Expenses",
     comparisonUniLabel: "Comparison vs Uni",
     visaResidenceLabel: "Visa & Residency",
-    ageLimitsLabel: "Age Considerations",
     recognitionBarrierLabel: "The Recognition Barrier",
     legalRisksSummary: "Legal & Regulatory Risks",
     finalVerdictLabel: "Final Strategic Verdict",
@@ -278,35 +503,34 @@ const EN_CONTENT: SiteContent = {
       id: 'computer-science',
       title: 'Computer Science',
       description: 'The architecture of logic and automation.',
-      actuallyIs: 'CS means learning to think in code and systems. You study programming, algorithms, data structures, and architecture. It\'s not just "typing code"—it\'s learning why certain solutions work, why others break, and how to design systems that can scale to millions of users.',
+      actuallyIs: "CS means learning to think in code and systems. You study programming, algorithms, data structures, and architecture. It's not just \"typing code\"—it's learning why certain solutions work, why others break, and how to design systems that can scale to millions of users.",
       dailyWork: [
         '9-10am: Stand-up meeting (progress tracking).',
-        '10am-12pm: Deep coding focus (usually only 2-3 hours of actual writing).',
-        '1-3pm: Code reviews and teammate feedback (reading other people\'s logic).',
-        '3-4pm: Architecture and product planning meetings.',
-        '4-5pm: Testing, debugging, and writing technical documentation.',
-        'Reality: As you grow, you spend more time talking to people than writing code.'
+        '10am-12pm: Deep coding focus (logic implementation).',
+        '1-3pm: Code reviews and teammate feedback.',
+        '3-4pm: Architecture and product planning.',
+        '4-5pm: Testing, debugging, and documentation.'
       ],
       whoItFits: [
-        'Enjoys debugging and problem-solving over just building new things.',
-        'Patient with extreme detail (one missing semicolon breaks everything).',
-        'Comfortable with rapid change (your tools will be obsolete in 3 years).',
-        'Able to explain complex technical ideas to non-tech managers.'
+        'Enjoys debugging and problem-solving over building.',
+        'Patient with extreme detail (one semicolon matters).',
+        'Comfortable with tools becoming obsolete every 3 years.',
+        'Able to explain tech logic to non-tech managers.'
       ],
       whoShouldAvoid: [
-        'Needs immediate, stable income (entry-level hunting can take 6 months).',
-        'Dislikes sitting for 8-10 hours a day in front of a screen.',
-        'Wants predictable, manual work that never changes.',
+        'Needs immediate, stable income (entry-level is competitive).',
+        'Dislikes sitting for 8-10 hours in front of a screen.',
+        'Wants manual work that never changes.',
         'Struggles with abstract mathematical logic.'
       ],
       careerPaths: {
-        employee: ['Software Engineer ($80k-$140k starting abroad)', 'Data Engineer', 'Cybersecurity Specialist'],
-        freelance: ['Web Development', 'Consultancy (hard to start for juniors)'],
+        employee: ['Software Engineer', 'Data Engineer', 'Cybersecurity Specialist'],
+        freelance: ['Web Development', 'Technical Consulting'],
         business: ['SaaS Founder', 'Tech Agency Owner']
       },
       uzVsAbroad: {
-        uz: ['Local demand is rising in Fintech and E-commerce.', 'Remote work for Western companies while living in UZ is the "Gold Medal" path.'],
-        abroad: ['Extremely high demand but brutal entry-level competition.', 'Visa sponsorship (H1B/Skilled Worker) is a primary goal for many.']
+        uz: ['Local demand is rising in Fintech and E-commerce.', 'Remote work for Western companies is the "Gold Medal" path.'],
+        abroad: ['High demand but brutal junior-level competition.', 'Visa sponsorship (H1B/EU Blue Card) is the primary goal.']
       },
       realityCheck: [
         { factor: 'Difficulty', rating: 'HIGH', notes: 'Heavy theory and frustrating debugging cycles.' },
@@ -315,184 +539,184 @@ const EN_CONTENT: SiteContent = {
         { factor: 'AI Risk', rating: 'MEDIUM-HIGH', notes: 'Junior roles are being automated; specialists are safer.' }
       ],
       freeResources: [
-        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'The gold standard intro. Teaches thinking, not just syntax.', whenToStop: 'After Week 5 if you feel you have the logic down.', notFor: 'People looking for a quick certificate.' },
-        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Visual guides for every role.', whenToStop: 'Use only as a reference; do not try to "finish" it.', notFor: 'Students who get easily overwhelmed by long lists.' }
+        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'The gold standard intro. Teaches thinking, not just syntax.', whenToStop: 'After Week 5 if logic feels repetitive.', notFor: 'Certificate hunters.' },
+        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Visual guides for every role.', whenToStop: 'Once you choose a specific path.', notFor: 'Easily overwhelmed students.' }
       ]
     },
     {
       id: 'business-management',
       title: 'Business / Management',
-      description: 'Understanding organizational leverage.',
-      actuallyIs: 'You learn how organizations function: accounting, finance, marketing, operations, HR, and strategy. It is broad, which is both its greatest strength and its primary weakness. You are the "glue" between different departments.',
+      description: 'Understanding organizational leverage and glue.',
+      actuallyIs: 'You learn how organizations function: accounting, finance, marketing, operations, and HR. You are the "glue" between different departments, ensuring the business makes money and stays organized.',
       dailyWork: [
-        'Heavy use of Excel, PowerPoint, and CRM software.',
-        'Back-to-back meetings to coordinate between teams.',
-        'Analyzing performance metrics and budgeting.',
-        'Solving operational fires (e.g., supply chain delays).',
-        'Reality: Much of your day is managing personalities and reporting data.'
+        'Analyzing performance metrics in Excel.',
+        'Coordinating between technical and sales teams.',
+        'Managing project budgets and timelines.',
+        'Solving operational fires (supply chain, HR issues).',
+        'Reporting data to senior leadership.'
       ],
       whoItFits: [
-        'Strong communicators who can lead teams without being "the boss."',
-        'People who enjoy identifying patterns in data metrics.',
-        'Generalists who get bored specializing in one technical skill.',
+        'Strong communicators who can lead teams.',
+        'People who enjoy identifying patterns in data.',
+        'Generalists who get bored specializing in one skill.',
         'Strong networkers who build relationships easily.'
       ],
       whoShouldAvoid: [
         'Introverts who find constant meeting/negotiation draining.',
-        'People who hate spreadsheets and fine-print contracts.',
-        'Those seeking a "hard" technical skill with immediate job security.',
+        'People who hate spreadsheets and contracts.',
+        'Those seeking a "hard" technical skill for security.',
         'Individuals who prefer working completely alone.'
       ],
       careerPaths: {
         employee: ['Management Consultant', 'Marketing Manager', 'Operations Lead'],
-        freelance: ['Business Strategy Consultant', 'Project Management'],
-        business: ['Entrepreneurship', 'Retail/Service business ownership']
+        freelance: ['Project Management', 'Business Consultant'],
+        business: ['Entrepreneurship', 'Retail/Service Ownership']
       },
       uzVsAbroad: {
-        uz: ['Very useful for the growing private sector in Tashkent.', 'Parental networks often help here, but merit is becoming more important.'],
+        uz: ['Very useful for the growing private sector in Tashkent.', 'Merit is becoming more important than legacy networks.'],
         abroad: ['Extremely valuable with a top-tier MBA.', 'High competition for entry-level analyst roles.']
       },
       realityCheck: [
         { factor: 'Difficulty', rating: 'LOW-MEDIUM', notes: 'Conceptual and relationship-based.' },
-        { factor: 'Competition', rating: 'EXTREME', notes: 'The most common major; standing out is very hard.' },
+        { factor: 'Competition', rating: 'EXTREME', notes: 'The most common major globally.' },
         { factor: 'Income Potential', rating: 'MEDIUM-HIGH', notes: 'Starts low, but scales high in seniority.' },
-        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Routine management can be automated; leadership cannot.' }
+        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Routine management is being automated; leadership isn\'t.' }
       ],
       freeResources: [
         { name: 'MIT Sloan (OCW)', url: 'https://ocw.mit.edu/courses/management/', why: 'Rigorous university materials.', whenToStop: 'After understanding Case Study methodology.', notFor: 'Light motivational readers.' },
-        { name: 'CFI Free Courses', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Learn actual skills like balance sheets.', whenToStop: 'After finishing "Accounting Fundamentals."', notFor: 'Math-haters.' }
+        { name: 'CFI Accounting Fundamentals', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Actual skills (balance sheets).', whenToStop: 'After finishing the basics.', notFor: 'Math-haters.' }
       ]
     },
     {
       id: 'economics',
       title: 'Economics',
-      description: 'Analyzing systems of value and resource allocation.',
-      actuallyIs: 'Economics is the study of how people, companies, and governments make choices about resources. It combines social science with high-level math and data analysis. It\'s more about predicting human behavior through models than just "money."',
+      description: 'The science of resource allocation and incentives.',
+      actuallyIs: 'Economics is the study of how society manages resources. It’s not just about money; it’s about human behavior, incentives, and data. You learn to model how the world works and predict how changes in policy affect people.',
       dailyWork: [
-        'Data cleaning and statistical modeling (R, Python, or Stata).',
-        'Drafting policy briefs or market research reports.',
-        'Forecasting market trends based on historical data.',
-        'Meetings with stakeholders to explain complex economic signals.',
-        'Reality: If you are in research, it is 90% cleaning data in a computer.'
+        'Statistical analysis of market trends.',
+        'Writing policy recommendations or research reports.',
+        'Using software like R, Stata, or Python for modeling.',
+        'Monitoring central bank and global market news.',
+        'Creating presentations for non-technical stakeholders.'
       ],
       whoItFits: [
-        'Highly analytical thinkers who look for "hidden" causes.',
-        'People who enjoy math but want to apply it to human society.',
-        'Strong writers who can turn numbers into readable stories.',
-        'Those interested in global policy and macro-trends.'
+        'Logical thinkers with a strong mathematical base.',
+        'People curious about global politics and poverty.',
+        'Students who enjoy abstract thinking and modeling.',
+        'Strong writers who can explain data simply.'
       ],
       whoShouldAvoid: [
-        'Students who "just want to work in a bank" (Finance is better).',
-        'People who dislike advanced calculus and statistics.',
-        'Those seeking a creative, hands-on major.',
-        'Individuals who want a simple, black-and-white answer to problems.'
+        'Those who want a practical "how-to-run-a-shop" degree.',
+        'People who struggle with advanced statistics.',
+        'Students who find political theory boring.',
+        'Those looking for a creative, hands-on physical job.'
       ],
       careerPaths: {
-        employee: ['Policy Analyst', 'Data Scientist', 'Financial Analyst', 'Economic Researcher'],
-        freelance: ['Data Analysis contracts', 'Technical Writing'],
-        business: ['Venture Capital', 'Strategic Planning for firms']
+        employee: ['Policy Analyst', 'Investment Banker', 'Data Scientist'],
+        freelance: ['Economic Research', 'Data Analysis Consulting'],
+        business: ['Strategy Consulting', 'Venture Capital']
       },
       uzVsAbroad: {
-        uz: ['High demand in government ministries and international NGOs (UNDP, World Bank).', 'Valuable for Tashkent-based macro-economic research.'],
-        abroad: ['Well-regarded by consulting firms (McKinsey, BCG).', 'Requires a Master’s or PhD for high-level research roles.']
+        uz: ['Highly valued in Tashkent’s banking and finance sector.', 'Essential for government reform departments.'],
+        abroad: ['Extremely competitive in global finance and NGOs.', 'Requires a Master’s or PhD for high-level research roles.']
       },
       realityCheck: [
-        { factor: 'Difficulty', rating: 'HIGH', notes: 'Intense math and abstract modeling.' },
-        { factor: 'Competition', rating: 'HIGH', notes: 'Compete with Finance and Math majors for roles.' },
-        { factor: 'Income Potential', rating: 'HIGH', notes: 'Top analysts earn significantly.' },
-        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Data tasks are being automated; judgment remains key.' }
+        { factor: 'Difficulty', rating: 'MEDIUM-HIGH', notes: 'Heavy math/statistics in upper years.' },
+        { factor: 'Competition', rating: 'HIGH', notes: 'Competitive for top finance/consulting roles.' },
+        { factor: 'Income Potential', rating: 'HIGH', notes: 'Very high in finance; lower in academia.' },
+        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Data processing is automated; intuition is not.' }
       ],
       freeResources: [
-        { name: 'Marginal Revolution University', url: 'https://mru.org/', why: 'Best visual intro to Micro and Macro economics.', whenToStop: 'After the Core Principles modules.', notFor: 'People who hate talking about "Supply and Demand."' },
-        { name: 'Khan Academy Macroeconomics', url: 'https://www.khanacademy.org/economics-finance-domain/macroeconomics', why: 'Explains the math behind the news.', whenToStop: 'When you can explain "Inflation" accurately.', notFor: 'Advanced math students (too basic).' }
+        { name: 'Marginal Revolution University', url: 'https://mru.org/', why: 'Best intuitive explanation of econ concepts.', whenToStop: 'After finishing Macro/Micro basics.', notFor: 'Memorization-seekers.' },
+        { name: 'Khan Academy Macroeconomics', url: 'https://www.khanacademy.org/economics-finance-domain/macroeconomics', why: 'Solid foundation for high school/uni.', whenToStop: 'Once basics are understood.', notFor: 'Advanced math prep.' }
       ]
     },
     {
       id: 'engineering',
-      title: 'Engineering',
-      description: 'Applying physical laws to solve material problems.',
-      actuallyIs: 'Engineering is using math, physics, and science to design, build, and maintain structures, machines, and systems. It ranges from Civil (bridges) to Mechanical (engines) and Electrical (circuits). It is the most "practical" of the hard sciences.',
+      title: 'Engineering (General)',
+      description: 'Applying math and science to physical reality.',
+      actuallyIs: 'Engineering is about designing and building things that work. It applies physics and mathematics to solve technical problems, whether it\'s a bridge, a processor, or a car engine. It is a rigorous, technical discipline.',
       dailyWork: [
-        'Designing prototypes in CAD (Computer-Aided Design) software.',
-        'On-site inspections of construction or manufacturing.',
-        'Running stress tests and safety calculations.',
-        'Documenting technical specs for manufacturing teams.',
-        'Reality: You spend more time on safety regulations than on "creative design."'
+        'CAD (Computer-Aided Design) modeling.',
+        'Conducting site inspections or workshop tests.',
+        'Performing complex structural or electrical calculations.',
+        'Managing technical safety and compliance documentation.',
+        'Collaborating with architects and project managers.'
       ],
       whoItFits: [
-        'Natural builders who like taking things apart.',
-        'People who are "relentlessly logical" about physical problems.',
-        'Comfortable with high stakes (if an engineer fails, things break).',
-        'Strong spatial awareness and visualization skills.'
+        'Natural problem solvers with spatial reasoning.',
+        'Students who genuinely enjoy math and physics.',
+        'Detail-oriented people who care about safety.',
+        'Those who like to see the physical result of their work.'
       ],
       whoShouldAvoid: [
-        'Those who struggle with Physics and advanced Calculus.',
-        'People who prefer abstract theory over physical results.',
-        'Individuals who dislike technical rules and standardized safety codes.',
-        'Students seeking a "fast and easy" degree.'
+        'People who find technical drawings and rules boring.',
+        'Those unwilling to work on-site or in labs.',
+        'Students looking for a flexible, creative-only field.',
+        'People who struggle with high-precision measurements.'
       ],
       careerPaths: {
-        employee: ['Civil Engineer', 'Mechanical Engineer', 'Structural Lead', 'Manufacturing Manager'],
-        freelance: ['Independent CAD design', 'Site consultancy'],
-        business: ['Construction firm owner', 'Hardware Startup founder']
+        employee: ['Civil Engineer', 'Mechanical Engineer', 'Project Manager'],
+        freelance: ['Design Consulting', 'Drafting Services'],
+        business: ['Construction Firm', 'Manufacturing Agency']
       },
       uzVsAbroad: {
-        uz: ['Massive demand due to the construction boom in Tashkent.', 'Electrical engineering is critical for local energy infrastructure.'],
-        abroad: ['Strong visa prospects for skilled labor in EU (especially Germany).', 'Stable, high-floor income in almost any country.']
+        uz: ['Massive construction boom in UZ means high local demand.', 'Energy sector (oil/gas/renewables) is a major employer.'],
+        abroad: ['High specialization (Aerospace, Bio-eng) is required.', 'Professional licensing (PE) is essential for career growth.']
       },
       realityCheck: [
-        { factor: 'Difficulty', rating: 'VERY HIGH', notes: 'Brutal math and physics load.' },
-        { factor: 'Competition', rating: 'MEDIUM-HIGH', notes: 'High bar to entry keeps supply low.' },
-        { factor: 'Income Potential', rating: 'MEDIUM-HIGH', notes: 'Very stable, but lower ceiling than Software.' },
-        { factor: 'AI Risk', rating: 'LOW', notes: 'Physical onsite presence and safety liability are hard to automate.' }
+        { factor: 'Difficulty', rating: 'VERY HIGH', notes: 'Known as one of the hardest undergraduate degrees.' },
+        { factor: 'Competition', rating: 'MEDIUM-HIGH', notes: 'Steady demand, but entry-level is competitive.' },
+        { factor: 'Income Potential', rating: 'HIGH', notes: 'High starting salaries and stable growth.' },
+        { factor: 'AI Risk', rating: 'LOW-MEDIUM', notes: 'Physical execution and safety logic are hard to automate.' }
       ],
       freeResources: [
-        { name: 'The Engineering ToolBox', url: 'https://www.engineeringtoolbox.com/', why: 'Actual formulas used in the field.', whenToStop: 'Use as a reference library.', notFor: 'Beginners (very technical).' },
-        { name: 'Brilliant.org (Free trials/Physics)', url: 'https://brilliant.org/', why: 'Build intuitive understanding of physical laws.', whenToStop: 'Once you understand simple mechanics.', notFor: 'People who want to learn code only.' }
+        { name: 'MIT OpenCourseWare (Eng)', url: 'https://ocw.mit.edu/courses/engineering/', why: 'The global standard for engineering theory.', whenToStop: 'After understanding basic statics.', notFor: 'Visual learners.' },
+        { name: 'The Engineering Mindset (YT)', url: 'https://www.youtube.com/@EngineeringMindset', why: 'Great visual explanations of systems.', whenToStop: 'Once concepts feel clear.', notFor: 'Advanced calculation prep.' }
       ]
     },
     {
       id: 'medicine',
       title: 'Medicine',
-      description: 'The science of biological maintenance and repair.',
-      actuallyIs: 'Medicine is the study of diagnosing, treating, and preventing disease. It is a long, 10-15 year journey of education and training. You are committing to a life of service and continuous learning. It is not just about "saving lives"—it is about detailed biological maintenance.',
+      description: 'The high-stakes science of human life.',
+      actuallyIs: 'Medicine is the science of diagnosing and treating disease. It is a lifelong commitment to learning, high stress, and long hours. It is not just about helping people; it is about high-precision biological maintenance.',
       dailyWork: [
-        'Patient rounds (checking on recovery/status).',
-        'Diagnostic testing and reviewing lab results.',
-        'Massive amounts of paperwork/electronic medical records.',
-        'Staying awake for 24+ hour shifts during residency.',
-        'Reality: You spend 40% of your time on administrative data entry.'
+        'Conducting patient consultations and examinations.',
+        'Continuous charting and documentation (40% of time).',
+        'Hospital rounds and overnight shifts.',
+        'Analyzing lab results and diagnostic images.',
+        'Consulting with other specialists on complex cases.'
       ],
       whoItFits: [
-        'Extremely high emotional resilience (handling death and illness).',
-        'Ability to memorize vast amounts of information.',
-        'Deep empathy combined with professional detachment.',
-        'Commitment to a 10+ year education path before high income.'
+        'Highly disciplined and organized individuals.',
+        'Empathetic but emotionally resilient people.',
+        'Students with a massive capacity for memorization.',
+        'Those who can maintain focus for 12+ hours.'
       ],
       whoShouldAvoid: [
-        'People primarily motivated by "status" or "money" (other paths are faster).',
-        'Those who faint at the sight of blood or bodily fluids.',
-        'Individuals with low patience for bureaucracy.',
-        'Students who value a 9-to-5 work-life balance early in life.'
+        'Those seeking "quick money" or a 9-to-5 lifestyle.',
+        'People who cannot handle blood, trauma, or high-stakes stress.',
+        'Students who hate the idea of studying until age 30.',
+        'Those who struggle with interpersonal communication.'
       ],
       careerPaths: {
-        employee: ['Surgeon', 'General Practitioner', 'Medical Researcher', 'Hospital Administrator'],
-        freelance: ['Private Clinic (requires huge capital)', 'Telemedicine'],
-        business: ['Health-tech consultant', 'Pharma sales']
+        employee: ['Surgeon', 'General Practitioner', 'Medical Researcher'],
+        freelance: ['Private Consultation (after 10+ years)', 'Medical Writing'],
+        business: ['Private Clinic Owner', 'Medical Tech Entrepreneur']
       },
       uzVsAbroad: {
-        uz: ['Local doctors are respected but often underpaid in the public sector.', 'Private clinics in Tashkent are the high-income target.'],
-        abroad: ['Extremely difficult licensing exams (USMLE, PLAB) to move.', 'Highest job security of any profession globally.']
+        uz: ['High social status, but low state salary for juniors.', 'Growing private sector offers better financial rewards.'],
+        abroad: ['Critical shortages in most developed countries.', 'Requires brutal licensing exams (USMLE/PLAB/M6).']
       },
       realityCheck: [
-        { factor: 'Difficulty', rating: 'EXTREME', notes: 'Unmatched volume of information.' },
-        { factor: 'Competition', rating: 'EXTREME', notes: 'Getting into med school is just the first hurdle.' },
-        { factor: 'Income Potential', rating: 'HIGH', notes: 'Guaranteed high income, but only after age 30-35.' },
-        { factor: 'AI Risk', rating: 'LOW', notes: 'Human trust and surgical dexterity are safe.' }
+        { factor: 'Difficulty', rating: 'EXTREME', notes: 'Volume of information is overwhelming.' },
+        { factor: 'Competition', rating: 'EXTREME', notes: 'Entry into med school is the hardest hurdle.' },
+        { factor: 'Income Potential', rating: 'HIGH (LONG TERM)', notes: 'Starts low, becomes very high after specialization.' },
+        { factor: 'AI Risk', rating: 'LOW', notes: 'Physical procedures and complex clinical judgment.' }
       ],
       freeResources: [
-        { name: 'Khan Academy Biology/Health', url: 'https://www.khanacademy.org/science/health-and-medicine', why: 'Best intro to human systems.', whenToStop: 'After finishing "Anatomy and Physiology."', notFor: 'Those who hate memorizing Latin names.' },
-        { name: 'Kenhub (Free articles)', url: 'https://www.kenhub.com/', why: 'Learn where bones and organs actually are.', whenToStop: 'Use as a supplement.', notFor: 'Visual learners who prefer books.' }
+        { name: 'Osmosis (YouTube)', url: 'https://www.youtube.com/c/osmosis', why: 'Best visual medical education.', whenToStop: 'After understanding basic pathophysiology.', notFor: 'In-depth surgical prep.' },
+        { name: 'Kenhub Anatomy Basics', url: 'https://www.kenhub.com/', why: 'Learn the foundational structures.', whenToStop: 'After basic anatomy overview.', notFor: 'Complete medical novices.' }
       ]
     }
   ],
@@ -500,599 +724,955 @@ const EN_CONTENT: SiteContent = {
     {
       id: 'sat',
       title: 'SAT',
-      shortDescription: 'Essential for elite US admissions and merit-based financial aid strategies.',
+      shortDescription: 'AQSHning nufuzli universitetlariga kirish va akademik grantlar yutish uchun kalit imtihon.',
       whoNeeds: [
-        'Applying to top-tier US universities (Ivy League, MIT, etc.).',
-        'Targeting selective state schools (Purdue, Georgia Tech).',
-        'Students looking for merit-based scholarships.'
+        'AQSHning top-30 (Ivy League, MIT va h.k.) universitetlariga hujjat topshiruvchilar.',
+        'Akademik yutuqlarga asoslangan katta grantlarni (merit-based scholarship) ko\'zlayotganlar.',
+        'AQSHdagi nufuzli davlat universitetlarini (Purdue, Georgia Tech) nishonga olganlar.'
       ],
       whoDoesNot: [
-        'Applying to non-selective US schools (community colleges).',
-        'Targeting UK, Canadian, or European universities.',
-        'Applying to schools that are strictly test-blind.'
+        'AQSHdagi ochiq qabulli (community college) maktablariga topshiruvchilar.',
+        'Faqat Buyuk Britaniya, Kanada yoki Yevropada o\'qishni rejalashtirganlar.',
+        'SAT natijasini talab qilmaydigan (test-blind) universitetlarni tanlaganlar.'
       ],
       scoreRanges: [
-        { type: 'Ivy League', range: '1500–1560', competitiveness: 'Top 1% of test-takers' },
-        { type: 'Elite non-Ivies', range: '1480–1550', competitiveness: 'Top 1-2%' },
-        { type: 'Selective state', range: '1250–1400', competitiveness: 'Top 10-20%' }
+        { type: 'Top-10 Universitetlar', range: '1540–1600', competitiveness: 'Top 1% o\'quvchilar safi' },
+        { type: 'Top-50 Universitetlar', range: '1480–1530', competitiveness: 'Top 2-3% natija' },
+        { type: 'Nufuzli davlat OTMlari', range: '1300–1450', competitiveness: 'Yaxshi raqobatbardosh daraja' }
       ],
       commonMistakes: [
-        'Not practicing under time pressure.',
-        'Ignoring weak areas (focusing only on math).',
-        'Too many materials; one good resource is enough.',
-        'Memorizing answers instead of concepts.',
-        'Only watching videos without active solving.',
-        'Not analyzing mistakes thoroughly.'
+        'Vaqt bosimi ostida mashq qilmaslik (eng katta xato).',
+        'Faqat matematikaga e\'tibor qaratib, Reading qismini e\'tiborsiz qoldirish.',
+        'Haddan tashqari ko\'p kitoblardan foydalanish; bitta rasmiy resurs kifoya.',
+        'Matematik mantiqni o\'rganish o\'rniga javoblarni yodlash.',
+        'Xatolar tahliliga tayyorgarlik vaqtining kamida 50 foizini ajratmaslik.'
       ],
       resources: [
-        { name: 'Khan Academy SAT Prep', url: 'https://www.khanacademy.org/sat', why: 'Official partner of College Board. Best free option.', whenToStop: 'Once you hit your target practice score consistently.', notFor: 'People who need live classroom motivation.' }
+        { name: 'Khan Academy SAT Prep', url: 'https://www.khanacademy.org/sat', why: 'College Board rasmiy hamkori. Eng ishonchli va bepul darslik.', whenToStop: 'Mashq testlarida maqsadli ballga doimiy erishganingizda.', notFor: 'O\'zi mustaqil o\'qiy olmaydiganlar.' }
       ],
       whenToStop: [
-        'Once you hit your target score in 3+ practice tests.',
-        'When you reach the "diminishing returns" phase (after 80 hours of study).',
-        '2 months before your application deadline.'
+        'Kamida 3 ta rasmiy mashq testida maqsadli ballingizga erishganingizda.',
+        'Taxminan 80-100 soatlik tayyorgarlikdan so\'ng (samaradorlik pasaya boshlaydi).',
+        'Hujjat topshirish muddatiga 2-3 oy qolganida.'
+      ],
+      officialMaterials: [
+        { name: "Bluebook App", url: "https://bluebook.collegeboard.org/", why: "Rasmiy raqamli test platformasi. Haqiqiy test muhiti.", whenToStop: "Faqat to\'liq test topshirish uchun.", notFor: "Mavzularni noldan o'rganish." },
+        { name: "CB Practice PDFs", url: "https://satsuite.collegeboard.org/sat/practice-preparation/practice-tests", why: "Ko'rib chiqish uchun rasmiy savollar to'plami.", whenToStop: "Barcha testlarni tahlil qilib bo'lgach.", notFor: "Interaktiv tayyorgarlik." }
+      ],
+      commonlyUsedBooks: [
+        "Erica Meltzer (DSAT Reading/Writing - eng yaxshisi)",
+        "College Panda (DSAT Math - mantiq uchun)",
+        "The Official SAT Study Guide"
+      ],
+      additionalPlatforms: [
+        { name: "1600.io", url: "https://1600.io/", why: "Rasmiy testlarning juda chuqur video tahlili.", whenToStop: "Mantiqni o\'zingiz tushuntira oladigan bo\'lganda.", notFor: "Noldan boshlovchilar." },
+        { name: "UWorld", url: "https://www.uworld.com/collegeprep/sat/sat.aspx", why: "Eng kuchli va sifatli savollar banki (pullik bo'lishi mumkin).", whenToStop: "Savollar tugaganida.", notFor: "Kam byudjetli tayyorgarlik." }
+      ],
+      scoreMapping: [
+        { range: "1550+", focus: "AQSHning eng kuchli 10 taligiga (Harvard, MIT) real da'vogar." },
+        { range: "1450-1540", focus: "Top-50 universitetlar uchun juda kuchli raqobatbardosh ball." },
+        { range: "1350-1440", focus: "Nufuzli davlat universitetlari uchun yetarli natija." }
+      ],
+      desmosGuidance: {
+        title: "Desmos strategiyasi",
+        description: "Raqamli SATda o'rnatilgan grafik kalkulyatorni o'rganish matematikadan ballni 30% ga o'stiradi. Ko'p savollarni tenglamasiz yechish mumkin.",
+        link: "https://www.youtube.com/results?search_query=sat+desmos+tricks"
+      },
+      youtubeChannels: [
+        { name: "Scalar Learning", description: "Vaqt ostida real rejimda matematika yechishni ko'rsatadi." },
+        { name: "Strategic Test Prep", description: "Vaqtni boshqarish va strategik yondashuv bo'yicha eng yaxshi tavsiyalar." }
+      ]
+    },
+    {
+      id: 'ielts',
+      title: 'IELTS (Academic)',
+      shortDescription: "Ingliz tili darajasini tasdiqlovchi dunyo miqyosidagi asosiy o'lchov.",
+      whoNeeds: [
+        'Buyuk Britaniya, Avstraliya, Kanada yoki Yevropada o\'qishni istaganlar.',
+        'O\'zbekistondagi xalqaro OTM filiallariga (WIUT, Turin, Amity va h.k.) kiruvchilar.',
+        'Magistraturada o\'qish uchun majburiy sertifikat sifatida.'
+      ],
+      whoDoesNot: [
+        'Faqat mahalliy davlat OTMlariga topshiruvchilar (agar yo\'nalish talab qilmasa).',
+        'AQSHdagi Duolingo (DET) qabul qiladigan universitetlarni tanlaganlar (arzonroq yo\'l).',
+        'Ingliz tilida 4+ yil ta\'lim olganini isbotlovchi hujjati borlar.'
+      ],
+      scoreRanges: [
+        { type: 'Global Top-50', range: '7.5 – 8.5', competitiveness: 'Juda yuqori (C1/C2 daraja)' },
+        { type: 'Xalqaro standart', range: '6.5 – 7.0', competitiveness: 'Kutuvdagi minimum (B2/C1)' },
+        { type: 'Mahalliy/Foundation', range: '5.5 – 6.0', competitiveness: 'O\'rtacha daraja (B2)' }
+      ],
+      commonMistakes: [
+        'Writing Task 2 uchun tayyor qoliplarni (templates) ko\'r-ko\'rona yodlash.',
+        'Speakingda aniqlikdan ko\'ra ravonlik (fluency) muhimligini unutish.',
+        'O\'zi tushunmagan "murakkab" so\'zlarni ishlatishga harakat qilish.',
+        'Readingda vaqtni to\'g\'ri taqsimlay olmaslik (oxirgi matnga vaqt qolmasligi).',
+        'Talaffuz o\'rniga aktsentni (accent) o\'zgartirishga urunish.'
+      ],
+      resources: [
+        { name: 'IELTS Liz', url: 'https://ieltsliz.com/', why: "Vazifalar bo'yicha eng tushunarli va tizimli qo'llanma.", whenToStop: 'Baholash mezonlarini (marking criteria) to\'liq anglaganingizda.', notFor: 'Interaktiv aloqaga muhtojlar.' },
+        { name: 'Road to IELTS (Bepul)', url: 'https://www.ielts.org/en-us/about-the-test/sample-test-questions', why: 'Imtihon asoschilaridan rasmiy namunalar.', whenToStop: 'Barcha namunaviy testlarni tugatganingizda.', notFor: 'Noldan boshlovchilar.' }
+      ],
+      whenToStop: [
+        'Mock test natijalaringiz doimiy ravishda maqsadli ballingizdan yuqori bo\'lganda.',
+        "3 oylik intensiv tayyorgarlikdan so'ng (shundan keyin o'sish sezilarli sekinlashadi).",
+        "Oddiy savollar ustida haddan tashqari ko'p bosh qotira boshlaganingizda."
+      ]
+    },
+    {
+      id: 'det',
+      title: 'Duolingo English Test (DET)',
+      shortDescription: 'AQSH universitetlari uchun tezkor, arzon va zamonaviy muqobil.',
+      whoNeeds: [
+        'Byudjeti cheklanganlar (narxi $59, IELTS\'dan 4 barobar arzon).',
+        'Natijani 48 soat ichida olishi zarur bo\'lganlar.',
+        'Kompyuterga asoslangan va adaptiv test uslubini yoqtiradiganlar.'
+      ],
+      whoDoesNot: [
+        'Buyuk Britaniya yoki Avstraliyaning ko\'pgina universitetlariga topshiruvchilar.',
+        'Tezkor savollarga va adaptiv tizimga moslasha olmaydiganlar.',
+        'Faqat "IELTS" talab qiluvchi maxsus davlat grantlari ishtirokchilari.'
+      ],
+      scoreRanges: [
+        { type: 'AQSH Elita OTMlari', range: '135 – 150', competitiveness: 'Top natija' },
+        { type: 'Nufuzli OTMlar', range: '120 – 130', competitiveness: 'Raqobatbardosh ball' },
+        { type: 'Standart qabul', range: '105 – 115', competitiveness: 'O\'rtacha daraja' }
+      ],
+      commonMistakes: [
+        'Ekrandan chetga qarash (o\'zbek o\'quvchilari shu sabab ko\'p chetlatiladi).',
+        'Mikrofon yoki internet sifatini oldindan tekshirmaslik.',
+        'Yozib olish qismlarida (speaking) juda past ovozda gapirish.',
+        'Savollarning tezligiga tayyor bo\'lmaslik.'
+      ],
+      resources: [
+        { name: 'DET Rasmiy Qo\'llanma', url: 'https://englishtest.duolingo.com/readiness', why: 'Haqiqiy savollar va test formati bilan tanishish uchun yagona manba.', whenToStop: 'Mashq testida maqsadli ballingizni ikki marta olganingizda.', notFor: 'Oson yo\'l qidiruvchilar.' }
+      ],
+      whenToStop: [
+        'Bepul mashq testida maqsadingizdan 10-15 ball yuqori natija ko\'rsatganingizda.',
+        '"Production" qismi bo\'yicha ko\'nikmalarni egallab bo\'lgach.',
+        'Testdan 3 kun oldin (miyangiz dam olishi tayyorgarlikdan muhimroq).'
       ]
     }
   ],
   scholarships: [
     {
       id: 'el-yurt-umidi',
-      title: 'El-Yurt Umidi Foundation',
+      title: 'El-Yurt Umidi Jamg‘armasi',
       origin: 'UZBEKISTAN',
-      description: 'The primary government funding for elite international study.',
-      whatItIs: 'A state-funded initiative providing full financial support for undergraduate and graduate education at top 300 universities globally.',
+      description: 'Xalqaro ta’lim uchun asosiy davlat granti.',
+      whatItIs: 'Dunyoning eng kuchli 300 ta universitetida bakalavr va magistratura bosqichida o‘qishni to‘liq moliyalashtiruvchi davlat tashabbusi.',
       whoItsFor: [
-        'Citizens of Uzbekistan under 25 (Bachelors) or older (Masters/PhD).',
-        'Individuals with confirmed admission from a top-300 world university.',
-        'Those aiming for public sector leadership.'
+        '25 yoshgacha bo‘lgan O‘zbekiston fuqarolari (Bakalavr) yoki kattalar (Magistr/PhD).',
+        'Top-300 dunyo universitetidan qabul xati (offer) olgan shaxslar.',
+        'Davlat sektorida yetakchilik qilishni maqsad qilganlar.'
       ],
-      coverage: 'Full tuition, airfare, visa fees, health insurance, and monthly living stipend.',
-      competitiveness: 'EXTREMELY HIGH',
+      coverage: 'O‘qish puli (kontrakt), aviachiptalar, viza xarajatlari, sug‘urta va oylik stipendiya.',
+      competitiveness: 'EKSTREMAL YUQORI',
       obligations: [
-        'Return to Uzbekistan immediately after graduation.',
-        'Mandatory work in state organizations for 3-5 years.',
-        'Surrendering passport during the study period (often required for security).'
+        'O‘qishni tugatgandan so‘ng darhol O‘zbekistonga qaytish.',
+        'Davlat tashkilotlarida 3-5 yil davomida majburiy mehnat qilish.',
+        'O‘qish davrida xorijga chiqish pasportini jamg‘armaga topshirish (ko‘pincha talab qilinadi).'
       ],
       whoShouldNotApply: [
-        'Students wanting to seek permanent residency abroad.',
-        'Those who prefer the flexibility of the private sector early in their career.',
-        'Students without an unconditional offer from a top-tier university.'
+        'Xorijda doimiy qolishni (PR) xohlaydigan talabalar.',
+        'Karyerasining boshidayoq xususiy sektorda ishlashni afzal ko‘radiganlar.',
+        'Nufuzli universitetdan shartsiz (unconditional) offerga ega bo‘lmaganlar.'
       ],
-      realityCheck: 'The most generous funding available, but it is effectively a "talent loan" repaid via years of mandatory state service.',
+      realityCheck: 'Eng saxiy grant, lekin bu aslida yillar davomida davlat xizmati bilan qaytariladigan "iste’dodlar krediti"dir.',
       url: 'https://eyuf.uz/'
+    },
+    {
+      id: 'turkiye-burslari',
+      title: 'Turkiye Burslari (Davlat granti)',
+      origin: 'INTERNATIONAL',
+      description: 'Turkiya universitetlari uchun keng qamrovli davlat granti.',
+      whatItIs: 'Turkiyaning nufuzli universitetlarida bakalavr, magistr va PhD darajalari uchun to‘liq moliyaviy ko‘mak.',
+      whoItsFor: [
+        'Yuqori GPA ko‘rsatkichiga ega talabalar (odatda 70%+).',
+        'Til to‘sig‘ini tezda yenga oladigan o‘zbek zabon yoshlar (o‘xshashlik juda yuqori).',
+        'Ijtimoiy fanlar, muhandislik yoki tibbiyot yo‘nalishini tanlaganlar.'
+      ],
+      coverage: 'O‘qish puli, oylik stipendiya, aviachiptalar, sug‘urta va 1 yillik bepul turk tili kursi.',
+      competitiveness: 'YUQORI',
+      obligations: [
+        'Majburiy 1 yillik turk tili kursini muvaffaqiyatli tugatish.',
+        'O‘qish davomida akademik ko‘rsatkichlarni yuqori darajada saqlash.'
+      ],
+      whoShouldNotApply: [
+        'Mintaqaviy madaniyatga moslashishni xohlamay, faqat ingliz tilida o‘qishni istaganlar.',
+        'Yosh chegarasiga tushmaydiganlar (Bakalavr uchun 21 yosh, Magistr uchun 30 yosh).'
+      ],
+      realityCheck: 'Strategik jihatdan eng qulay yo‘llardan biri. Turk va o‘zbek tillari 80% o‘xshash bo‘lgani uchun, til o‘rganish o‘zbeklar uchun oson g‘alabadir.',
+      url: 'https://www.turkiyeburslari.gov.tr/'
+    },
+    {
+      id: 'daad',
+      title: 'DAAD Granti (Germaniya)',
+      origin: 'INTERNATIONAL',
+      description: 'Germaniyada o‘qish uchun asosiy moliyaviy yo‘l.',
+      whatItIs: 'Xalqaro talabalar va tadqiqotchilarning Germaniya davlat universitetlarida ta’lim olishini qo‘llab-quvvatlovchi grant.',
+      whoItsFor: [
+        'Magistratura yoki PhD darajasini maqsad qilgan yuqori malakali talabalar.',
+        'Ilmiy tadqiqot yoki rivojlanish sohalariga yo‘nalgan shaxslar.',
+        'Ish tajribasiga ega mutaxassislar (ayrim dasturlar uchun).'
+      ],
+      coverage: 'Oylik stipendiya (Magistrlar uchun €934, PhD uchun €1,200), yo‘l xarajatlari, sug‘urta va til kurslari uchun subsidiya.',
+      competitiveness: 'JUDA YUQORI',
+      obligations: [
+        'Akademik natijalar bo‘yicha muntazam hisobot berish.',
+        'Ba’zi dasturlar tugatgandan so‘ng o‘z vataniga qaytishni talab qiladi.'
+      ],
+      whoShouldNotApply: [
+        'Bakalavr bosqichida o‘qimoqchi bo‘lganlar (DAAD asosan Magistr/PhD uchun).',
+        'Xususiy universitetlarda o‘qishni xohlaydiganlar (odatda qoplanmaydi).',
+        'Akademik profili o‘rtacha bo‘lgan nomzodlar.'
+      ],
+      realityCheck: 'Germaniyada davlat universitetlari bepul; DAAD — bu yashash xarajatlarini qoplashning eng nufuzli usulidir.',
+      url: 'https://www.daad.uz/'
+    },
+    {
+      id: 'chevening',
+      title: 'Chevening Granti (Buyuk Britaniya)',
+      origin: 'INTERNATIONAL',
+      description: 'Britaniya Tashqi ishlar vazirligi tomonidan moliyalashtiriladigan global yetakchilik dasturi.',
+      whatItIs: 'Yetakchilik qobiliyatiga ega shaxslar uchun Buyuk Britaniyada bir yillik magistraturada o‘qish uchun to‘liq grant.',
+      whoItsFor: [
+        'Kamida 2 yillik ish tajribasiga ega O‘zbekiston fuqarolari.',
+        'Kuchli akademik bazaga ega shaxslar.',
+        'Kelajakda siyosat yoki sanoatga ta’sir o‘tkazmoqchi bo‘lgan yetakchilar.'
+      ],
+      coverage: 'O‘qish puli, oylik stipendiya, iqtisodiy klass aviachiptalar va qo‘shimcha grantlar.',
+      competitiveness: 'EKSTREMAL YUQORI',
+      obligations: [
+        'O‘qish tugagandan so‘ng kamida 2 yil O‘zbekistonda yashash va ishlash.',
+        'Global Chevening bitiruvchilari tarmog‘ida faol ishtirok etish.'
+      ],
+      whoShouldNotApply: [
+        'Kamida 2,800 soatlik ish tajribasiga ega bo‘lmaganlar.',
+        'Bakalavr yoki PhD darajasini olmoqchi bo‘lganlar.',
+        'O‘zbekistonga qaytish niyati bo‘lmaganlar.'
+      ],
+      realityCheck: 'Juda nufuzli tanishlar tarmog‘iga kirish imkoniyati, lekin aniq karyera maqsadlari va yetakchilik tarixini talab qiladi.',
+      url: 'https://www.chevening.org/scholarship/uzbekistan/'
     }
   ],
-  paths: [
-    {
-      id: 'ausbildung',
-      title: 'Ausbildung (Dual Vocational Training)',
-      subtitle: 'Work & Study in Germany',
-      actuallyIs: 'Ausbildung is a vocational apprenticeship system combining paid work with structured classroom instruction. Trainees work 3-4 days at a company and attend vocational school (Berufsschule) 1-2 days per week. It results in a nationally recognized IHK or HWK qualification.',
-      types: [
-        { name: 'Duale Ausbildung (Company-Based)', description: '70% of apprenticeships. You sign a contract with a company. They pay you.', realityForForeigners: 'The only realistic pathway for Uzbek students. Contract triggers visa eligibility.', realistic: true },
-        { name: 'Schulische Ausbildung (School-Based)', description: 'Entirely in school with internships. Common in nursing, graphic design.', realityForForeigners: 'Unpaid/Low-paid and often require tuition fees. Extremely difficult for international students without huge savings.', realistic: false }
-      ],
-      whoFits: [
-        'Practical over theoretical mindset.',
-        'Tolerance for repetition and routine.',
-        'Physical resilience (trades demand 8-10 hours standing).',
-        'Ability to take instruction from supervisors (strict hierarchy).',
-        'Independence + resilience to social isolation.'
-      ],
-      whoShouldAvoid: [
-        'Prefer abstract thinking and academic debate.',
-        'Struggle with authority figures.',
-        'Primary motivation is just "easy entry to Europe."',
-        'Cannot afford a €5,000–€10,000 financial safety cushion.',
-        'Unmanaged mental health conditions.'
-      ],
-      languageReality: {
-        official: 'B1 German (CEFR standard).',
-        practical: 'B2 is increasingly non-negotiable for success.',
-        reasons: [
-          'B1 is comprehension, not fluency. You won\'t follow rapid instruction.',
-          'Exam success requires B2 level precision for technical written tests.',
-          'Workplace communication uses slang, dialects, and rapid speech.',
-          'Social integration requires more than basic B1 grammar.'
-        ],
-        trajectory: [
-          { level: 'A0 to A2', time: '3-4 months intensive' },
-          { level: 'A2 to B1', time: '4-5 months' },
-          { level: 'B1 to B2', time: '4-6 months' }
-        ]
-      },
-      fieldCategories: [
-        { name: 'Healthcare/Nursing', acceptance: 'SHORTAGE', successRate: '85%+', salary: '€1k-€1.4k', whyAccessible: 'Aging population/Desperate need.', challenges: 'High burnout, B2 terminology needed.', languageNeed: 'B2 High' },
-        { name: 'Electrical/Mechatronics', acceptance: 'SHORTAGE', successRate: '55-60%', salary: '€950-€1.2k', whyAccessible: 'Germany industrial strength.', challenges: 'Math-heavy, technically difficult.', languageNeed: 'B1/B2' },
-        { name: 'IT/Software Dev', acceptance: 'OVERSATURATED', successRate: '<30%', salary: '€1.1k-€1.5k', whyAccessible: 'High demand but high bar.', challenges: 'Extremely competitive for foreigners.', languageNeed: 'B2 Specialist' },
-        { name: 'Logistics/Warehouse', acceptance: 'MODERATE', successRate: '40-50%', salary: '€650-€950', whyAccessible: 'Always hiring physical labor.', challenges: 'Physically exhausting, night shifts.', languageNeed: 'B1/B2' }
-      ],
-      financialDeepDive: {
-        monthlySalary: [
-          { industry: 'IT/Tech', y1: '€1.1k-€1.2k', y2: '€1.2k-€1.3k', y3: '€1.3k-€1.5k' },
-          { industry: 'Healthcare', y1: '€1.0k-€1.1k', y2: '€1.1k-€1.2k', y3: '€1.2k-€1.4k' },
-          { industry: 'Construction', y1: '€900-€1.0k', y2: '€1.0k-€1.2k', y3: '€1.1k-€1.3k' }
-        ],
-        livingExpenses: [
-          { category: 'Rent (Shared)', low: '€400-€600', medium: '€600-€800', high: '€800-€1.2k' },
-          { category: 'Groceries', low: '€150-€200', medium: '€200-€250', high: '€250-€300' }
-        ],
-        mathReality: 'If you earn €1,000 gross (€850 net) in a city like Berlin, you will likely have a monthly deficit of €350. You NEED savings or family support.',
-        comparison: [
-          { label: 'Advantage', details: 'Enter workforce 3-4 years earlier, debt-free. 30-year advantage: €200k-€350k.' },
-          { label: 'Trap', details: 'Assumes you complete it. Dropout in year 2 leaves you with zero qualification and debt.' }
-        ]
-      },
-      visaLegal: {
-        residenceAct: '§16a AufenthG (with contract) or §17 (seeking position - max age 35).',
-        ageLimits: { rule: 'No legal limit once contract signed.', practice: 'Employers strongly prefer 18-25 (87% acceptance). 30+ drops to 43%.' },
-        financialRequirement: 'Proof of funds or signed contract salary. Blocked account (€11,304/year) usually waived for duale Ausbildung.',
-        recognitionProcess: [
-          'Request: German state authority.',
-          'Translation: Official German translation (€100-€300).',
-          'Legalization: Apostille at Embassy in Tashkent.',
-          'Assessment: Equivalence to Realschule/Abitur.'
-        ],
-        embassyTimeline: '6-12 weeks in Tashkent (median 8 weeks). Visa fee: €75.'
-      },
-      downsidesExtended: [
-        { category: 'Physical Exhaustion', content: 'Nursing (heavy lifting), construction (weather), HVAC (bending). Cumulates into chronic fatigue.' },
-        { category: 'Homesickness', content: '5,000+ km from UZ. 4-hour time diff. Intense reported in 80% of students.' },
-        { category: 'Documented Bias', content: 'Research shows fewer callbacks for foreign-sounding names. Subtle xenophobia exists.' },
-        { category: 'Contract Risk', content: 'Probation (1-4 months) allows firing without notice or reason. 33% of dropouts happen here.' }
-      ],
-      myths: [
-        { myth: 'B1 is enough', reality: 'Legally yes, practically no. You will fail exams and social integration.' },
-        { myth: 'Earn fast money', reality: 'Barely covers survival. Wealth building only happens post-completion.' },
-        { myth: 'Everyone gets accepted', reality: 'Visa approval is 73%. Dropout rate for foreigners is 24%.' }
-      ],
-      strategicAssessment: {
-        goodMove: [
-          'You have/can reach B2 in 12 months.',
-          'You have €5k-€10k savings.',
-          'You genuinely want the specific trade.',
-          'You are aged 18-28.',
-          'You target shortage fields (Nursing, Trades).'
-        ],
-        badMove: [
-          'Attempting with B1/A2.',
-          'Family depends on your income from year 1.',
-          'Pursuing to "escape" UZ rather than wanting the job.',
-          'Over 35 years old.',
-          'Unmanaged mental health conditions.'
-        ]
-      },
-      finalTimeline: [
-        { phase: 'German Study (UZ)', duration: '12 months (B2)' },
-        { phase: 'Applications', duration: '6-8 months' },
-        { phase: 'Visa Process', duration: '3 months' },
-        { phase: 'Training', duration: '36 months' },
-        { phase: 'PR Pathway', duration: 'Year 5+' }
-      ],
-      strategicGood: ['Language mastery (B2)', 'Financial cushion', 'Trade interest'],
-      strategicBad: ['Low language', 'No savings', 'Age 30+'],
-      realityCheck: 'A credible strategic move but demands a 5-year life investment. Not a quick exit.'
-    }
-  ]
+  paths: [AUSBILDUNG_PATH_UZ]
 };
 
 const UZ_CONTENT: SiteContent = {
   ...EN_CONTENT,
   ui: {
-    ...EN_CONTENT.ui,
     seo: {
-      home: { title: "ClearPath — Oʻzbekiston talabalari uchun yoʻriqnoma", desc: "Oʻzbekistonlik talabalar uchun ochiq ma'lumotlar indeksi. Mutaxassisliklar va imtihonlar boʻyicha xolis ma'lumotlar." },
-      majors: { title: "Mutaxassisliklar — ClearPath", desc: "Universitet yoʻnalishlarining xolis tahlili. Kundalik oʻqish, daromad va stress omillari." },
-      exams: { title: "Imtihonlar — ClearPath", desc: "SAT, IELTS va DET imtihonlari boʻyicha strategik ma'lumotlar va kirish talablari." },
-      scholarships: { title: "Grantlar — ClearPath", desc: "El-Yurt Umidi, Chevening va boshqa grant dasturlari tahlili." },
-      paths: { title: "Amaliy yoʻllar — ClearPath", desc: "Universitetga muqobil boʻlgan amaliy va ishga yoʻnaltirilgan yoʻllar, Ausbildung tahlili." },
-      resources: { title: "Resurslar — ClearPath", desc: "Talabalar uchun saralangan bepul bilim va resurslar katalogi." },
-      gapYear: { title: "Tanaffus yili — ClearPath", desc: "Gap Year olishning strategik ahamiyati va xavflari boʻyicha samimiy qoʻllanma." },
-      about: { title: "ClearPath haqida", desc: "Nima uchun biz oʻzbekistonlik talabalar uchun ushbu yoʻriqnomani yaratdik?" },
-      contact: { title: "Bogʻlanish — ClearPath", desc: "Murakkab qarorlar va fikr-mulohazalar uchun biz bilan bogʻlanish protokoli." }
+      home: { title: "ClearPath — Oʻzbekiston talabalari uchun qaror qabul qilish yoʻriqnomasi", desc: "Oʻzbekistonlik talabalar uchun ochiq ma’lumotlar indeksi. Yo‘nalishlar, imtihonlar va karyera yo‘llari bo‘yicha rostgo‘y ma’lumotlar." },
+      majors: { title: "Mutaxassisliklar indeksi — ClearPath", desc: "Oʻzbekiston universitet yoʻnalishlarining xolis tahlili. Kundalik voqelik, daromad salohiyati va stress omillari." },
+      exams: { title: "Xalqaro imtihonlar indeksi — ClearPath", desc: "SAT, IELTS va DET imtihonlari boʻyicha strategik ma’lumotlar va kirish talablari." },
+      scholarships: { title: "Grantlar va moliyalashtirish — ClearPath", desc: "El-Yurt Umidi, Chevening va Turkiya Burslari kabi grant dasturlarining tahlili." },
+      paths: { title: "Amaliy yoʻllar — ClearPath", desc: "Universitetga muqobil boʻlgan amaliy va ishga yoʻnaltirilgan yo_llar, Ausbildung tahlili." },
+      resources: { title: "Bepul o‘quv resurslari — ClearPath", desc: "Talabalar uchun saralangan va sifatli bepul resurslar katalogi." },
+      gapYear: { title: "Tanaffus yili strategiyasi — ClearPath", desc: "O‘zbekistonda Gap Year (tanaffus yili) olishning foyda va zararlari haqida rostgo‘y qo‘llanma." },
+      about: { title: "ClearPath loyihasi haqida", desc: "Nima uchun biz O‘zbekiston talabalari uchun ushbu rostgo‘y qo‘llanmani yaratdik." },
+      contact: { title: "So‘rovlar va fikr-mulohazalar — ClearPath", desc: "Murakkab qarorlar va loyiha bo‘yicha fikrlar uchun aloqa protokoli." }
     },
-    decisionGuide: "Ma'lumotnoma",
-    startBriefing: "Mutaxassisliklarni ko'rish",
-    practicalAlternatives: "Amaliy tajribani ko'rish",
+    decisionGuide: "Ma’lumotnoma",
+    startBriefing: "Yo‘nalishlarni ko‘rish",
+    practicalAlternatives: "Amaliy tajribani o‘rganish",
     howToUse: "Indeksdan foydalanish qoidalari",
-    philosophyTitle: "Ma'lumotlar chegaralari",
-    noteOnDecisions: "Mustaqil navigatsiya",
-    methodology: "Ma'lumotlar metodologiyasi",
-    academicLibrary: "Mutaxassisliklar",
+    philosophyTitle: "Ma’lumot chegaralari",
+    noteOnDecisions: "Mustaqil ma’lumotnoma",
+    methodology: "Ma’lumotlar metodologiyasi",
+    academicLibrary: "Yo‘nalishlar",
     practicalPaths: "Amaliy yo‘llar",
     exams: "Imtihonlar",
     scholarshipsLabel: "Grantlar",
     resourcesLabel: "Resurslar",
-    plannerLabel: "Reja",
+    plannerLabel: "Rejalashtiruvchi",
     gapYear: "Gap Year",
-    academicHeader: "Akademik kutubxona",
-    practicalHeader: "Amaliy yo'llar",
+    academicHeader: "Akademik arxiv",
+    practicalHeader: "Amaliy yo‘llar",
     toolsHeader: "Asboblar va resurslar",
-    readyForTruth: "Tahlilni ko'rish",
-    analysisComplete: "Hujjatlar ko'rib chiqildi.",
+    readyForTruth: "Tahlilni ko‘rish",
+    analysisComplete: "Hujjatlar ko‘rib chiqildi.",
     returnToDirectory: "Indeksga qaytish",
     backToOverview: "Asosiy indeks",
-    inquiry: "Bog‘lanish",
-    feedback: "Fikr-mulohaza",
-    soon: "tez orada",
-    locked: "Ko'rib chiqilmoqda",
-    sourcesReferenced: "Manbalar",
-    logoDisclaimer: "Logotiplar faqat ma'lumot uchun ko'rsatilgan. Hamkorlikni anglatmaydi.",
+    inquiry: "Aloqa",
+    feedback: "Fikrlar",
+    soon: "Tez kunda",
+    locked: "Ko‘rib chiqilmoqda",
+    sourcesReferenced: "Asoslangan manbalar",
+    logoDisclaimer: "Logotiplar faqat ma’lumot uchun. Hech qanday hamkorlik nazarda tutilmagan.",
     academicLabel: "AKADEMIK",
-    careerLabel: "ISH VA AMALIY TAJRIBA",
-    editorialIndex: "Ma'lumotlar indeksi — 2025 nashri",
-    homeTitle1: "Ma'lumotlar ochiqligi,",
-    homeTitle2: "tizimlashtirilgan.",
-    homeSubtitle: "O'zbekistonlik talabalar uchun ochiq ma'lumotlar indeksi. Universitet mutaxassisliklari, standartlashtirilgan imtihonlar va institutsional talablar bo'yicha hujjatlar.",
-    homeQuote: "Qaror qabul qilishdagi muvaffaqiyatsizliklar harakat yetishmasligidan emas, barcha noto'g'ri ma'lumotlar tufayli yuzaga keladi. Biz ushbu ma'lumotlarni tahlil qilish uchun tashkil etdik.",
-    philTitle: "SAMIMIY YONDASHUV",
-    philSub: "Qo‘llanmadan foydalanish haqida",
-    phil1: "Biz siz uchun qaror qabul qilmaymiz. Bu qo‘llanma shunchaki mustaqil tanlov qilishingiz uchun kerak bo‘lgan ochiq va rost ma’lovlarni beradi. Yo‘lingizni o‘zingiz belgilaysiz.",
-    phil2: "Biz hamma narsani boricha — yutug‘i, qiyinchiligi va real holatini ko‘rsatish tarafdorimiz. Biz shunchaki faktlar to‘plamimiz, murabbiy emas.",
-    phil3: "Hozir boshingiz qotgan bo‘lsa, bu normal holat. Bu yerda we quruq va’dalar o‘rniga aniq ma’lovlar bilan shu chalkashlikdan chiqishga yordam beramiz.",
-    phil4: "Buni kompas deb biling. Biz nima qayerda ekanini ko‘rsatamiz, lekin yo‘nalishni tanlash sizning qo‘lingizda.",
+    careerLabel: "KARYERA VA TAJRIBA",
+    editorialIndex: "Ma’lumotlar indeksi — 2025-yil nashri",
+    homeTitle1: "To'g'ri ma'lumot,",
+    homeTitle2: "tartiblangan.",
+    homeSubtitle: "O‘zbekistonlik talabalar uchun ochiq ma’lumotlar indeksi. Universitet yo‘nalishlari, xalqaro imtihonlar va muassasa talablari bo‘yicha hujjatlashtirilgan tahlillar.",
+    homeQuote: "Qaror qabul qilishda odamlar dars qilmaganidan emas, noto‘g‘ri ma’lumotga tayanganidan yutqazadi. Biz shu ma’lumotlarni siz uchun tartibladik.",
+    philTitle: "ROSTGO‘Y BOSHLANG‘ICH",
+    philSub: "Ushbu qo‘llanmadan qanday foydalanish kerak?",
+    phil1: "Biz siz uchun qaror qabul qilmaymiz. Ushbu qo‘llanma sizga o‘zingiz mustaqil qaror qabul qilishingiz uchun rostgo‘y ma’lumot berish uchun yaratilgan. Yo‘lingiz — o‘z qo‘lingizda.",
+    phil2: "Biz hamma narsani boricha ko‘rsatishga ishonamiz — ijobiy tomonlarini ham, qiyinchiliklarini ham. Biz faktlar kutubxonasiymiz, kouch emasmiz.",
+    phil3: "Hozir boshingiz qotgan bo‘lsa, bu normal holat. Ushbu indeks sizga bo‘sh va’dalar o‘rniga aniq ma’lumotlar berish orqali chalkashlikdan chiqishga yordam beradi.",
+    phil4: "Buni kompas deb tasavvur qiling. Biz sizga narsalar qayerda ekanini ko‘rsatamiz, lekin uni qo‘lda ushlab, yo‘nalishni tanlaydigan sizsiz.",
     methTitle: "Metodologiya",
-    methSub: "Talablarni o'zaro solishtirish",
-    meth1Title: "Manbalarni tekshirish",
-    meth1Desc: "Qarorlar mustaqil tekshiruvni talab qiladi. Foydalanuvchilarga ushbu indeksni rasmiy institutsional portallar bilan solishtirish tavsiya etiladi.",
-    meth2Title: "Hujjatlashtirilgan haqiqat",
-    meth2Desc: "Har bir yo'nalish standart kundalik ishlar, bazaviy daromad diapazonlari va kuzatilgan stress darajalari kabi hujjatlashtirilgan omillarga asoslangan.",
-    footerTagline: "O'zbekistonlik talabalar uchun qaror qabul qilish intellekti. Haqiqatga asoslangan, aniqlik uchun yaratilgan.",
+    methSub: "Talablarni solishtirish",
+    meth1Title: "Manbani tekshirish",
+    meth1Desc: "Qarorlar mustaqil tekshiruvni talab qiladi. Foydalanuvchilarga ushbu indeksni rasmiy muassasa portallari bilan solishtirish tavsiya etiladi.",
+    meth2Title: "Hujjatlashtirilgan voqelik",
+    meth2Desc: "Har bir yo‘nalish sanoatning hujjatlashtirilgan omillariga tayanadi, jumladan kundalik vazifalar, daromad diapazonlari va stress darajalari.",
+    footerTagline: "O‘zbekistonlik talabalar uchun qarorlar intellekti. Haqiqatga asoslangan, aniqlik uchun qurilgan.",
     footerNavHeader: "Navigatsiya",
-    footerInquiryHeader: "So'rov",
-    footerCopyright: "Qaror qabul qilish laboratoriyasi",
-    footerLocation: "O'zbekiston",
-    academicArchiveLabel: "Arxiv 01 — Akademik yo'nalish",
-    academicPageDesc: "Universitet yo'nalishlarining xolis tahlili. Kundalik hayot, daromad va stress omillariga e'tibor qaratamiz.",
-    examsArchiveLabel: "Arxiv 02 — Metrika va kirish",
-    examsPageDesc: "Standartlashtirilgan imtihonlar haqida xolis ma'lumotlar. Resurslarni sarflashdan oldin strategik ahamiyatni aniqlang.",
-    scholarshipsArchiveLabel: "Arxiv 03 — Kapital va moliya",
-    scholarshipsPageDesc: "Grant imkoniyatlarining tahlili. Akademik yordamning majburiyatlari va haqiqatiga e'tibor qaratamiz.",
-    pathsArchiveLabel: "Arxiv 04 — Amaliy yo'llar",
-    pathsPageDesc: "An'anaviy universitet yo'llariga nisbatan yuqori samarali, ishga yo'naltirilgan muqobillar tahlili.",
-    resourcesArchiveLabel: "Bilimlar katalogi 03",
-    resourcesPageTitle: "Resurslar ombori.",
-    resourcesPageDesc: "Saralangan ma'lumotlar. Biz foydasiz kontentni chetga surib, sizni haqiqiy ishga tayyorlaydigan 1% resursni tanladik.",
-    resourceDirectiveLabel: "Amaliy ko'rsatma",
-    resourceDirectiveQuote: "Link yig'ishni to'xtating. Bitta resursni tanlang, o'rganing va tugating. Yig'ish — bu o'rganishdan qochishdir.",
+    footerInquiryHeader: "So‘rovlar",
+    footerCopyright: "Decision Intelligence Lab",
+    footerLocation: "O‘zbekiston",
+    academicArchiveLabel: "01-arxiv — Akademik yo‘nalishlar",
+    academicPageDesc: "Universitet yo‘nalishlarining xolis tahlili. Biz kundalik voqelikka, uzoq muddatli stress omillariga va haqiqiy karyera imkoniyatlariga e’tibor qaratamiz.",
+    examsArchiveLabel: "02-arxiv — Metrika va talablar",
+    examsPageDesc: "Qabul jarayonida foydalaniladigan xalqaro imtihonlar haqida xolis ma’lumotlar. Resurslaringizni sarflashdan oldin ularning ahamiyatini aniqlang.",
+    scholarshipsArchiveLabel: "03-arxiv — Kapital va grantlar",
+    scholarshipsPageDesc: "Moliyalashtirish imkoniyatlari tahlili. Biz grantlar bilan bog‘liq majburiyatlar va ularning haqiqiy voqeligini ko‘rsatamiz.",
+    pathsArchiveLabel: "04-arxiv — Amaliy mantiq",
+    pathsPageDesc: "An’anaviy universitet yo‘nalishlariga muqobil bo‘lgan yuqori samarali va ishga yo‘naltirilgan yo‘llarning bahosi.",
+    resourcesArchiveLabel: "Aktivlar katalogi — 03",
+    resourcesPageTitle: "Aktivlar inventarizatsiyasi.",
+    resourcesPageDesc: "Saralangan bilimlar. Biz bepul kontentning 99 foizini e’tibordan chetda qoldirib, sizni haqiqiy ishga tayyorlaydigan 1 foizini ajratdik.",
+    resourceDirectiveLabel: "Operatsion direktiva",
+    resourceDirectiveQuote: "Linklarni yig‘ishni to‘xtating. Bitta resursni tanlang, uni egallang, so‘ng keyingisiga o‘ting. Link yig‘ish — o‘rganmaslik uchun bahonadir.",
     resourceContextLabel: "Kontekst",
-    resourceDiscardLabel: "Qachon to'xtash kerak",
-    activeAnalysis: "Aktiv tahlil",
+    resourceDiscardLabel: "Ushbu holatda rad eting",
+    activeAnalysis: "Faol tahlil",
     pathAvailable: "Mavjud",
-    pathStatus: "Holati",
-    verifiedPathway: "Tasdiqlangan yo‘nalish",
+    pathStatus: "Holat",
+    verifiedPathway: "Tasdiqlangan yo‘l",
     viewPath: "Yo‘lni ko‘rish",
     queueLabel: "Navbatda",
-    pathDescription: "Texnik tayyorgarlik, xarajatlar va yashash talablarining strategik tahlili.",
-    pathDirectory: "Yo'llar katalogi",
-    intelligenceAnalysis: "Strategik tahlil",
-    brutallyHonest: "Brutally honest darajasidagi tahlil.",
-    whatItIs: "Bu o'zi nima?",
-    systemDefinition: "Tizim ta'rifi",
+    pathDescription: "Texnik ta’lim, xarajatlar va yashash talablarining batafsil strategik tahlili.",
+    pathDirectory: "Yo‘llar katalogi",
+    intelligenceAnalysis: "Intellektual tahlil",
+    brutallyHonest: "Strategik jihatdan ochiq-oydin tahlil.",
+    whatItIs: "Aslida bu nima",
+    systemDefinition: "Tizim ta’rifi",
     strategicFitment: "Strategik moslik",
     profileAnalysis: "Profil tahlili",
-    strategicMoveIf: "Strategik tanlov AGAR:",
-    highRiskIf: "Yuqori xavf AGAR:",
-    idealProfile: "Ideal profil",
-    languageReality: "Til bilish haqiqati",
-    communicationBarrier: "Muloqot to'sig'i",
+    strategicMoveIf: "Strategik qadam, AGAR:",
+    highRiskIf: "YUQORI XAVF, agarda:",
+    idealProfile: "Ideal nomzod profili",
+    languageReality: "Til voqeligi",
+    communicationBarrier: "Muloqot to‘sig‘i",
     officialRequirement: "Rasmiy talab",
     practicalMinimum: "Amaliy minimum",
-    preparationTrajectory: "Tayyorgarlik jarayoni",
+    preparationTrajectory: "Tayyorgarlik trayektoriyasi",
     fieldAnalysis: "Soha tahlili",
     operationalSectors: "Operatsion sektorlar",
-    acceptanceRate: "Qabul qilish",
+    acceptanceRate: "Qabul darajasi",
     salaryLabel: "Maosh",
     challengeLabel: "Qiyinchilik",
     financialLogic: "Moliyaviy mantiq",
     cashFlowAnalysis: "Pul oqimi tahlili",
-    industryLabel: "Soha",
-    y1Gross: "1-yil (Brutto)",
-    y3Gross: "3-yil (Brutto)",
-    expensesLabel: "Xarajatlar",
-    deficitWarning: "Defitsit ogohlantirishi",
+    industryLabel: "Sanoat",
+    y1Gross: "1-yil (Yalpi)",
+    y3Gross: "3-yil (Yalpi)",
+    expensesLabel: "Taxminiy xarajatlar",
+    deficitWarning: "Taqchillik haqida ogohlantirish",
     longTermMath: "Uzoq muddatli hisob-kitob",
-    timeCommitment: "Vaqt va majburiyat",
-    executionReality: "Amaliyot haqiqati",
+    timeCommitment: "Vaqt talabi",
+    executionReality: "Ijro voqeligi",
     durationLabel: "Davomiyligi",
     weeklyLoad: "Haftalik yuklama",
-    physicalMentalLoad: "Jismoniy va ruhiy bosim",
-    dropoutRateLabel: "O'qishni tashlab ketish",
-    visaLegalLabel: "Viza va qonun",
-    complianceProtocol: "Protokol",
+    physicalMentalLoad: "Jismoniy va ruhiy yuklama",
+    dropoutRateLabel: "O‘qishdan chetlatilish",
+    visaLegalLabel: "Viza va qonunchilik",
+    complianceProtocol: "Muvofiqlik protokoli",
     legalBasis: "Huquqiy asos",
-    ageLimitsLabel: "Yosh masalalari",
-    risksDownsides: "Xavflar va kamchiliklar",
-    darkSide: "Qorong'u tomoni",
-    mythsReality: "Afsonalar va haqiqat",
+    docRecognition: "Hujjatlarni tan olish",
+    legalRisksLabel: "Huquqiy xavflar",
+    risksDownsides: "Xavf va kamchiliklar",
+    darkSide: "Qorong‘u tomonlar",
+    mythsReality: "Afsona va haqiqat",
     filteredTruth: "Saralangan haqiqat",
     mythLabel: "Afsona",
     realityLabel: "Haqiqat",
-    postCompletion: "Tugatgandan keyin",
+    postCompletion: "Tugatgandan so‘ng",
     payoffLabel: "Natija",
     placementRateLabel: "Ishga joylashish",
-    startingGrossLabel: "Boshlang'ich maosh",
-    careerTrajectory: "Karyera yo'nalishi",
+    startingGrossLabel: "Boshlang‘ich maosh",
+    careerTrajectory: "Karyera trayektoriyasi",
     comparativeAnalysis: "Qiyosiy tahlil",
     alternativeLogic: "Muqobil mantiq",
     vsUniversity: "Universitetga nisbatan",
     vsUnskilled: "Malakasiz ishga nisbatan",
-    vsShortCourses: "Kurslarga nisbatan",
+    vsShortCourses: "Qisqa kurslarga nisbatan",
     finalAssessment: "Yakuniy baho",
-    bluntTruth: "Achchiq haqiqat",
-    strategicInquiry: "Strategik bog'lanish",
+    bluntTruth: "Ochiq haqiqat",
+    strategicInquiry: "Strategik so‘rov",
     contactProtocol: "Aloqa protokoli",
-    keyFactsLabel: "Muhim faktlar",
-    disclaimerLabel: "Radnoma",
+    tierALabel: "A-daraja",
+    localProgramsLabel: "Mahalliy dasturlar",
+    tierBLabel: "B-daraja",
+    globalFundingLabel: "Global moliyalashtirish",
+    riskLabelPrefix: "Xavf:",
+    utilityLabelPrefix: "Foydalilik:",
+    competitivenessLabel: "Raqobatbardoshlik",
+    coverageLabel: "Qamrov",
+    riskFactorsLabel: "Xavf omillari",
+    targetProfileLabel: "Maqsadli profil",
+    requiredObligationsLabel: "Majburiyatlar",
+    realityCheckLabel: "Haqiqatni tekshirish",
+    majorIntelligenceFile: "Soha tahliliy hujjati",
+    majorDirectory: "Kutubxona katalogi",
+    examDirectory: "Imtihonlar katalogi",
+    metricAnalysisFile: "Metrik tahlil hujjati",
+    benchmarkFile: "Benchmark hujjati",
+    evaluateRelevance: "Ahamiyatini baholash",
+    strategicRelevance: "Strategik ahamiyat",
+    whoNeedsThis: "Kimga kerak?",
+    resourceProtection: "Resurslarni himoya qilish",
+    whoShouldSkip: "Kimga tavsiya etilmaydi?",
+    benchmarkTargets: "Benchmark maqsadlari",
+    scoreThresholds: "Ball chegaralari",
+    exitStrategy: "Chiqish strategiyasi",
+    whenToStop: "Qachon to‘xtash kerak",
+    discontinueIf: "Tayyorgarlikni to‘xtating, agar:",
+    executionAssets: "Tayyorgarlik aktivlari",
+    vettedResources: "Tekshirilgan resurslar",
+    objectiveReality: "Obyektiv voqelik",
+    tacticalScorecard: "Taktik baholash",
+    dailyOperations: "Kundalik vazifalar",
+    intelligenceAssets: "Bilim aktivlari",
+    alignmentSignal: "Moslik signali",
+    riskSignal: "Xavf signali",
+    analysisCompleteTitle: "Tahlil tugallandi. Yana birini ko‘ramizmi?",
+    operationalGoal: "Operatsion maqsad",
+    thresholdForStopping: "To‘xtash uchun chegara",
+    briefingComplete: "Brifing yakunlandi",
+    avoidIf: "Rad eting, agar:",
+    moduleLabel: "Modul",
+    gapYearFeatureLabel: "Maxsus tahlil",
+    gapYearTitleMain: "Tanaffus yili",
+    gapYearTitleItalic: "Strategik kechikish",
+    gapYearIntro: "Universitetga kirishni kechiktirish — bu siz qilgan eng aqlli qadam yoki barcha imkoniyatni qo‘ldan boy berish bo‘lishi mumkin. O‘rtacha yo‘l yo‘q.",
+    noPressureMsg: "Agar hozir bir qarorga kelishga tayyor bo‘lmasangiz — bu ham normal holat.",
+    specialistBtn: "🔒 Mutaxassisdan so‘rash (tez kunda)",
+    specialistNote: "Bu yo‘l-yo‘riq emas. Bu hayotiy tajribaga kirish yo‘lidir.",
+    officialMaterialsLabel: "Rasmiy materiallar",
+    prepBooksLabel: "Tayyorgarlik kitoblari",
+    additionalPlatformsLabel: "Qo‘shimcha mashq platformalari",
+    scoreGuidanceLabel: "Ball diapazoni bo‘yicha qo‘llanma",
+    scoreGuidanceDisclaimer: "Maqsadlar tarixiy tendentsiyalarga asoslangan. Muvaffaqiyat shaxsiy mashg‘ulotlarga bog‘liq. Bu natijalar bo‘yicha va’da emas.",
+    desmosTitle: "Desmos kalkulyatori",
+    youtubeTitle: "Tekshirilgan YouTube resurslari",
+    youtubeNote: "Video tayyorgarlik — qo‘shimcha vosita, u haqiqiy mashg‘ulotning o‘rnini bosa olmaydi.",
+    officialReliabilityNote: "Bular eng ishonchli manbalar, chunki ular imtihon yaratuvchilaridan keladi.",
+    creditExamsTitle: "Universitet krediti va joylashtirish imtihonlari",
+    creditExamsIntro: "Ayrim universitetlar ayrim imtihonlarni kurs krediti sifatida qabul qiladi. Bu ba’zi kirish kurslarini o‘tkazib yuborishga yordam beradi.",
+    creditExamsImportant: "Ushbu imtihonlar semestrni avtomatik ravishda yakunlab bermaydi. Yakuniy qaror universitet siyosatiga bog‘liq.",
+    creditExamsDisclaimer: "Har bir universitetning kredit siyosati har xil. Bir joyda qabul qilingan imtihon boshqa joyda o‘tmasligi mumkin.",
+    creditExamsList: [
+      { name: "AP Calculus AB / BC", desc: "Ba’zi universitetlarda Calculus I yoki II o‘rniga o‘tishi mumkin." },
+      { name: "CLEP Calculus", desc: "Ayrim universitetlar buni Calculus I krediti sifatida qabul qiladi." },
+      { name: "IB Math HL", desc: "IB tizimi o‘quvchilari uchun. Ba’zi joylarda matematika kurslari o‘rniga o‘tadi." }
+    ],
+    specialistHeader: "Mutaxassislar",
+    specialistSubtitle: "Haqiqiy ishchi daftarlari",
+    specialistDesc: "Maqsadli sohalarda ishlayotgan yuqori malakali mutaxassislarning kundalik faoliyat jurnallari.",
+    marketingPlaceholderTitle: "Raqamli marketing",
+    marketingPlaceholderSub: "O‘zbekiston va masofaviy",
+    marketingPlaceholderDesc: "Samarali marketing, kontent strategiyasi va ma’lumotlarga asoslangan o‘sish.",
+    keyFactsLabel: "Asosiy faktlar",
+    disclaimerLabel: "Faqat ma’lumot uchun rad etish",
     ausbildungKeyFacts: [
       "Davomiyligi: 2-3 yil",
-      "Tuzilishi: Kompaniya ishi + Kasb-hunar maktabi",
-      "Moliya: Birinchi kundan oylik maosh",
-      "Til: Nemis tili B1/B2 kerak",
-      "Huquqiy: Rasmiy ish-o'qish shartnomasi"
+      "Tuzilishi: Kompaniya ishi + Kasb-hunar maktabi (Berufsschule)",
+      "Moliya: Birinchi kundan boshlab oylik maosh",
+      "Til: Odatda nemis tili B1/B2 talab qilinadi",
+      "Qonuniy: Rasmiy ish-o‘qish shartnomasi"
     ],
     ausbildungRealityNotes: [
-      "Oson emas: To'liq kunlik ish va imtihonlarni muvozanatlash kerak.",
-      "Intizom: Qat'iy davomat va samaradorlik nazorati.",
-      "Madaniy moslashuv: Nemis ish muhitiga tezkor kirishish.",
-      "Strategik: Bu 'tezkor chiqish' emas, balki poydevor."
+      "Oson emas: To‘liq ish kunini akademik imtihonlar bilan birlashtirishni talab qiladi.",
+      "Yuqori intizom: Qat’iy davomat va natijalarni kuzatish.",
+      "Madaniy moslashuv: Nemis ish madaniyatiga tezkor kirishish.",
+      "Strategik: Bu 'tezda chiqib ketish' emas — bu uzoq muddatli karyera uchun poydevordir."
     ],
-    ausbildungDisclaimer: "Ushbu bo'lim faqat xolis ma'lumot beradi. Bu Ausbildungni tanlash bo'yicha tavsiya yoki to'siq emas.",
+    ausbildungDisclaimer: "Ushbu bo‘lim faqat xolis ma’lumotlarni taqdim etadi. Bu Ausbildung tanlovingiz bo‘yicha tavsiya yoki to‘sqinlik qiluvchi ko‘rsatma emas.",
     fieldAnalysisLabel: "Soha tahlili",
-    acceptanceRatingLabel: "Qabul darajasi",
+    acceptanceRatingLabel: "Qabul reytingi",
     successRateLabel: "Muvaffaqiyat darajasi",
-    whyAccessibleLabel: "Nega oson",
+    whyAccessibleLabel: "Nega kirish mumkin",
     challengesLabel: "Maxsus qiyinchiliklar",
     languageNeedLabel: "Til talabi",
-    monthlySalaryLabel: "Oylik maosh (Brutto)",
-    deficitRealityLabel: "Defitsit haqiqati",
+    monthlySalaryLabel: "Oylik maosh (Yalpi)",
+    deficitRealityLabel: "Taqchillik voqeligi",
     livingExpLabel: "Yashash xarajatlari",
     comparisonUniLabel: "Universitet bilan solishtirganda",
-    visaResidenceLabel: "Viza va rezidentlik",
-    recognitionBarrierLabel: "Diplomni tan olish to'sig'i",
-    legalRisksSummary: "Huquqiy va qonuniy xavflar",
+    splitPointsLabel: "Asosiy mezonlar",
+    visaResidenceLabel: "Viza va yashash joyi",
+    recognitionBarrierLabel: "Tan olish to‘sig‘i",
+    legalRisksSummary: "Huquqiy va tartibga solish xavflari",
     finalVerdictLabel: "Yakuniy strategik xulosa",
     decisionFrameworkLabel: "Qaror qabul qilish asosi",
-    honestTimelineLabel: "Real ijro vaqti",
-    moduleLabel: "Modul"
+    honestTimelineLabel: "Haqiqiy ijro muddati"
   },
   majors: [
     {
       id: 'computer-science',
-      title: 'Computer Science',
+      title: 'Computer Science (AT)',
       description: 'Mantiq va avtomatlashtirish arxitekturasi.',
-      actuallyIs: 'CS — bu kod va tizimlar orqali fikrlashni o‘rganish degani. Siz dasturlash, algoritmlar, ma’lumotlar tuzilmasi va arxitekturani o‘rganasiz. Bu shunchaki "kod yozish" emas — bu nima uchun ba’zi yechimlar ishlashi, boshqalari esa buzilishini va millionlab foydalanuvchilarga xizmat qila oladigan tizimlarni qanday yaratishni tushunishdir.',
+      actuallyIs: 'CS (Computer Science) — bu kod va tizimlar orqali fikrlashni o‘rganish demakdir. Siz dasturlash, algoritmlar, ma’lumotlar tuzilmasi va arxitekturani o‘rganisiz. Bu shunchaki "kod yozish" emas, balki nima uchun ma’lum yechimlar ishlashi, boshqalari esa buzilishi va millionlab foydanuvchilarga mo‘ljallangan tizimlarni qanday loyihalashni o‘rganishdir.',
       dailyWork: [
-        '9-10: Stand-up uchrashuvi (ish jarayonini kuzatish).',
-        '10-12: Chuqur kod yozish (odatda kuniga faqat 2-3 soat haqiqiy kod yoziladi).',
-        '13-15: Kod tahlili (Code Review) va jamoaviy fikr-mulohaza.',
-        '15-16: Arxitektura va mahsulotni rejalashtirish uchrashuvlari.',
-        '16-17: Testlash, xatolarni tuzatish va texnik hujjatlar yozish.',
-        'Haqiqat: Tajribangiz oshgani sayin, kod yozishdan ko‘ra odamlar bilan muloqotga ko‘p vaqt sarflaysiz.'
+        '9:00-10:00: Stand-up yig‘ilishi (progressni kuzatish).',
+        '10:00-12:00: Diqqat bilan kod yozish (mantiqiy amalga oshirish).',
+        '13:00-15:00: Kodni ko‘rib chiqish va jamoa a’zolarining fikrlari.',
+        '15:00-16:00: Arxitektura va mahsulotni rejalashtirish.',
+        '16:00-17:00: Testlash, xatolarni tuzatish va hujjatlashtirish.'
       ],
       whoItFits: [
-        'Yangi narsa qurishdan ko‘ra, xatolarni qidirish va muammolarni hal qilishni yoqtiradiganlar.',
-        'Mayda detallarga sabrli (bitta nuqta-vergul hammasini buzishi mumkin).',
-        'Tez o‘zgarishlarga tayyor (ishlatayotgan asboblaringiz 3 yilda eskiradi).',
-        'Murakkab texnik g‘oyalarni mutaxassis bo‘lmagan rahbarlarga tushuntira oladiganlar.'
+        'Yangi narsa yaratishdan ko‘ra, xatolarni tuzatish va muammolarni hal qilishni yoqtiradiganlar.',
+        'O‘ta aniqlikka sabrli bo‘lganlar (bitta nuqta-vergul hamma narsani buzishi mumkin).',
+        'Har 3 yilda asboblar (tools) eskirishiga tayyor bo‘lganlar.',
+        'Texnik mantiqni mutaxassis bo‘lmagan menejerlarga tushuntira oladiganlar.'
       ],
       whoShouldAvoid: [
-        'Tezkor va barqaror daromadga muhtojlar (junior darajasida ish topish 6 oygacha cho‘zilishi mumkin).',
-        'Kuniga 8-10 soat monitor qarshisida o‘tirishni yoqtirmaydiganlar.',
-        'Hech qachon o‘zgarmaydigan, bir xil mexanik ishni xohlaydiganlar.',
+        'Tez va barqaror daromadga muhtoj bo‘lganlar (junior darajasida raqobat juda kuchli).',
+        'Kuniga 8-10 soat ekran qarshisida o‘tirishni yoqtirmaydiganlar.',
+        'Hech qachon o‘zgarmaydigan bir xil ishlarni xohlaydiganlar.',
         'Abstrakt matematik mantiq bilan qiynaladiganlar.'
       ],
       careerPaths: {
-        employee: ['Dasturiy ta’minot muhandisi', 'Ma’lumotlar muhandisi (Data Engineer)', 'Kiberxavfsizlik mutaxassisi'],
-        freelance: ['Veb-saytlar yaratish', 'Texnik maslahat (Juniorlar uchun qiyin)'],
-        business: ['SaaS startap asoschisi', 'IT agentlik egasi']
+        employee: ['Dasturiy ta’minot muhandisi', 'Ma’lumotlar muhandisi', 'Kiberxavfsizlik mutaxassisi'],
+        freelance: ['Veb-sayt yaratish', 'Texnik maslahat berish'],
+        business: ['SaaS asoschisi', 'Texnik agentlik egasi']
       },
       uzVsAbroad: {
-        uz: ['Fintech va elektron tijorat sohalarida talab ortib bormoqda.', 'O‘zbekistonda yashab, G‘arb kompaniyalariga masofadan ishlash — eng foydali yo‘l.'],
-        abroad: ['Talab yuqori, lekin boshlang‘ich darajadagi raqobat juda kuchli.', 'Viza homiyligi ko‘pchilikning asosiy maqsadidir.']
+        uz: ['Fintex va elektron tijorat sohalarida mahalliy talab ortib bormoqda.', 'G‘arb kompaniyalari uchun masofadan ishlash eng yaxshi yo‘l.'],
+        abroad: ['Talab yuqori, lekin junior darajasida raqobat shafqatsiz.', 'Viza homiyligi (H1B/EU Blue Card) asosiy maqsad hisoblanadi.']
       },
       realityCheck: [
-        { factor: 'Qiyinchilik', rating: 'YUQORI', notes: 'Og‘ir nazariya va asabiy xato tuzatish jarayonlari.' },
-        { factor: 'Raqobat', rating: 'JUDA YUQORI', notes: 'Hozir hamma IT sohasiga kirishga harakat qilyapti.' },
+        { factor: 'Qiyinchilik', rating: 'YUQORI', notes: 'Murakkab nazariya va charchatadigan xatolarni qidirish jarayonlari.' },
+        { factor: 'Raqobat', rating: 'JUDA YUQORI', notes: 'Hozir hamma IT sohasiga kirishni xohlamoqda.' },
         { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Xodimlar uchun eng yuqori maoshlar.' },
-        { factor: 'AI xavfi', rating: 'O‘RTA-YUQORI', notes: 'Junior vazifalar avtomatlashmoqda; mutaxassislar xavfsizroq.' }
+        { factor: 'AI xavfi', rating: 'O‘RTA-YUQORI', notes: 'Junior vazifalari avtomatlashtirilmoqda; mutaxassislar xavfsizroq.' }
       ],
       freeResources: [
-        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'Eng yaxshi kirish kursi. Sintaksisni emas, fikrlashni o‘rgatadi.', whenToStop: '5-haftadan keyin, agar mantiqni tushungan bo‘lsangiz.', notFor: 'Tezkor sertifikat qidirayotganlar.' },
-        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Har bir yo‘nalish uchun vizual qo‘llanmalar.', whenToStop: 'Faqat ma’lumotnoma sifatida ishlating; hammasini tugatishga urinmang.', notFor: 'Uzun ro‘yxatlardan tezda tushkunlikka tushadiganlar.' }
+        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'Oltin standart. Faqat sintaksis emas, balki fikrlashni o‘rgatadi.', whenToStop: '5-haftadan keyin mantiq takroriy tuyulsa.', notFor: 'Faqat sertifikat qidirayotganlar.' },
+        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Har bir yo‘nalish uchun vizual qo‘llanmalar.', whenToStop: 'Aniq yo‘nalish tanlangandan keyin.', notFor: 'Uzun ro‘yxatlardan tez charchaydiganlar.' }
       ]
     },
     {
       id: 'business-management',
-      title: 'Business / Management',
-      description: 'Tashkiliy boshqaruvni tushunish.',
-      actuallyIs: 'Siz tashkilotlar qanday ishlashini o‘rganasiz: buxgalteriya, moliya, marketing, operatsiyalar, HR va strategiya. Bu soha juda keng, bu uning ham yutug‘i, ham kamchiligidir. Siz turli bo‘limlar orasidagi "ko‘prik" vazifasini bajarasiz.',
+      title: 'Biznes / Boshqaruv',
+      description: 'Tashkiliy tizimlar va jamoani birlashtirish san’ati.',
+      actuallyIs: 'Siz tashkilotlar qanday ishlashini o‘rganasiz: buxgalteriya, moliya, marketing, operatsiyalar va HR. Siz turli bo‘limlar orasidagi "bog‘lovchi bo‘g‘in" bo‘lasiz, biznes foyda ko‘rishi va tartibli bo‘lishini ta’minlaysiz.',
       dailyWork: [
-        'Excel, PowerPoint va CRM dasturlaridan faol foydalanish.',
-        'Jamoalararo ishlarni muvofiqlashtirish uchun ketma-ket majlislar.',
-        'Samaradorlik ko‘rsatkichlarini tahlil qilish va byudjetlashtirish.',
-        'Operatsion muammolarni hal qilish (masalan, yetkazib berishdagi kechikishlar).',
-        'Haqiqat: Kuningizning katta qismi odamlarni boshqarish va hisobot berishga ketadi.'
+        'Excel dasturida samaradorlik ko‘rsatkichlarini tahlil qilish.',
+        'Texnik va savdo guruhlari o‘rtasidagi ishlarni muvofqlashtirish.',
+        'Loyiha byudjeti va muddatlarini boshqarish.',
+        'Tezkor muammolarni (ta’minot zanjiri, kadrlar masalalari) hal qilish.',
+        'Yuqori rahbariyatga hisobot berish.'
       ],
       whoItFits: [
-        'Rahbar bo‘lmasdan ham jamoani boshqara oladigan kuchli notiqlar.',
+        'Jamoani boshqara oladigan kuchli muloqot egalari.',
         'Ma’lumotlar ichidan qonuniyatlarni topishni yoqtiradiganlar.',
-        'Bitta texnik ishga bog‘lanib qolishni istamaydigan keng qamrovli insonlar.',
-        'Oson munosabat qura oladiganlar.'
+        'Bitta tor sohada qolib ketishni xohlamaydigan universal mutaxassislar.',
+        'Oson munosabat o‘rnata oladigan tarmoq ustalari (networkers).'
       ],
       whoShouldAvoid: [
-        'Doimiy muloqot va muzokaralardan charchaydigan introvertlar.',
-        'Jadvallar va mayda harfli shartnomalarni yoqtirmaydiganlar.',
-        'Aniq texnik ko‘nikma va darhol ish kafolatini xohlaydiganlar.',
-        'Faqat yakka tartibda ishlashni afzal ko‘radiganlar.'
+        'Doimiy uchrashuvlar va muzokaralardan charchaydigan introvertlar.',
+        'Elektron jadvallar (Excel) va shartnomalarni yoqtirmaydiganlar.',
+        'Xavfsizlik uchun faqat aniq bir texnik ko‘nikmaga tayanmoqchi bo‘lganlar.',
+        'To‘liq yolg‘iz ishlashni afzal ko‘radigan shaxslar.'
       ],
       careerPaths: {
-        employee: ['Boshqaruv maslahatchisi', 'Marketing menejeri', 'Operatsion direktor'],
-        freelance: ['Biznes strategiyasi bo‘yicha maslahatchi', 'Loyihalar boshqaruvi'],
-        business: ['Tadbirkorlik', 'Chakana savdo yoki xizmat ko‘rsatish biznesi']
+        employee: ['Boshqaruv maslahatchisi', 'Marketing menejeri', 'Operatsion rahbar'],
+        freelance: ['Loyiha boshqaruvi', 'Biznes maslahatchisi'],
+        business: ['Tadbirkorlik', 'Chakana savdo yoki xizmat ko‘rsatish egasi']
       },
       uzVsAbroad: {
-        uz: ['Toshkentdagi rivojlanayotgan xususiy sektor uchun juda foydali.', 'Tanish-bilish muhim, lekin hozirda bilim va tajriba birinchi o‘ringa chiqmoqda.'],
-        abroad: ['Nufuzli MBA darajasi bilan juda qadrli.', 'Analitik lavozimlar uchun raqobat juda kuchli.']
+        uz: ['Toshkentdagi o‘sib borayotgan xususiy sektor uchun juda foyali.', 'Hozirda natija tanish-bilishdan ko‘ra muhimroq bo‘lmoqda.'],
+        abroad: ['Top darajadagi MBA bilan juda qadrli.', 'Junior tahlilchi lavozimlari uchun kuchli raqobat mavjud.']
       },
       realityCheck: [
-        { factor: 'Qiyinchilik', rating: 'PAST-O‘RTA', notes: 'Asosan tushunchalar va munosabatlarga asoslangan.' },
-        { factor: 'Raqobat', rating: 'O‘TA YUQORI', notes: 'Eng ommabop yo‘nalish; ajralib turish qiyin.' },
-        { factor: 'Daromad salohiyati', rating: 'O‘RTA-YUQORI', notes: 'Boshida past, lekin tajriba bilan tez o‘sadi.' },
-        { factor: 'AI xavfi', rating: 'O‘RTA', notes: 'Texnik boshqaruv avtomatlashishi mumkin; yetakchilik esa yo‘q.' }
+        { factor: 'Qiyinchilik', rating: 'PAST-O‘RTA', notes: 'Tushunchalar va munosabatlarga asoslangan.' },
+        { factor: 'Raqobat', rating: 'EKSTREMAL', notes: 'Dunyo bo‘ylab eng ko‘p tanlanadigan yo‘nalish.' },
+        { factor: 'Daromad salohiyati', rating: 'O‘RTA-YUQORI', notes: 'Pastdan boshlanadi, lekin tajriba bilan tez o‘sadi.' },
+        { factor: 'AI xavfi', rating: 'O‘RTA', notes: 'Routine management is being automated; leadership isn\'t.' }
       ],
       freeResources: [
-        { name: 'MIT Sloan (OCW)', url: 'https://ocw.mit.edu/courses/management/', why: 'Nufuzli universitet materiallari.', whenToStop: 'Case Study uslubini tushungandan keyin.', notFor: 'Yengil motivatsiya qidirayotganlar.' },
-        { name: 'CFI bepul kurslari', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Buxgalteriya kabi amaliy ko‘nikmalarni o‘rganish.', whenToStop: '"Accounting Fundamentals" kursini tugatgach.', notFor: 'Matematikadan qochadiganlar.' }
+        { name: 'MIT Sloan (OCW)', url: 'https://ocw.mit.edu/courses/management/', why: 'Universitet darajasidagi jiddiy materiallar.', whenToStop: 'Keys (Case Study) metodologiyasini tushungandan keyin.', notFor: 'Yengil motivatsion kitob o‘quvchilar.' },
+        { name: 'CFI Buxgalteriya asoslari', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Haqiqiy ko‘nikmalar (balans hisobotlari).', whenToStop: 'Asoslarni tugatgandan so‘ng.', notFor: 'Matematikani yomon ko‘radiganlar.' }
       ]
     },
     {
       id: 'economics',
       title: 'Iqtisodiyot',
-      description: 'Qiymat tizimlari va resurslarni taqsimlash tahlili.',
-      actuallyIs: 'Iqtisodiyot — bu odamlar, kompaniyalar va hukumatlarning resurslar bo‘yicha qanday tanlov qilishini o‘rganadigan fan. U ijtimoiy fanlarni yuqori darajadagi matematika va ma’lumotlar tahlili bilan birlashtiradi. Bu shunchaki "pul" haqida emas, balki modellar orqali inson xulq-atvorini bashorat qilish haqidadir.',
+      description: 'Resurslarni taqsimlash va rag‘batlantirish fanidir.',
+      actuallyIs: 'Iqtisodiyot — jamiyat resurslarni qanday boshqarishini o‘rganishdir. Bu faqat pul haqida emas, baki inson xulq-atvori, rag‘batlar va ma’lumotlar haqidadir. Siz dunyo qanday ishlashini modellashtirishni va siyosatdagi o‘zgarishlar odamlarga qanday ta’sir qilishini bashorat qilishni o‘rganasiz.',
       dailyWork: [
-        'Ma’lumotlarni tozalash va statistik modellashtirish (R, Python yoki Stata).',
-        'Siyosiy sharhlar yoki bozor tadqiqotlari hisobotlarini tayyorlash.',
-        'Tarixiy ma’lumotlar asosida bozor tendentsiyalarini prognoz qilish.',
-        'Murakkab iqtisodiy signallarni tushuntirish uchun uchrashuvlar.',
-        'Haqiqat: Agar siz tadqiqotda bo‘lsangiz, vaqtingizning 90% i kompyuterda ma’lumotlarni tozalash bilan o‘tadi.'
+        'Bozor tendentsiyalarini statistik tahlil qilish.',
+        'Siyosiy tavsiyalar yoki tadqiqot hisobotlarini yozish.',
+        'Modellashtirish uchun R, Stata yoki Python kabi darslardan foydalanish.',
+        'Markaziy bank va global bozor yangiliklarini kuzatish.',
+        'Texnik bo‘lmagan tomonlar uchun taqdimotlar tayyorlash.'
       ],
       whoItFits: [
-        'Yashirin sabablarni qidiradigan o‘ta analitik fikrlovchilar.',
-        'Matematikani yaxshi ko‘radigan, lekin uni jamiyatga tatbiq etmoqchi bo‘lganlar.',
-        'Raqamlarni o‘qilishi oson hikoyaga aylantira oladigan kuchli yozuvchilar.',
-        'Global siyosat va makro-tendentsiyalarga qiziqqanlar.'
+        'Kuchli matematik asosga ega mantiqiy fikrlovchilar.',
+        'Global siyosat va kambag‘allik muammolariga qiziqqanlar.',
+        'Abstrakt fikrlash va modellashtirishni yoqtiradigan talabalar.',
+        'Ma’lumotlarni oddiy tushuntira oladigan kuchli yozuvchilar.'
       ],
       whoShouldAvoid: [
-        'Faqat "bankda ishlashni" xohlaydiganlar (Moliya yo‘nalishi yaxshiroq).',
-        'Oliy matematika va statistikani yoqtirmaydiganlar.',
-        'Ijodiy va amaliy ish qidirayotganlar.',
-        'Muammolarga oddiy, oq-qora javob xohlaydiganlar.'
+        'Faqat "do‘konni qanday boshqarish"ni o‘rganmoqchi bo‘lganlar.',
+        'Murakkab statistika bilan qiynaladiganlar.',
+        'Siyosiy nazariyani zerikarli deb biladiganlar.',
+        'Ijodiy, jismoniy qo‘l mehnati bilan bog‘liq ish qidirayotganlar.'
       ],
       careerPaths: {
-        employee: ['Siyosiy tahlilchi', 'Data Scientist', 'Moliyaviy tahlilchi', 'Iqtisodiy tadqiqotchi'],
-        freelance: ['Ma’lumotlar tahlili shartnomalari', 'Texnik yozish'],
-        business: ['Venchur kapitali', 'Kompaniyalar uchun strategik rejalashtirish']
+        employee: ['Siyosiy tahlilchi', 'Investitsion bankir', 'Ma’lumotlar olimi (Data Scientist)'],
+        freelance: ['Iqtisodiy tadqiqotlar', 'Ma’lumotlar tahlili bo‘yicha maslahat'],
+        business: ['Strategik konsalting', 'Venchur kapitali']
       },
       uzVsAbroad: {
-        uz: ['Vazirliklar va xalqaro tashkilotlarda (BMT, Jahon banki) talab yuqori.', 'Toshkentdagi makroiqtisodiy tadqiqotlar uchun qadrli.'],
-        abroad: ['Konsalting firmalari (McKinsey, BCG) tomonidan yuqori baholanadi.', 'Yuqori darajadagi tadqiqotlar uchun magistratura yoki PhD talab etiladi.']
+        uz: ['Toshkent bank va moliya sektorida juda qadrlanadi.', 'Davlat islohotlari departamentlari uchun zarur mutaxassislar.'],
+        abroad: ['Global moliya va NNTlarda (NGO) raqobat juda kuchli.', 'Yuqori darajadagi tadqiqotlar uchun magistratura yoki PhD talab qilinadi.']
       },
       realityCheck: [
-        { factor: 'Qiyinchilik', rating: 'YUQORI', notes: 'Kuchli matematika va abstrakt modellashtirish.' },
-        { factor: 'Raqobat', rating: 'YUQORI', notes: 'Moliya va matematika bitiruvchilari bilan raqobatlashasiz.' },
-        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Top tahlilchilar juda yaxshi daromad topishadi.' },
-        { factor: 'AI xavfi', rating: 'O‘RTA', notes: 'Ma’lumotlar bilan bog‘liq vazifalar avtomatlashmoqda; tahliliy xulosa esa insonda qoladi.' }
+        { factor: 'Qiyinchilik', rating: 'O‘RTA-YUQORI', notes: 'Yuqori kurslarda murakkab matematika/statistika.' },
+        { factor: 'Raqobat', rating: 'YUQORI', notes: 'Top moliya va konsalting lavozimlari uchun raqobatli.' },
+        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Moliyada juda yuqori; akademiyada biroz pastroq.' },
+        { factor: 'AI xavfi', rating: 'O‘RTA', notes: 'Ma’lumotlarni qayta ishlash avtomatlashmoqda; sezgi (intuition) esa yo‘q.' }
       ],
       freeResources: [
-        { name: 'Marginal Revolution University', url: 'https://mru.org/', why: 'Iqtisodiyotga eng yaxshi vizual kirish.', whenToStop: 'Asosiy prinsiplar modullaridan keyin.', notFor: '"Talab va taklif" haqida gapirishni yoqtirmaydiganlar.' },
-        { name: 'Khan Academy Macroeconomics', url: 'https://www.khanacademy.org/economics-finance-domain/macroeconomics', why: 'Yangiliklar ortidagi matematikani tushuntiradi.', whenToStop: '"Inflyatsiya"ni aniq tushuntira olganingizda.', notFor: 'Matematikasi juda kuchli talabalar uchun (juda sodda).' }
+        { name: 'Marginal Revolution University', url: 'https://mru.org/', why: 'Iqtisodiy tushunchalarni eng yaxshi tushuntiruvchi manba.', whenToStop: 'Makro/Mikro asoslarni tugatgandan keyin.', notFor: 'Faqat yodlashni xohlaydiganlar.' },
+        { name: 'Khan Academy Makroiqtisodiyot', url: 'https://www.khanacademy.org/economics-finance-domain/macroeconomics', why: 'Universitet oldidan mustahkam poydevor.', whenToStop: 'Asoslarni tushungandan so‘ng.', notFor: 'Murakkab matematik tayyorgarlik qidirayotganlar.' }
       ]
     },
     {
       id: 'engineering',
-      title: 'Muhandislik',
-      description: 'Moddiy muammolarni hal qilish uchun fizik qonunlarni qo‘llash.',
-      actuallyIs: 'Muhandislik — bu inshootlar, mashinalar va tizimlarni loyihalash, qurish va saqlash uchun matematika va fizikadan foydalanishdir. U qurilish (ko‘priklar), mexanika (dvigatellar) va elektr (sxemalar) kabi turlarga bo‘linadi. Bu aniq fanlarning eng "amaliy" qismidir.',
+      title: 'Muhandislik (Umumiy)',
+      description: 'Matematika va fanni jismoniy voqelikka tatbiq etish.',
+      actuallyIs: 'Muhandislik — ishlaydigan narsalarni loyihalash va qurishdir. U texnik muammolarni hal qilish uchun fizika va matematikadan foydalanadi, xoh u ko‘prik, protsessor yoki avtomobil dvigateli bo‘lsin. Bu qat’iy, texnik intizomdir.',
       dailyWork: [
-        'CAD (kompyuter yordamida loyihalash) dasturlarida chizmalar chizish.',
-        'Qurilish yoki ishlab chiqarish maydonlarida tekshiruv o‘tkazish.',
-        'Xavfsizlik hisob-kitoblari va sinovlarini o‘tkazish.',
-        'Ishlab chiqarish jamoalari uchun texnik hujjatlarni tayyorlash.',
-        'Haqiqat: Siz "ijodiy dizayn"dan ko‘ra xavfsizlik qoidalariga ko‘p vaqt sarflaysiz.'
+        'CAD (Computer-Aided Design) loyihalash.',
+        'Ob’etlarni tekshirish yoki ustaxona sinovlarini o‘tkazish.',
+        'Murakkab strukturaviy yoki elektr hisob-kitoblarini bajarish.',
+        'Texnik xavfsizlik va muvofiqlik hujjatlarini boshqarish.',
+        'Arxitektorlar va loyiha menejerlari bilan hamkorlik qilish.'
       ],
       whoItFits: [
-        'Narsalarni qismlarga ajratib, qayta yig‘ishni yoqtiradiganlar.',
-        'Jismoniy muammolarga nisbatan o‘ta mantiqiy yondashadiganlar.',
-        'Mas’uliyatdan qo‘rqmaydiganlar (muhandis xatosi falokatga olib kelishi mumkin).',
-        'Vizual tasavvur va fazoviy fikrlashi kuchli bo‘lganlar.'
+        'Fazoviy fikrlash qobiliyatiga ega tabiiy muammo yechuvchilar.',
+        'Matematika va fizikani chin dildan yoqtiradigan talabalar.',
+        'Xavfsizlikka befarq bo‘lmagan, detallarga e’tiborli odamlar.',
+        'O‘z ishining jismoniy natijasini ko‘rishni yoqtiradiganlar.'
       ],
       whoShouldAvoid: [
-        'Fizika va oliy matematikadan qiynaladiganlar.',
-        'Amaliy natijadan ko‘ra mavhum nazariyani afzal ko‘radiganlar.',
-        'Texnik qoidalar va standartlashtirilgan xavfsizlik kodlarini yoqtirmaydiganlar.',
-        'Tez va oson diplom qidirayotganlar.'
+        'Texnik chizmalar va qoidalarni zerikarli deb biladiganlar.',
+        'Ob’etlarda yoki laboratoriyalarda ishlashni xohlamaydiganlar.',
+        'Faqat moslashuvchan va ijodiy soha qidirayotganlar.',
+        'Yuqori aniqlikdagi o‘lchovlar bilan qiynaladiganlar.'
       ],
       careerPaths: {
-        employee: ['Qurilish muhandisi', 'Mexanik muhandis', 'Ishlab chiqarish menejeri'],
-        freelance: ['Mustaqil CAD dizayni', 'Loyiha maslahatchisi'],
-        business: ['Qurilish kompaniyasi egasi', 'Texnik ishlab chiqarish biznesi']
+        employee: ['Fuqaro muhandisi', 'Mexanika muhandisi', 'Loyiha menejeri'],
+        freelance: ['Dizayn konsaltingi', 'Chizmachilik xizmatlari'],
+        business: ['Qurilish firmasi', 'Ishlab chiqarish agentligi']
       },
       uzVsAbroad: {
-        uz: ['Toshkentdagi qurilish bumu tufayli talab juda yuqori.', 'Energetika tizimi uchun elektr muhandislari juda zarur.'],
-        abroad: ['Yevropada (ayniqsa Germaniyada) ishchi viza olish uchun yaxshi imkoniyat.', 'Deyarli har qanday davlatda barqaror va kafolatlangan daromad.']
+        uz: ['O‘zbekistondagi qurilish bumu mahalliy talab yuqori ekanligini anglatadi.', 'Energetika sektori asosiy ish beruvchi hisoblanadi.'],
+        abroad: ['Tor ixtisoslashuv (Aerokosmik, Bio-muhandislik) talab qilinadi.', 'Karyera o‘sishi uchun professional litsenziya (PE) zarur.']
       },
       realityCheck: [
-        { factor: 'Qiyinchilik', rating: 'JUDA YUQORI', notes: 'Og‘ir matematika va fizika yuklamasi.' },
-        { factor: 'Raqobat', rating: 'O‘RTA-YUQORI', notes: 'Kirish darajasi balandligi sababli mutaxassislar kam.' },
-        { factor: 'Daromad salohiyati', rating: 'O‘RTA-YUQORI', notes: 'Barqaror, lekin IT’dagi kabi juda tez o‘smaydi.' },
-        { factor: 'AI xavfi', rating: 'PAST', notes: 'Jismoniy mavjudlik va xavfsizlik mas’uliyatini avtomatlashtirish qiyin.' }
+        { factor: 'Qiyinchilik', rating: 'JUDA YUQORI', notes: 'Eng qiyin bakalavr yo‘nalishlaridan biri sifatida tanilgan.' },
+        { factor: 'Raqobat', rating: 'O‘RTA-YUQORI', notes: 'Barqaror talab, lekin kirish darajasida raqobat bor.' },
+        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Yuqori boshlang‘ich maoshlar va barqaror o‘sish.' },
+        { factor: 'AI xavfi', rating: 'PAST-O‘RTA', notes: 'Jismoniy ijro va xavfsizlik mantiqini avtomatlashtirish qiyin.' }
       ],
       freeResources: [
-        { name: 'The Engineering ToolBox', url: 'https://www.engineeringtoolbox.com/', why: 'Sohada ishlatiladigan haqiqiy formulalar.', whenToStop: 'Faqat ma’lumotnoma sifatida ishlating.', notFor: 'Boshlovchilar uchun (juda texnik).' },
-        { name: 'Brilliant.org (Fizika)', url: 'https://brilliant.org/', why: 'Fizik qonunlarni intuitiv tushunishni shakllantiradi.', whenToStop: 'Mexanika asoslarini tushunganingizda.', notFor: 'Faqat kod yozishni xohlaydiganlar.' }
+        { name: 'MIT OpenCourseWare (Eng)', url: 'https://ocw.mit.edu/courses/engineering/', why: 'Muhandislik nazariyasi bo‘yicha dunyo standarti.', whenToStop: 'Statika asoslarini tushungandan keyin.', notFor: 'Faqat vizual o‘rganuvchilar.' },
+        { name: 'The Engineering Mindset (YT)', url: 'https://www.youtube.com/@EngineeringMindset', why: 'Tizimlarning ajoyib vizual tushuntirishlari.', whenToStop: 'Tushunchalar aniq bo‘lgandan keyin.', notFor: 'Murakkab hisob-kitoblar qidirayotganlar.' }
       ]
     },
     {
       id: 'medicine',
       title: 'Tibbiyot',
-      description: 'Biologik xizmat ko‘rsatish va ta’mirlash fani.',
-      actuallyIs: 'Tibbiyot — bu kasalliklarni aniqlash, davolash va oldini olishni o‘rganishdir. Bu 10-15 yillik ta’lim va tayyorgarlik yo‘li. Siz xizmat qilish va doimiy o‘rganishga umringizni bag‘ishlaysiz. Bu shunchaki "hayot qutqarish" emas — bu murakkab biologik tizimni batafsil tahlil qilishdir.',
+      description: 'Inson hayoti bilan bog‘liq mas’uliyatli fan.',
+      actuallyIs: 'Tibbiyot — kasalliklarga tashxis qo‘yish va davolash fanidir. Bu umrbod o‘rganish, yuqori stress va uzoq ish soatliga tayyor bo‘lish demakdir. Bu nafaqat odamlarga yordam berish, baki yuqori aniqlikdagi biologik xizmat ko‘rsatishdir.',
       dailyWork: [
-        'Bemorlarni ko‘zdan kechirish (Rounds).',
-        'Tahlil natijalarini ko‘rib chiqish va tashxis qo‘yish.',
-        'Juda ko‘p miqdordagi qog‘ozbozlik va elektron hisobotlar.',
-        'Rezidentura davrida 24+ soatlik navbatchiliklar.',
-        'Haqiqat: Vaqtingizning 40% ini kompyuterga ma’lumot kiritishga sarflaysiz.'
+        'Bemorlarni qabul qilish va tekshirish.',
+        'Doimiy ravishda hujjatlar bilan ishlash (vaqtning 40% qismi).',
+        'Kasalxonadagi navbatchiliklar va tungi smenalar.',
+        'Laboratoriya natijalari va diagnostika tasvirlarini tahlil qilish.',
+        'Murakkab holatlar bo‘yicha boshqa mutaxassislar bilan maslahatlashish.'
       ],
       whoItFits: [
-        'O‘ta yuqori ruhiy chidamlilik (o‘lim va kasallik bilan ishlash).',
-        'Katta hajmdagi ma’lumotlarni yodlay olish qobiliyati.',
-        'Hamdardlik (empathy) va professional sovuqqonlikni birlashtira olish.',
-        'Yuqori daromadgacha bo‘lgan 10+ yillik yo‘lga tayyor bo‘lganlar.'
+        'Juda tartibli va intizomli shaxslar.',
+        'Hamdard, lekin hissiy jihatdan chidamli odamlar.',
+        'Katta hajmdagi ma’lumotni yodlash qobiliyatiga ega talabalar.',
+        '12+ soat davomida diqqatni jamlay oladiganlar.'
       ],
       whoShouldAvoid: [
-        'Asosan "status" yoki "pul" uchun tanlayotganlar (boshqa yo‘llar tezroq daromad beradi).',
-        'Qon yoki tana suyuqliklarini ko‘rsa o‘zini yo‘qotadiganlar.',
-        'Byurokratiyaga sabri yetmaydiganlar.',
-        'Hayotining boshida erkin vaqt (work-life balance) xohlaydiganlar.'
+        'Tez pul topishni yoki 9:00 dan 18:00 gacha ishlashni xohlaydiganlar.',
+        'Qon, jarohat yoki yuqori stressga chidami bo‘lmaganlar.',
+        '30 yoshgacha o‘qish g‘oyasini yoqtirmaydigan talabalar.',
+        'Muloqot qilishda qiynaladigan shaxslar.'
       ],
       careerPaths: {
-        employee: ['Xirurg', 'Terapevt', 'Tibbiy tadqiqotchi', 'Kasalxona administratori'],
-        freelance: ['Xususiy klinika (katta sarmoya talab qiladi)', 'Teletibbiyot'],
-        business: ['Health-tech maslahatchisi', 'Farmatsevtika savdosi']
+        employee: ['Xirurg', 'Umumiy amaliyot shifokori', 'Tibbiy tadqiqotchi'],
+        freelance: ['Xususiy qabul (10+ yillik tajribadan so‘ng)', 'Tibbiy maqolalar yozish'],
+        business: ['Xususiy klinika egasi', 'Med-tech tadbirkori']
       },
       uzVsAbroad: {
-        uz: ['Davlat sektorida shifokorlar hurmat qilinadi, lekin ko‘pincha maosh kam.', 'Toshkentdagi xususiy klinikalar asosiy daromad manbai.'],
-        abroad: ['Boshqa davlatga o‘tish uchun juda qiyin imtihonlar (USMLE, PLAB) topshirish kerak.', 'Dunyo bo‘ylab eng barqaror ish o‘rni.']
+        uz: ['Ijtimoiy maqom yuqori, lekin davlat shifoxonalarida maosh past.', 'Xususiy sektor yaxshi moliyaviy imkoniyatlar taklif qiladi.'],
+        abroad: ['Rivojlangan davlatlarning ko‘pchiligida shifokorlar yetishmaydi.', 'Shafqatsiz litsenziyalash imtihonlarini (USMLE/PLAB) talab qiladi.' ]
       },
       realityCheck: [
-        { factor: 'Qiyinchilik', rating: 'O‘TA YUQORI', notes: 'Ma’lumot hajmi bo‘yicha tengsiz soha.' },
-        { factor: 'Raqobat', rating: 'O‘TA YUQORI', notes: 'O‘qishga kirish — bu faqat birinchi to‘siq.' },
-        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Faqat 30-35 yoshdan keyin yaxshi daromad kafolatlanadi.' },
-        { factor: 'AI xavfi', rating: 'PAST', notes: 'Insoniy ishonch va jarrohlik mahoratini almashtirib bo‘lmaydi.' }
+        { factor: 'Qiyinchilik', rating: 'EKSTREMAL', notes: 'Ma’lumotlar hajmi juda katta.' },
+        { factor: 'Raqobat', rating: 'EKSTREMAL', notes: 'Tibbiyotga kirish — eng qiyin to‘siq.' },
+        { factor: 'Daromad salohiyati', rating: 'YUQORI (UZOQ MUDDATDA)', notes: 'Pastdan boshlanadi, mutaxassislikdan keyin juda yuqori bo‘ladi.' },
+        { factor: 'AI xavfi', rating: 'PAST', notes: 'Jismoniy muolajalar va murakkab klinik xulosalar.' }
       ],
       freeResources: [
-        { name: 'Khan Academy Medicine', url: 'https://www.khanacademy.org/science/health-and-medicine', why: 'Inson tizimlariga eng yaxshi kirish.', whenToStop: 'Anatomiya va fiziologiyani tugatgach.', notFor: 'Lotincha nomlarni yodlashni yomon ko‘radiganlar.' },
-        { name: 'Kenhub', url: 'https://www.kenhub.com/', why: 'Organlar va suyaklarning joylashuvini o‘rganish.', whenToStop: 'Qo‘shimcha manba sifatida ishlating.', notFor: 'Kitobdan o‘qishni afzal ko‘radiganlar.' }
+        { name: 'Osmosis (YouTube)', url: 'https://www.youtube.com/c/osmosis', why: 'Eng yaxshi vizual tibbiy ta’lim.', whenToStop: 'Patofiziologiya asoslarini tushungandan keyin.', notFor: 'Chuqur jarrohlik tayyorgarligi.' },
+        { name: 'Kenhub Anatomiya asoslari', url: 'https://www.kenhub.com/', why: 'Asosiy tana tuzilmalarini o‘rganish.', whenToStop: 'Anatomik sharhdan keyin.', notFor: 'Tibbiyotdan mutlaqo uzoq bo‘lganlar.' }
       ]
     }
-  ]
+  ],
+  exams: [
+    {
+      id: 'sat',
+      title: 'SAT',
+      shortDescription: 'AQSHning nufuzli universitetlariga kirish va akademik grantlar yutish uchun kalit imtihon.',
+      whoNeeds: [
+        'AQSHning top-30 (Ivy League, MIT va h.k.) universitetlariga hujjat topshiruvchilar.',
+        'Akademik yutuqlarga asoslangan katta grantlarni (merit-based scholarship) ko\'zlayotganlar.',
+        'AQSHdagi nufuzli davlat universitetlarini (Purdue, Georgia Tech) nishonga olganlar.'
+      ],
+      whoDoesNot: [
+        'AQSHdagi ochiq qabulli (community college) maktablariga topshiruvchilar.',
+        'Faqat Buyuk Britaniya, Kanada yoki Yevropada o\'qishni rejalashtirganlar.',
+        'SAT natijasini talab qilmaydigan (test-blind) universitetlarni tanlaganlar.'
+      ],
+      scoreRanges: [
+        { type: 'Top-10 Universitetlar', range: '1540–1600', competitiveness: 'Top 1% o\'quvchilar safi' },
+        { type: 'Top-50 Universitetlar', range: '1480–1530', competitiveness: 'Top 2-3% natija' },
+        { type: 'Nufuzli davlat OTMlari', range: '1300–1450', competitiveness: 'Yaxshi raqobatbardosh daraja' }
+      ],
+      commonMistakes: [
+        'Vaqt bosimi ostida mashq qilmaslik (eng katta xato).',
+        'Faqat matematikaga e\'tibor berib, Reading qismini e\'tiborsiz qoldirish.',
+        'Haddan tashqari ko\'p kitoblardan foydalanish; bitta rasmiy resurs kifoya.',
+        'Matematik mantiqni o\'rganish o\'rniga javoblarni yodlash.',
+        'Xatolar tahliliga tayyorgarlik vaqtining kamida 50 foizini ajratmaslik.'
+      ],
+      resources: [
+        { name: 'Khan Academy SAT Prep', url: 'https://www.khanacademy.org/sat', why: 'College Board rasmiy hamkori. Eng ishonchli va bepul darslik.', whenToStop: 'Mashq testlarida maqsadli ballga doimiy erishganingizda.', notFor: 'O\'zi mustaqil o\'qiy olmaydiganlar.' }
+      ],
+      whenToStop: [
+        'Kamida 3 ta rasmiy mashq testida maqsadli ballingizga erishganingizda.',
+        'Taxminan 80-100 soatlik tayyorgarlikdan so\'ng (samaradorlik pasaya boshlaydi).',
+        'Hujjat topshirish muddatiga 2-3 oy qolganida.'
+      ],
+      officialMaterials: [
+        { name: "Bluebook App", url: "https://bluebook.collegeboard.org/", why: "Rasmiy raqamli test platformasi. Haqiqiy test muhiti.", whenToStop: "Faqat to\'liq test topshirish uchun.", notFor: "Mavzularni noldan o'rganish." },
+        { name: "CB Practice PDFs", url: "https://satsuite.collegeboard.org/sat/practice-preparation/practice-tests", why: "Ko'rib chiqish uchun rasmiy savollar to'plami.", whenToStop: "Barcha testlarni tahlil qilib bo'lgach.", notFor: "Interaktiv tayyorgarlik." }
+      ],
+      commonlyUsedBooks: [
+        "Erica Meltzer (DSAT Reading/Writing - eng yaxshisi)",
+        "College Panda (DSAT Math - mantiq uchun)",
+        "The Official SAT Study Guide"
+      ],
+      additionalPlatforms: [
+        { name: "1600.io", url: "https://1600.io/", why: "Rasmiy testlarning juda chuqur video tahlili.", whenToStop: "Mantiqni o\'zingiz tushuntira oladigan bo\'lganda.", notFor: "Noldan boshlovchilar." },
+        { name: "UWorld", url: "https://www.uworld.com/collegeprep/sat/sat.aspx", why: "Eng kuchli va sifatli savollar banki (pullik bo'lishi mumkin).", whenToStop: "Savollar tugaganida.", notFor: "Kam byudjetli tayyorgarlik." }
+      ],
+      scoreMapping: [
+        { range: "1550+", focus: "AQSHning eng kuchli 10 taligiga (Harvard, MIT) real da'vogar." },
+        { range: "1450-1540", focus: "Top-50 universitetlar uchun juda kuchli raqobatbardosh ball." },
+        { range: "1350-1440", focus: "Nufuzli davlat universitetlari uchun yetarli natija." }
+      ],
+      desmosGuidance: {
+        title: "Desmos strategiyasi",
+        description: "Raqamli SATda o'rnatilgan grafik kalkulyatorni o'rganish matematikadan ballni 30% ga o'stiradi. Ko'p savollarni tenglamasiz yechish mumkin.",
+        link: "https://www.youtube.com/results?search_query=sat+desmos+tricks"
+      },
+      youtubeChannels: [
+        { name: "Scalar Learning", description: "Vaqt ostida real rejimda matematika yechishni ko'rsatadi." },
+        { name: "Strategic Test Prep", description: "Vaqtni boshqarish va strategik yondashuv bo'yicha eng yaxshi tavsiyalar." }
+      ]
+    },
+    {
+      id: 'ielts',
+      title: 'IELTS (Academic)',
+      shortDescription: "Ingliz tili darajasini tasdiqlovchi dunyo miqyosidagi asosiy o'lchov.",
+      whoNeeds: [
+        'Buyuk Britaniya, Avstraliya, Kanada yoki Yevropada o\'qishni istaganlar.',
+        'O\'zbekistondagi xalqaro OTM filiallariga (WIUT, Turin, Amity va h.k.) kiruvchilar.',
+        'Magistraturada o\'qish uchun majburiy sertifikat sifatida.'
+      ],
+      whoDoesNot: [
+        'Faqat mahalliy davlat OTMlariga topshiruvchilar (agar yo\'nalish talab qilmasa).',
+        'AQSHdagi Duolingo (DET) qabul qiladigan universitetlarni tanlaganlar (arzonroq yo\'l).',
+        'Ingliz tilida 4+ yil ta\'lim olganini isbotlovchi hujjati borlar.'
+      ],
+      scoreRanges: [
+        { type: 'Global Top-50', range: '7.5 – 8.5', competitiveness: 'Juda yuqori (C1/C2 daraja)' },
+        { type: 'Xalqaro standart', range: '6.5 – 7.0', competitiveness: 'Kutuvdagi minimum (B2/C1)' },
+        { type: 'Mahalliy/Foundation', range: '5.5 – 6.0', competitiveness: 'O\'rtacha daraja (B2)' }
+      ],
+      commonMistakes: [
+        'Writing Task 2 uchun tayyor qoliplarni (templates) ko\'r-ko\'rona yodlash.',
+        'Speakingda aniqlikdan ko\'ra ravonlik (fluency) muhimligini unutish.',
+        'O\'zi tushunmagan "murakkab" so\'zlarni ishlatishga harakat qilish.',
+        'Readingda vaqtni to\'g\'ri taqsimlay olmaslik (oxirgi matnga vaqt qolmasligi).',
+        'Talaffuz o\'rniga aktsentni (accent) o\'zgartirishga urunish.'
+      ],
+      resources: [
+        { name: 'IELTS Liz', url: 'https://ieltsliz.com/', why: "Vazifalar bo'yicha eng tushunarli va tizimli qo'llanma.", whenToStop: 'Baholash mezonlarini (marking criteria) to\'liq anglaganingizda.', notFor: 'Interaktiv aloqaga muhtojlar.' },
+        { name: 'Road to IELTS (Bepul)', url: 'https://www.ielts.org/en-us/about-the-test/sample-test-questions', why: 'Imtihon asoschilaridan rasmiy namunalar.', whenToStop: 'Barcha namunaviy testlarni tugatganingizda.', notFor: 'Noldan boshlovchilar.' }
+      ],
+      whenToStop: [
+        'Mock test natijalaringiz doimiy ravishda maqsadli ballingizdan yuqori bo\'lganda.',
+        "3 oylik intensiv tayyorgarlikdan so'ng (shundan keyin o'sish sezilarli sekinlashadi).",
+        "Oddiy savollar ustida haddan tashqari ko'p bosh qotira boshlaganingizda."
+      ]
+    },
+    {
+      id: 'det',
+      title: 'Duolingo English Test (DET)',
+      shortDescription: 'AQSH universitetlari uchun tezkor, arzon va zamonaviy muqobil.',
+      whoNeeds: [
+        'Byudjeti cheklanganlar (narxi $59, IELTS\'dan 4 barobar arzon).',
+        'Natijani 48 soat ichida olishi zarur bo\'lganlar.',
+        'Kompyuterga asoslangan va adaptiv test uslubini yoqtiradiganlar.'
+      ],
+      whoDoesNot: [
+        'Buyuk Britaniya yoki Avstraliyaning ko\'pgina universitetlariga topshiruvchilar.',
+        'Tezkor savollarga va adaptiv tizimga moslasha olmaydiganlar.',
+        'Faqat "IELTS" talab qiluvchi maxsus davlat grantlari ishtirokchilari.'
+      ],
+      scoreRanges: [
+        { type: 'AQSH Elita OTMlari', range: '135 – 150', competitiveness: 'Top natija' },
+        { type: 'Nufuzli OTMlar', range: '120 – 130', competitiveness: 'Raqobatbardosh ball' },
+        { type: 'Standart qabul', range: '105 – 115', competitiveness: 'O\'rtacha daraja' }
+      ],
+      commonMistakes: [
+        'Ekrandan chetga qarash (o\'zbek o\'quvchilari shu sabab ko\'p chetlatiladi).',
+        'Mikrofon yoki internet sifatini oldindan tekshirmaslik.',
+        'Yozib olish qismlarida (speaking) juda past ovozda gapirish.',
+        'Savollarning tezligiga tayyor bo\'lmaslik.'
+      ],
+      resources: [
+        { name: 'DET Rasmiy Qo\'llanma', url: 'https://englishtest.duolingo.com/readiness', why: 'Haqiqiy savollar va test formati bilan tanishish uchun yagona manba.', whenToStop: 'Mashq testida maqsadli ballingizni ikki marta olganingizda.', notFor: 'Oson yo\'l qidiruvchilar.' }
+      ],
+      whenToStop: [
+        'Bepul mashq testida maqsadingizdan 10-15 ball yuqori natija ko\'rsatganingizda.',
+        '"Production" qismi bo\'yicha ko\'nikmalarni egallab bo\'lgach.',
+        'Testdan 3 kun oldin (miyangiz dam olishi tayyorgarlikdan muhimroq).'
+      ]
+    }
+  ],
+  scholarships: [
+    {
+      id: 'el-yurt-umidi',
+      title: 'El-Yurt Umidi Jamg‘armasi',
+      origin: 'UZBEKISTAN',
+      description: 'Xalqaro ta’lim uchun asosiy davlat granti.',
+      whatItIs: 'Dunyoning eng kuchli 300 ta universitetida bakalavr va magistratura bosqichida o‘qishni to‘liq moliyalashtiruvchi davlat tashabbusi.',
+      whoItsFor: [
+        '25 yoshgacha bo‘lgan O‘zbekiston fuqarolari (Bakalavr) yoki kattalar (Magistr/PhD).',
+        'Top-300 dunyo universitetidan qabul xati (offer) olgan shaxslar.',
+        'Davlat sektorida yetakchilik qilishni maqsad qilganlar.'
+      ],
+      coverage: 'O‘qish puli (kontrakt), aviachiptalar, viza xarajatlari, sug‘urta va oylik stipendiya.',
+      competitiveness: 'EKSTREMAL YUQORI',
+      obligations: [
+        'O‘qishni tugatgandan so‘ng darhol O‘zbekistonga qaytish.',
+        'Davlat tashkilotlarida 3-5 yil davomida majburiy mehnat qilish.',
+        'O‘qish davrida xorijga chiqish pasportini jamg‘armaga topshirish (ko‘pincha talab qilinadi).'
+      ],
+      whoShouldNotApply: [
+        'Xorijda doimiy qolishni (PR) xohlaydigan talabalar.',
+        'Karyerasining boshidayoq xususiy sektorda ishlashni afzal ko‘radiganlar.',
+        'Nufuzli universitetdan shartsiz (unconditional) offerga ega bo‘lmaganlar.'
+      ],
+      realityCheck: 'Eng saxiy grant, lekin bu aslida yillar davomida davlat xizmati bilan qaytariladigan "iste’dodlar krediti"dir.',
+      url: 'https://eyuf.uz/'
+    },
+    {
+      id: 'turkiye-burslari',
+      title: 'Turkiye Burslari (Davlat granti)',
+      origin: 'INTERNATIONAL',
+      description: 'Turkiya universitetlari uchun keng qamrovli davlat granti.',
+      whatItIs: 'Turkiyaning nufuzli universitetlarida bakalavr, magistr va PhD darajalari uchun to‘liq moliyaviy ko‘mak.',
+      whoItsFor: [
+        'Yuqori GPA ko‘rsatkichiga ega talabalar (odatda 70%+).',
+        'Til to‘sig‘ini tezda yenga oladigan o‘zbek zabon yoshlar (o‘xshashlik juda yuqori).',
+        'Ijtimoiy fanlar, muhandislik yoki tibbiyot yo‘nalishini tanlaganlar.'
+      ],
+      coverage: 'O‘qish puli, oylik stipendiya, aviachiptalar, sug‘urta va 1 yillik bepul turk tili kursi.',
+      competitiveness: 'YUQORI',
+      obligations: [
+        'Majburiy 1 yillik turk tili kursini muvaffaqiyatli tugatish.',
+        'O‘qish davomida akademik ko‘rsatkichlarni yuqori darajada saqlash.'
+      ],
+      whoShouldNotApply: [
+        'Mintaqaviy madaniyatga moslashishni xohlamay, faqat ingliz tilida o‘qishni istaganlar.',
+        'Yosh chegarasiga tushmaydiganlar (Bakalavr uchun 21 yosh, Magistr uchun 30 yosh).'
+      ],
+      realityCheck: 'Strategik jihatdan eng qulay yo‘llardan biri. Turk va o‘zbek tillari 80% o‘xshash bo‘lgani uchun, til o‘rganish o‘zbeklar uchun oson g‘alabadir.',
+      url: 'https://www.turkiyeburslari.gov.tr/'
+    },
+    {
+      id: 'daad',
+      title: 'DAAD Granti (Germaniya)',
+      origin: 'INTERNATIONAL',
+      description: 'Germaniyada o‘qish uchun asosiy moliyaviy yo‘l.',
+      whatItIs: 'Xalqaro talabalar va tadqiqotchilarning Germaniya davlat universitetlarida ta’lim olishini qo‘llab-quvvatlovchi grant.',
+      whoItsFor: [
+        'Magistratura yoki PhD darajasini maqsad qilgan yuqori malakali talabalar.',
+        'Ilmiy tadqiqot yoki rivojlanish sohalariga yo‘nalgan shaxslar.',
+        'Ish tajribasiga ega mutaxassislar (ayrim dasturlar uchun).'
+      ],
+      coverage: 'Oylik stipendiya (Magistrlar uchun €934, PhD uchun €1,200), yo‘l xarajatlari, sug‘urta va til kurslari uchun subsidiya.',
+      competitiveness: 'JUDA YUQORI',
+      obligations: [
+        'Akademik natijalar bo‘yicha muntazam hisobot berish.',
+        'Ba’zi darslar tugatgandan so‘ng o‘z vataniga qaytishni talab qiladi.'
+      ],
+      whoShouldNotApply: [
+        'Bakalavr bosqichida o‘qimoqchi bo‘lganlar (DAAD asosan Magistr/PhD uchun).',
+        'Xususiy universitetlarda o‘qishni xohlaydiganlar (odatda qoplanmaydi).',
+        'Akademik profili o‘rtacha bo‘lgan nomzodlar.'
+      ],
+      realityCheck: 'Germaniyada davlat universitetlari bepul; DAAD — bu yashash xarajatlarini qoplashning eng nufuzli usulidir.',
+      url: 'https://www.daad.uz/'
+    },
+    {
+      id: 'chevening',
+      title: 'Chevening Granti (Buyuk Britaniya)',
+      origin: 'INTERNATIONAL',
+      description: 'Britaniya Tashqi ishlar vazirligi tomonidan moliyalashtiriladigan global yetakchilik dasturi.',
+      whatItIs: 'Yetakchilik qobiliyatiga ega shaxslar uchun Buyuk Britaniyada bir yillik magistraturada o‘qish uchun to‘liq grant.',
+      whoItsFor: [
+        'Kamida 2 yillik ish tajribasiga ega O‘zbekiston fuqarolari.',
+        'Kuchli akademik bazaga ega shaxslar.',
+        'Kelajakda siyosat yoki sanoatga ta’sir o‘tkazmoqchi bo‘lgan yetakchilar.'
+      ],
+      coverage: 'O‘qish puli, oylik stipendiya, iqtisodiy klass aviachiptalar va qo‘shimcha grantlar.',
+      competitiveness: 'EKSTREMAL YUQORI',
+      obligations: [
+        'O‘qish tugagandan so‘ng kamida 2 yil O‘zbekistonda yashash va ishlash.',
+        'Global Chevening bitiruvchilari tarmog‘ida faol ishtirok etish.'
+      ],
+      whoShouldNotApply: [
+        'Kamida 2,800 soatlik ish tajribasiga ega bo‘lmaganlar.',
+        'Bakalavr yoki PhD darajasini olmoqchi bo‘lganlar.',
+        'O‘zbekistonga qaytish niyati bo‘lmaganlar.'
+      ],
+      realityCheck: 'Juda nufuzli tanishlar tarmog‘iga kirish imkoniyati, lekin aniq karyera maqsadlari va yetakchilik tarixini talab qiladi.',
+      url: 'https://www.chevening.org/scholarship/uzbekistan/'
+    }
+  ],
+  paths: [AUSBILDUNG_PATH_UZ]
 };
 
 export const CONTENT: Record<Locale, SiteContent> = {
   en: EN_CONTENT,
   uz: UZ_CONTENT
-};
-
-export const MAJORS = EN_CONTENT.majors;
-export const EXAMS = EN_CONTENT.exams;
-export const SCHOLARSHIPS = EN_CONTENT.scholarships;
-export const PRACTICAL_PATHS = EN_CONTENT.paths;
-
-export const getLocale = (pathname: string): Locale => {
-  const parts = pathname.split('/').filter(Boolean);
-  const lang = parts[0];
-  return (lang === 'uz') ? 'uz' : 'en';
 };
