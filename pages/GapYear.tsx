@@ -1,11 +1,12 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
 
 const GapYear: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
-  const content = CONTENT[lang];
+  const { lang } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const content = CONTENT[safeLang] || CONTENT.uz;
   const t = content.ui;
 
   return (
@@ -25,7 +26,7 @@ const GapYear: React.FC = () => {
       </header>
 
       {/* Special Context for UZ Students */}
-      {lang === 'uz' && (
+      {safeLang === 'uz' && (
         <section className="mb-20 p-12 bg-white border border-stone-200 rounded-[3rem] shadow-sm">
            <h2 className="text-2xl font-bold text-stone-900 mb-6 tracking-tight">{t.gapYearWhatIsTitle}</h2>
            <p className="text-lg text-stone-600 font-medium leading-relaxed">

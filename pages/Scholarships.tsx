@@ -5,9 +5,9 @@ import { CONTENT, Locale } from '../constants';
 import { Scholarship } from '../types';
 
 const Scholarships: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
-  const content = CONTENT[lang];
+  const { lang } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const content = CONTENT[safeLang] || CONTENT.uz;
   const t = content.ui;
   const scholarships = content.scholarships;
 

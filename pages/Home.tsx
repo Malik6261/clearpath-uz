@@ -1,11 +1,12 @@
+
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
 
 const Home: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
-  const content = CONTENT[lang];
+  const { lang } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const content = CONTENT[safeLang] || CONTENT.uz;
   const t = content.ui;
 
   return (
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest pl-2">{t.academicLabel}</span>
                   <Link 
-                    to={`/${lang}/majors`} 
+                    to={`/${safeLang}/majors`} 
                     className="px-10 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-stone-200"
                   >
                     {t.startBriefing}
@@ -43,7 +44,7 @@ const Home: React.FC = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest pl-2">{t.careerLabel}</span>
                   <Link 
-                    to={`/${lang}/paths`} 
+                    to={`/${safeLang}/paths`} 
                     className="px-10 py-5 bg-transparent border border-stone-200 text-stone-900 rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-stone-50 transition-all"
                   >
                     {t.practicalAlternatives}
@@ -151,7 +152,7 @@ const Home: React.FC = () => {
             ].map((p, i) => (
               <Link 
                 key={i} 
-                to={`/${lang}/${p.path}`} 
+                to={`/${safeLang}/${p.path}`} 
                 className="group p-8 bg-white rounded-[2.5rem] border border-stone-100 hover:border-stone-900 transition-all duration-700 flex flex-col justify-between"
               >
                 <div>

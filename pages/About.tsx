@@ -1,11 +1,12 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
 
 const About: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
-  const content = CONTENT[lang];
+  const { lang } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const content = CONTENT[safeLang] || CONTENT.uz;
   const t = content.ui;
 
   return (

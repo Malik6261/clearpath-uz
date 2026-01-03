@@ -1,11 +1,12 @@
+
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
 
 const Exams: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
-  const content = CONTENT[lang];
+  const { lang } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const content = CONTENT[safeLang] || CONTENT.uz;
   const t = content.ui;
   const exams = content.exams;
 
@@ -28,7 +29,7 @@ const Exams: React.FC = () => {
           {exams.map((exam) => (
             <Link 
               key={exam.id} 
-              to={`/${lang}/exams/${exam.id}`}
+              to={`/${safeLang}/exams/${exam.id}`}
               className="group p-12 bg-white border border-stone-200 rounded-[3.5rem] hover:border-stone-900 hover:shadow-xl hover:shadow-stone-200/50 transition-all duration-700 flex flex-col justify-between min-h-[400px]"
             >
               <div>

@@ -1,17 +1,17 @@
 
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Locale } from '../constants';
+import { Locale, CONTENT } from '../constants';
 
 const Contact: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
+  const { lang } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
   const [emailRevealed, setEmailRevealed] = useState(false);
   
-  // Environment variable for production, placeholder for open-source
-  const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
+  // Guard against process being undefined in some browser environments
+  const CONTACT_EMAIL = typeof process !== 'undefined' ? process.env.CONTACT_EMAIL : undefined;
   
-  const placeholder = lang === 'uz' 
+  const placeholder = safeLang === 'uz' 
     ? 'Bog‘lanish ma’lumotlari live saytda ko‘rsatiladi.' 
     : 'Contact details are shown on the live site.';
 

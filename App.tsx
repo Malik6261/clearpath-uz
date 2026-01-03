@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -34,7 +35,7 @@ const App: React.FC = () => {
               <Route path="gap-year" element={<GapYear />} />
               <Route path="contact" element={<Contact />} />
               <Route path="about" element={<About />} />
-              <Route path="*" element={<Navigate to="/uz/" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Layout>
         } />

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
@@ -21,21 +22,20 @@ const DetailSection: React.FC<{ title: string; children: React.ReactNode; step: 
 };
 
 const MajorDetail: React.FC = () => {
-  const params = useParams();
-  const lang: Locale = params.lang === 'uz' ? 'uz' : 'en';
-  const { id } = params;
-  const content = CONTENT[lang];
+  const { lang, id } = useParams();
+  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const content = CONTENT[safeLang] || CONTENT.uz;
   const major = content.majors.find((m) => m.id === id);
   const t = content.ui;
 
-  if (!major) return <Navigate to={`/${lang}/majors`} />;
+  if (!major) return <Navigate to={`/${safeLang}/majors`} />;
 
   return (
     <div className="bg-stone-50 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 pt-12 pb-32">
         {/* Back Link */}
         <nav className="mb-20">
-          <Link to={`/${lang}/majors`} className="group inline-flex items-center gap-2 text-[11px] font-bold text-stone-400 hover:text-stone-900 uppercase tracking-widest transition-colors">
+          <Link to={`/${safeLang}/majors`} className="group inline-flex items-center gap-2 text-[11px] font-bold text-stone-400 hover:text-stone-900 uppercase tracking-widest transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
             </svg>
@@ -98,7 +98,7 @@ const MajorDetail: React.FC = () => {
                       {row.rating}
                     </span>
                   </div>
-                  <p className="text-lg font-bold text-stone-900 leading-snug mb-2">{lang === 'uz' ? 'Tahlil' : 'Analysis'}</p>
+                  <p className="text-lg font-bold text-stone-900 leading-snug mb-2">{safeLang === 'uz' ? 'Tahlil' : 'Analysis'}</p>
                   <p className="text-stone-500 text-sm font-medium leading-relaxed">
                     {row.notes}
                   </p>
@@ -168,7 +168,7 @@ const MajorDetail: React.FC = () => {
         {/* Footer CTA */}
         <section className="py-40 text-center border-t border-stone-100">
            <h3 className="text-4xl font-bold text-stone-900 mb-12">{t.analysisCompleteTitle}</h3>
-           <Link to={`/${lang}/majors`} className="px-12 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all">
+           <Link to={`/${safeLang}/majors`} className="px-12 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all">
               {t.returnToDirectory}
            </Link>
         </section>
