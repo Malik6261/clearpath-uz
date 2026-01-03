@@ -1,4 +1,3 @@
-
 import { Major, Exam, Scholarship, PracticalPath, SiteContent, Locale } from './types';
 
 export type { Locale };
@@ -188,7 +187,7 @@ const EN_CONTENT: SiteContent = {
     thresholdForStopping: "Threshold for stopping",
     briefingComplete: "Briefing Complete",
     avoidIf: "Avoid if:",
-    moduleLabel: "Modul",
+    moduleLabel: "Module",
     gapYearFeatureLabel: "Special Feature",
     gapYearTitleMain: "The Gap Year",
     gapYearTitleItalic: "Strategic Delay",
@@ -278,91 +277,222 @@ const EN_CONTENT: SiteContent = {
     {
       id: 'computer-science',
       title: 'Computer Science',
-      description: 'Thinking in code and systems.',
-      actuallyIs: 'CS means learning to think in code and systems. You study programming, algorithms, data structures, and architecture. It\'s not just "typing code"—it\'s learning why certain solutions work, why others break, and how to design systems that scale.',
+      description: 'The architecture of logic and automation.',
+      actuallyIs: 'CS means learning to think in code and systems. You study programming, algorithms, data structures, and architecture. It\'s not just "typing code"—it\'s learning why certain solutions work, why others break, and how to design systems that can scale to millions of users.',
       dailyWork: [
-        '9-10am: Stand-up meeting (progress tracking)',
-        '10am-12pm: Deep coding focus (2-3 hours actual writing)',
-        '1-3pm: Code reviews and teammate feedback',
-        '3-4pm: Architecture and product planning meetings',
-        '4-5pm: Testing, debugging, and documentation',
-        'Reality: You spend 50-70% of your day in meetings as you grow. Code is often pragmatic and buggy, not beautiful.'
+        '9-10am: Stand-up meeting (progress tracking).',
+        '10am-12pm: Deep coding focus (usually only 2-3 hours of actual writing).',
+        '1-3pm: Code reviews and teammate feedback (reading other people\'s logic).',
+        '3-4pm: Architecture and product planning meetings.',
+        '4-5pm: Testing, debugging, and writing technical documentation.',
+        'Reality: As you grow, you spend more time talking to people than writing code.'
       ],
       whoItFits: [
-        'Enjoys debugging and problem-solving over just building.',
-        'Patient with extreme detail (off-by-one errors).',
-        'Comfortable with rapid change (tools expire every 2-3 years).',
-        'Able to explain complex ideas clearly to non-tech peers.'
+        'Enjoys debugging and problem-solving over just building new things.',
+        'Patient with extreme detail (one missing semicolon breaks everything).',
+        'Comfortable with rapid change (your tools will be obsolete in 3 years).',
+        'Able to explain complex technical ideas to non-tech managers.'
       ],
       whoShouldAvoid: [
-        'Expects high job certainty (6.1% unemployment in some markets recently).',
-        'Wants stable, predictable work without constant learning.',
-        'Needs immediate income (entry-level job hunting can take 6-12 months).',
-        'Dislikes continuous study outside of office hours.'
+        'Needs immediate, stable income (entry-level hunting can take 6 months).',
+        'Dislikes sitting for 8-10 hours a day in front of a screen.',
+        'Wants predictable, manual work that never changes.',
+        'Struggles with abstract mathematical logic.'
       ],
       careerPaths: {
-        employee: ['Software Engineer ($80k-$140k starting)', 'Data Engineer', 'Machine Learning Engineer', 'Cybersecurity Specialist'],
-        freelance: ['Contract software dev (brutal competition)', 'Building small SaaS products'],
-        business: ['Founding a startup (90% failure rate)', 'Building tools for existing platforms']
+        employee: ['Software Engineer ($80k-$140k starting abroad)', 'Data Engineer', 'Cybersecurity Specialist'],
+        freelance: ['Web Development', 'Consultancy (hard to start for juniors)'],
+        business: ['SaaS Founder', 'Tech Agency Owner']
       },
       uzVsAbroad: {
-        uz: ['Growing demand in Tashkent/Samarkand hubs.', 'Junior salaries: $500–$1,000/month (decent locally).', 'Remote work allows Western salaries while living in UZ.'],
-        abroad: ['Extremely in-demand across US/EU/Canada.', 'Visa sponsorship (H1B/Skilled Worker) is common.', 'Highly competitive but strong overall.']
+        uz: ['Local demand is rising in Fintech and E-commerce.', 'Remote work for Western companies while living in UZ is the "Gold Medal" path.'],
+        abroad: ['Extremely high demand but brutal entry-level competition.', 'Visa sponsorship (H1B/Skilled Worker) is a primary goal for many.']
       },
       realityCheck: [
-        { factor: 'Difficulty', rating: 'HIGH', notes: 'Complex theory and constant debugging frustration.' },
-        { factor: 'Competition', rating: 'VERY HIGH', notes: 'Bootcamp graduates compete with degree holders.' },
-        { factor: 'Income Potential', rating: 'HIGH', notes: '$80k–$200k+, but highly variable by location.' },
-        { factor: 'AI Risk', rating: 'MEDIUM-HIGH', notes: 'Junior roles may be automated; specialists are safer.' }
+        { factor: 'Difficulty', rating: 'HIGH', notes: 'Heavy theory and frustrating debugging cycles.' },
+        { factor: 'Competition', rating: 'VERY HIGH', notes: 'Everyone wants to be in tech now.' },
+        { factor: 'Income Potential', rating: 'HIGH', notes: 'Highest ceiling for employees.' },
+        { factor: 'AI Risk', rating: 'MEDIUM-HIGH', notes: 'Junior roles are being automated; specialists are safer.' }
       ],
       freeResources: [
-        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'The industry-standard intro. Teaches "how to think," not just syntax.', whenToStop: 'After Week 5 if you feel you have the logic down.', notFor: 'People looking for a "quick" 2-week certificate. This takes 100+ hours.' },
-        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Visual maps of exactly what to learn for every role (Frontend, Backend, etc.).', whenToStop: 'Use only as a reference. Do not try to "finish" a roadmap.', notFor: 'Students who get overwhelmed by large lists of topics.' },
-        { name: 'FreeCodeCamp', url: 'https://www.freecodecamp.org/', why: 'Best for hands-on web development practice without setup.', whenToStop: 'Once you are ready to build a project on your own local computer.', notFor: 'People who want to learn deep theory/math first.' }
+        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'The gold standard intro. Teaches thinking, not just syntax.', whenToStop: 'After Week 5 if you feel you have the logic down.', notFor: 'People looking for a quick certificate.' },
+        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Visual guides for every role.', whenToStop: 'Use only as a reference; do not try to "finish" it.', notFor: 'Students who get easily overwhelmed by long lists.' }
       ]
     },
     {
       id: 'business-management',
       title: 'Business / Management',
-      description: 'Understanding how organizations work.',
-      actuallyIs: 'You learn how organizations function: accounting, finance, marketing, operations, HR, and strategy. It is broad, which is both its strength and its weakness.',
+      description: 'Understanding organizational leverage.',
+      actuallyIs: 'You learn how organizations function: accounting, finance, marketing, operations, HR, and strategy. It is broad, which is both its greatest strength and its primary weakness. You are the "glue" between different departments.',
       dailyWork: [
-        'Lots of Excel, PowerPoint, and reporting.',
-        'Meetings, meetings, and more meetings.',
-        'Analyzing company finances or marketing metrics.',
-        'Solving small operational problems daily.',
-        'Reality: Very few "breakthrough" moments; mostly incremental management.'
+        'Heavy use of Excel, PowerPoint, and CRM software.',
+        'Back-to-back meetings to coordinate between teams.',
+        'Analyzing performance metrics and budgeting.',
+        'Solving operational fires (e.g., supply chain delays).',
+        'Reality: Much of your day is managing personalities and reporting data.'
       ],
       whoItFits: [
-        'Comfortable with spreadsheets and data metrics.',
-        'Works well in collaborative team settings.',
-        'Flexible career interests (opens many doors).',
-        'Interested in the "why" behind company decisions.'
+        'Strong communicators who can lead teams without being "the boss."',
+        'People who enjoy identifying patterns in data metrics.',
+        'Generalists who get bored specializing in one technical skill.',
+        'Strong networkers who build relationships easily.'
       ],
       whoShouldAvoid: [
-        'Hates sitting in long meetings.',
-        'Wants deep technical mastery in one specific niche.',
-        'Seeks high creative freedom (often follows playbooks).',
-        'Wants quick high income (starts lower than engineering).'
+        'Introverts who find constant meeting/negotiation draining.',
+        'People who hate spreadsheets and fine-print contracts.',
+        'Those seeking a "hard" technical skill with immediate job security.',
+        'Individuals who prefer working completely alone.'
       ],
       careerPaths: {
-        employee: ['Management Consultant ($65k-$120k+)', 'Financial Manager', 'Marketing Manager', 'Product Manager'],
-        freelance: ['Virtual assistant', 'Operations consultant'],
-        business: ['Buying and reselling goods', 'Starting a service business']
+        employee: ['Management Consultant', 'Marketing Manager', 'Operations Lead'],
+        freelance: ['Business Strategy Consultant', 'Project Management'],
+        business: ['Entrepreneurship', 'Retail/Service business ownership']
       },
       uzVsAbroad: {
-        uz: ['High demand in growing Tashkent sector.', 'Entry-level: $600–$1,200/month.', 'Useful for future local entrepreneurship.'],
-        abroad: ['Extremely valuable with an MBA.', 'Global business culture is very similar.', 'Visa sponsorship is common for managers.']
+        uz: ['Very useful for the growing private sector in Tashkent.', 'Parental networks often help here, but merit is becoming more important.'],
+        abroad: ['Extremely valuable with a top-tier MBA.', 'High competition for entry-level analyst roles.']
       },
       realityCheck: [
-        { factor: 'Difficulty', rating: 'LOW-MEDIUM', notes: 'Conceptual rather than math-heavy.' },
-        { factor: 'Competition', rating: 'VERY HIGH', notes: 'Most common major; hard to stand out.' },
-        { factor: 'Income Potential', rating: 'MEDIUM-HIGH', notes: 'Consultants earn more than general managers.' },
-        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Routine analysis is automatable; strategy is safer.' }
+        { factor: 'Difficulty', rating: 'LOW-MEDIUM', notes: 'Conceptual and relationship-based.' },
+        { factor: 'Competition', rating: 'EXTREME', notes: 'The most common major; standing out is very hard.' },
+        { factor: 'Income Potential', rating: 'MEDIUM-HIGH', notes: 'Starts low, but scales high in seniority.' },
+        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Routine management can be automated; leadership cannot.' }
       ],
       freeResources: [
-        { name: 'MIT Sloan Management (OCW)', url: 'https://ocw.mit.edu/courses/management/', why: 'Rigorous, university-level course materials on strategy and finance.', whenToStop: 'After you understand the "Case Study" method.', notFor: 'Students looking for light, inspirational business content.' },
-        { name: 'Corporate Finance Institute (Free Courses)', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Practical skills: reading balance sheets and basic accounting.', whenToStop: 'After finishing "Accounting Fundamentals."', notFor: 'People who hate math or fine print.' }
+        { name: 'MIT Sloan (OCW)', url: 'https://ocw.mit.edu/courses/management/', why: 'Rigorous university materials.', whenToStop: 'After understanding Case Study methodology.', notFor: 'Light motivational readers.' },
+        { name: 'CFI Free Courses', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Learn actual skills like balance sheets.', whenToStop: 'After finishing "Accounting Fundamentals."', notFor: 'Math-haters.' }
+      ]
+    },
+    {
+      id: 'economics',
+      title: 'Economics',
+      description: 'Analyzing systems of value and resource allocation.',
+      actuallyIs: 'Economics is the study of how people, companies, and governments make choices about resources. It combines social science with high-level math and data analysis. It\'s more about predicting human behavior through models than just "money."',
+      dailyWork: [
+        'Data cleaning and statistical modeling (R, Python, or Stata).',
+        'Drafting policy briefs or market research reports.',
+        'Forecasting market trends based on historical data.',
+        'Meetings with stakeholders to explain complex economic signals.',
+        'Reality: If you are in research, it is 90% cleaning data in a computer.'
+      ],
+      whoItFits: [
+        'Highly analytical thinkers who look for "hidden" causes.',
+        'People who enjoy math but want to apply it to human society.',
+        'Strong writers who can turn numbers into readable stories.',
+        'Those interested in global policy and macro-trends.'
+      ],
+      whoShouldAvoid: [
+        'Students who "just want to work in a bank" (Finance is better).',
+        'People who dislike advanced calculus and statistics.',
+        'Those seeking a creative, hands-on major.',
+        'Individuals who want a simple, black-and-white answer to problems.'
+      ],
+      careerPaths: {
+        employee: ['Policy Analyst', 'Data Scientist', 'Financial Analyst', 'Economic Researcher'],
+        freelance: ['Data Analysis contracts', 'Technical Writing'],
+        business: ['Venture Capital', 'Strategic Planning for firms']
+      },
+      uzVsAbroad: {
+        uz: ['High demand in government ministries and international NGOs (UNDP, World Bank).', 'Valuable for Tashkent-based macro-economic research.'],
+        abroad: ['Well-regarded by consulting firms (McKinsey, BCG).', 'Requires a Master’s or PhD for high-level research roles.']
+      },
+      realityCheck: [
+        { factor: 'Difficulty', rating: 'HIGH', notes: 'Intense math and abstract modeling.' },
+        { factor: 'Competition', rating: 'HIGH', notes: 'Compete with Finance and Math majors for roles.' },
+        { factor: 'Income Potential', rating: 'HIGH', notes: 'Top analysts earn significantly.' },
+        { factor: 'AI Risk', rating: 'MEDIUM', notes: 'Data tasks are being automated; judgment remains key.' }
+      ],
+      freeResources: [
+        { name: 'Marginal Revolution University', url: 'https://mru.org/', why: 'Best visual intro to Micro and Macro economics.', whenToStop: 'After the Core Principles modules.', notFor: 'People who hate talking about "Supply and Demand."' },
+        { name: 'Khan Academy Macroeconomics', url: 'https://www.khanacademy.org/economics-finance-domain/macroeconomics', why: 'Explains the math behind the news.', whenToStop: 'When you can explain "Inflation" accurately.', notFor: 'Advanced math students (too basic).' }
+      ]
+    },
+    {
+      id: 'engineering',
+      title: 'Engineering',
+      description: 'Applying physical laws to solve material problems.',
+      actuallyIs: 'Engineering is using math, physics, and science to design, build, and maintain structures, machines, and systems. It ranges from Civil (bridges) to Mechanical (engines) and Electrical (circuits). It is the most "practical" of the hard sciences.',
+      dailyWork: [
+        'Designing prototypes in CAD (Computer-Aided Design) software.',
+        'On-site inspections of construction or manufacturing.',
+        'Running stress tests and safety calculations.',
+        'Documenting technical specs for manufacturing teams.',
+        'Reality: You spend more time on safety regulations than on "creative design."'
+      ],
+      whoItFits: [
+        'Natural builders who like taking things apart.',
+        'People who are "relentlessly logical" about physical problems.',
+        'Comfortable with high stakes (if an engineer fails, things break).',
+        'Strong spatial awareness and visualization skills.'
+      ],
+      whoShouldAvoid: [
+        'Those who struggle with Physics and advanced Calculus.',
+        'People who prefer abstract theory over physical results.',
+        'Individuals who dislike technical rules and standardized safety codes.',
+        'Students seeking a "fast and easy" degree.'
+      ],
+      careerPaths: {
+        employee: ['Civil Engineer', 'Mechanical Engineer', 'Structural Lead', 'Manufacturing Manager'],
+        freelance: ['Independent CAD design', 'Site consultancy'],
+        business: ['Construction firm owner', 'Hardware Startup founder']
+      },
+      uzVsAbroad: {
+        uz: ['Massive demand due to the construction boom in Tashkent.', 'Electrical engineering is critical for local energy infrastructure.'],
+        abroad: ['Strong visa prospects for skilled labor in EU (especially Germany).', 'Stable, high-floor income in almost any country.']
+      },
+      realityCheck: [
+        { factor: 'Difficulty', rating: 'VERY HIGH', notes: 'Brutal math and physics load.' },
+        { factor: 'Competition', rating: 'MEDIUM-HIGH', notes: 'High bar to entry keeps supply low.' },
+        { factor: 'Income Potential', rating: 'MEDIUM-HIGH', notes: 'Very stable, but lower ceiling than Software.' },
+        { factor: 'AI Risk', rating: 'LOW', notes: 'Physical onsite presence and safety liability are hard to automate.' }
+      ],
+      freeResources: [
+        { name: 'The Engineering ToolBox', url: 'https://www.engineeringtoolbox.com/', why: 'Actual formulas used in the field.', whenToStop: 'Use as a reference library.', notFor: 'Beginners (very technical).' },
+        { name: 'Brilliant.org (Free trials/Physics)', url: 'https://brilliant.org/', why: 'Build intuitive understanding of physical laws.', whenToStop: 'Once you understand simple mechanics.', notFor: 'People who want to learn code only.' }
+      ]
+    },
+    {
+      id: 'medicine',
+      title: 'Medicine',
+      description: 'The science of biological maintenance and repair.',
+      actuallyIs: 'Medicine is the study of diagnosing, treating, and preventing disease. It is a long, 10-15 year journey of education and training. You are committing to a life of service and continuous learning. It is not just about "saving lives"—it is about detailed biological maintenance.',
+      dailyWork: [
+        'Patient rounds (checking on recovery/status).',
+        'Diagnostic testing and reviewing lab results.',
+        'Massive amounts of paperwork/electronic medical records.',
+        'Staying awake for 24+ hour shifts during residency.',
+        'Reality: You spend 40% of your time on administrative data entry.'
+      ],
+      whoItFits: [
+        'Extremely high emotional resilience (handling death and illness).',
+        'Ability to memorize vast amounts of information.',
+        'Deep empathy combined with professional detachment.',
+        'Commitment to a 10+ year education path before high income.'
+      ],
+      whoShouldAvoid: [
+        'People primarily motivated by "status" or "money" (other paths are faster).',
+        'Those who faint at the sight of blood or bodily fluids.',
+        'Individuals with low patience for bureaucracy.',
+        'Students who value a 9-to-5 work-life balance early in life.'
+      ],
+      careerPaths: {
+        employee: ['Surgeon', 'General Practitioner', 'Medical Researcher', 'Hospital Administrator'],
+        freelance: ['Private Clinic (requires huge capital)', 'Telemedicine'],
+        business: ['Health-tech consultant', 'Pharma sales']
+      },
+      uzVsAbroad: {
+        uz: ['Local doctors are respected but often underpaid in the public sector.', 'Private clinics in Tashkent are the high-income target.'],
+        abroad: ['Extremely difficult licensing exams (USMLE, PLAB) to move.', 'Highest job security of any profession globally.']
+      },
+      realityCheck: [
+        { factor: 'Difficulty', rating: 'EXTREME', notes: 'Unmatched volume of information.' },
+        { factor: 'Competition', rating: 'EXTREME', notes: 'Getting into med school is just the first hurdle.' },
+        { factor: 'Income Potential', rating: 'HIGH', notes: 'Guaranteed high income, but only after age 30-35.' },
+        { factor: 'AI Risk', rating: 'LOW', notes: 'Human trust and surgical dexterity are safe.' }
+      ],
+      freeResources: [
+        { name: 'Khan Academy Biology/Health', url: 'https://www.khanacademy.org/science/health-and-medicine', why: 'Best intro to human systems.', whenToStop: 'After finishing "Anatomy and Physiology."', notFor: 'Those who hate memorizing Latin names.' },
+        { name: 'Kenhub (Free articles)', url: 'https://www.kenhub.com/', why: 'Learn where bones and organs actually are.', whenToStop: 'Use as a supplement.', notFor: 'Visual learners who prefer books.' }
       ]
     }
   ],
@@ -672,7 +802,6 @@ const UZ_CONTENT: SiteContent = {
     complianceProtocol: "Protokol",
     legalBasis: "Huquqiy asos",
     ageLimitsLabel: "Yosh masalalari",
-    // Fix: Removed redundant recognitionBarrierLabel here (line 670 original) because it is also defined in the end block.
     risksDownsides: "Xavflar va kamchiliklar",
     darkSide: "Qorong'u tomoni",
     mythsReality: "Afsonalar va haqiqat",
@@ -724,119 +853,230 @@ const UZ_CONTENT: SiteContent = {
     legalRisksSummary: "Huquqiy va qonuniy xavflar",
     finalVerdictLabel: "Yakuniy strategik xulosa",
     decisionFrameworkLabel: "Qaror qabul qilish asosi",
-    honestTimelineLabel: "Real ijro vaqti"
+    honestTimelineLabel: "Real ijro vaqti",
+    moduleLabel: "Modul"
   },
-  majors: EN_CONTENT.majors,
-  exams: EN_CONTENT.exams,
-  scholarships: EN_CONTENT.scholarships,
-  paths: [
+  majors: [
     {
-      id: 'ausbildung',
-      title: 'Ausbildung (Dual ta’lim tizimi)',
-      subtitle: 'Germaniyada ish va o‘qish',
-      actuallyIs: 'Ochiqini aytganda, Ausbildung — bu Germaniyadagi o‘qish va ishni birlashtirgan tizim. Siz haftada 3-4 kun haqiqiy korxonada ishlaysiz va 1-2 kun kasb-hunar maktabida nazariyani o‘rganasiz. Bu shunchaki "ish" emas, bu diplom beradigan va Germaniya qonunlari bilan himoyalangan o‘quv yo‘nalishidir.',
-      types: [
-        { name: 'Duale Ausbildung (Korxonaga asoslangan)', description: 'Barcha yo‘nalishlarning 70% ini tashkil qiladi. Siz to‘g‘ridan-to‘g‘ri kompaniya bilan shartnoma tuzasiz.', realityForForeigners: 'O‘zbekistonlik talabalar uchun eng real yo‘l. Shartnoma bo‘lsa, viza olish ancha osonlashadi.', realistic: true },
-        { name: 'Schulische Ausbildung (Maktabga asoslangan)', description: 'Asosan tibbiyot (hamshiralikdan tashqari) va dizayn yo‘nalishlarida uchraydi. Ko‘pincha maosh berilmaydi.', realityForForeigners: 'Juda qiyin yo‘l. Chunki yashash xarajatlarini qoplash uchun katta miqdorda shaxsiy jamg‘arma talab etiladi.', realistic: false }
+      id: 'computer-science',
+      title: 'Computer Science',
+      description: 'Mantiq va avtomatlashtirish arxitekturasi.',
+      actuallyIs: 'CS — bu kod va tizimlar orqali fikrlashni o‘rganish degani. Siz dasturlash, algoritmlar, ma’lumotlar tuzilmasi va arxitekturani o‘rganasiz. Bu shunchaki "kod yozish" emas — bu nima uchun ba’zi yechimlar ishlashi, boshqalari esa buzilishini va millionlab foydalanuvchilarga xizmat qila oladigan tizimlarni qanday yaratishni tushunishdir.',
+      dailyWork: [
+        '9-10: Stand-up uchrashuvi (ish jarayonini kuzatish).',
+        '10-12: Chuqur kod yozish (odatda kuniga faqat 2-3 soat haqiqiy kod yoziladi).',
+        '13-15: Kod tahlili (Code Review) va jamoaviy fikr-mulohaza.',
+        '15-16: Arxitektura va mahsulotni rejalashtirish uchrashuvlari.',
+        '16-17: Testlash, xatolarni tuzatish va texnik hujjatlar yozish.',
+        'Haqiqat: Tajribangiz oshgani sayin, kod yozishdan ko‘ra odamlar bilan muloqotga ko‘p vaqt sarflaysiz.'
       ],
-      whoFits: [
-        'Nazariyadan ko‘ra amaliy ishni yoqtiradiganlar.',
-        'Bir xil va tartibli (routine) ishlarga sabrli bo‘lganlar.',
-        'Jismoniy va ruhiy bosimga chidamli (masalan, 8-10 soat tik oyoqda turish).',
-        'Nemis ish madaniyatidagi qat’iy tartib-intizomga tayyor bo‘lganlar.'
+      whoItFits: [
+        'Yangi narsa qurishdan ko‘ra, xatolarni qidirish va muammolarni hal qilishni yoqtiradiganlar.',
+        'Mayda detallarga sabrli (bitta nuqta-vergul hammasini buzishi mumkin).',
+        'Tez o‘zgarishlarga tayyor (ishlatayotgan asboblaringiz 3 yilda eskiradi).',
+        'Murakkab texnik g‘oyalarni mutaxassis bo‘lmagan rahbarlarga tushuntira oladiganlar.'
       ],
       whoShouldAvoid: [
-        'Abstrakt fikrlash va akademik munozaralarni xohlaydiganlar.',
-        'Rahbarlik yoki qoidalar bilan kelisha olmaydiganlar.',
-        'Asosiy maqsadi faqat "Yevropaga qochib ketish" bo‘lganlar.',
-        'Yonida kamida 5,000 – 10,000 yevro zaxira puli bo‘lmaganlar.'
+        'Tezkor va barqaror daromadga muhtojlar (junior darajasida ish topish 6 oygacha cho‘zilishi mumkin).',
+        'Kuniga 8-10 soat monitor qarshisida o‘tirishni yoqtirmaydiganlar.',
+        'Hech qachon o‘zgarmaydigan, bir xil mexanik ishni xohlaydiganlar.',
+        'Abstrakt matematik mantiq bilan qiynaladiganlar.'
       ],
-      languageReality: {
-        official: 'B1 Nemis tili (rasmiy talab).',
-        practical: 'Ochiqini aytsak, B2 darajasisiz muvaffaqiyatga erishish juda qiyin.',
-        reasons: [
-          'B1 tushunish uchun yetadi, lekin muloqot uchun emas. Ishda tezkor buyruqlarni tushunmay qolasiz.',
-          'Imtihonlar B2 darajasida bo‘ladi. Nemis tili pastligi sababli mutaxassislik imtihonidan yiqilish xavfi yuqori.',
-          'Ishxonadagi hamkasblaringiz kitobdagi tilda emas, lahja (sheva) va jargonlarda gaplashishadi.',
-          'Ijtimoiy hayotga kirishib ketish uchun muloqot darajasi yuqori bo‘lishi kerak.'
-        ],
-        trajectory: [
-          { level: 'A0 dan A2 gacha', time: '3-4 oy intensiv o‘qish' },
-          { level: 'A2 dan B1 gacha', time: '4-5 oy intensiv o‘qish' },
-          { level: 'B1 dan B2 gacha', time: '4-6 oy intensiv o‘qish' }
-        ]
+      careerPaths: {
+        employee: ['Dasturiy ta’minot muhandisi', 'Ma’lumotlar muhandisi (Data Engineer)', 'Kiberxavfsizlik mutaxassisi'],
+        freelance: ['Veb-saytlar yaratish', 'Texnik maslahat (Juniorlar uchun qiyin)'],
+        business: ['SaaS startap asoschisi', 'IT agentlik egasi']
       },
-      fieldCategories: [
-        { name: 'Sog‘liqni saqlash (Hamshiralik)', acceptance: 'JUDA YUQORI', successRate: '85%+', salary: '€1k-€1.4k', whyAccessible: 'Germaniyada kadrlar yetishmovchiligi juda katta.', challenges: 'Smenali ish, og‘ir jismoniy mehnat.', languageNeed: 'B2 darajasi shart' },
-        { name: 'Texnik sohalar (Mexanik, Elektrik)', acceptance: 'YUQORI', successRate: '55-60%', salary: '€950-€1.2k', whyAccessible: 'Sanoat korxonalari doim ishchi qidiradi.', challenges: 'Matematika va fizika talab etiladi.', languageNeed: 'B1/B2' },
-        { name: 'IT va Dasturlash', acceptance: 'JUDA QIYIN', successRate: '<30%', salary: '€1.1k-€1.5k', whyAccessible: 'Talab katta, lekin chet elliklar uchun barqaror emas.', challenges: 'Raqobat o‘ta kuchli, nemis tili mukammal bo‘lishi kerak.', languageNeed: 'Spetsifik B2' }
-      ],
-      financialDeepDive: {
-        monthlySalary: [
-          { industry: 'IT va Texnika', y1: '€1.1k-€1.2k', y2: '€1.2k-€1.3k', y3: '€1.3k-€1.5k' },
-          { industry: 'Hamshiralik', y1: '€1.0k-€1.1k', y2: '€1.1k-€1.2k', y3: '€1.2k-€1.4k' },
-          { industry: 'Qurilish', y1: '€900-€1.0k', y2: '€1.0k-€1.2k', y3: '€1.1k-€1.3k' }
-        ],
-        livingExpenses: [
-          { category: 'Ijarada turish (Shared)', low: '€400-€600', medium: '€600-€800', high: '€800-€1.2k' },
-          { category: 'Oziq-ovqat', low: '€150-€200', medium: '€200-€250', high: '€250-€300' }
-        ],
-        mathReality: 'Mana bu joyda odamlar chalkashadi: Agar siz Berlinda 1,000 yevro topsangiz, ijaradan keyin cho‘ntagingizda deyarli pul qolmaydi. Oila yordami yoki shaxsiy jamg‘arma bo‘lishi shart.',
-        comparison: [
-          { label: 'Yutug‘i', details: 'Siz tengdoshlaringizdan 3-4 yil oldin ishlashni boshlaysiz va qarzingiz bo‘lmaydi.' },
-          { label: 'Xatari', details: 'Agar 2-yilda o‘qishni tashlab ketsangiz, na diplomingiz bo‘ladi va na foyda.' }
-        ]
+      uzVsAbroad: {
+        uz: ['Fintech va elektron tijorat sohalarida talab ortib bormoqda.', 'O‘zbekistonda yashab, G‘arb kompaniyalariga masofadan ishlash — eng foydali yo‘l.'],
+        abroad: ['Talab yuqori, lekin boshlang‘ich darajadagi raqobat juda kuchli.', 'Viza homiyligi ko‘pchilikning asosiy maqsadidir.']
       },
-      visaLegal: {
-        residenceAct: 'AufenthG §16a (shartnoma bilan) yoki §17 (ish qidirish uchun viza).',
-        ageLimits: { rule: 'Shartnoma bo‘lsa yosh chegarasi yo‘q.', practice: 'Lekin ish beruvchilar asosan 18-25 yoshdagilarni tanlashadi. 30 yoshdan oshgach shartnoma olish juda qiyin.' },
-        financialRequirement: 'Jamg‘arma yoki shartnomadagi maosh. Duale Ausbildung uchun ko‘pincha bloklangan hisob (blocked account) shart emas.',
-        recognitionProcess: [
-          'So‘rov: Germaniya tegishli tashkilotiga.',
-          'Tarjima: Diplomingizni nemis tiliga rasmiy tarjimasi.',
-          'Tasdiq: Tashkentdagi elchixonada Apostil qo‘yish.',
-          'Baho: O‘zbekiston maktab shahodatnomasini Germaniya tizimi bilan tengligini aniqlash.'
-        ],
-        embassyTimeline: 'Toshkentda 6-12 hafta (o‘rtacha 8 hafta). Viza to‘lovi: €75.'
+      realityCheck: [
+        { factor: 'Qiyinchilik', rating: 'YUQORI', notes: 'Og‘ir nazariya va asabiy xato tuzatish jarayonlari.' },
+        { factor: 'Raqobat', rating: 'JUDA YUQORI', notes: 'Hozir hamma IT sohasiga kirishga harakat qilyapti.' },
+        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Xodimlar uchun eng yuqori maoshlar.' },
+        { factor: 'AI xavfi', rating: 'O‘RTA-YUQORI', notes: 'Junior vazifalar avtomatlashmoqda; mutaxassislar xavfsizroq.' }
+      ],
+      freeResources: [
+        { name: 'Harvard CS50x', url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science', why: 'Eng yaxshi kirish kursi. Sintaksisni emas, fikrlashni o‘rgatadi.', whenToStop: '5-haftadan keyin, agar mantiqni tushungan bo‘lsangiz.', notFor: 'Tezkor sertifikat qidirayotganlar.' },
+        { name: 'Roadmap.sh', url: 'https://roadmap.sh', why: 'Har bir yo‘nalish uchun vizual qo‘llanmalar.', whenToStop: 'Faqat ma’lumotnoma sifatida ishlating; hammasini tugatishga urinmang.', notFor: 'Uzun ro‘yxatlardan tezda tushkunlikka tushadiganlar.' }
+      ]
+    },
+    {
+      id: 'business-management',
+      title: 'Business / Management',
+      description: 'Tashkiliy boshqaruvni tushunish.',
+      actuallyIs: 'Siz tashkilotlar qanday ishlashini o‘rganasiz: buxgalteriya, moliya, marketing, operatsiyalar, HR va strategiya. Bu soha juda keng, bu uning ham yutug‘i, ham kamchiligidir. Siz turli bo‘limlar orasidagi "ko‘prik" vazifasini bajarasiz.',
+      dailyWork: [
+        'Excel, PowerPoint va CRM dasturlaridan faol foydalanish.',
+        'Jamoalararo ishlarni muvofiqlashtirish uchun ketma-ket majlislar.',
+        'Samaradorlik ko‘rsatkichlarini tahlil qilish va byudjetlashtirish.',
+        'Operatsion muammolarni hal qilish (masalan, yetkazib berishdagi kechikishlar).',
+        'Haqiqat: Kuningizning katta qismi odamlarni boshqarish va hisobot berishga ketadi.'
+      ],
+      whoItFits: [
+        'Rahbar bo‘lmasdan ham jamoani boshqara oladigan kuchli notiqlar.',
+        'Ma’lumotlar ichidan qonuniyatlarni topishni yoqtiradiganlar.',
+        'Bitta texnik ishga bog‘lanib qolishni istamaydigan keng qamrovli insonlar.',
+        'Oson munosabat qura oladiganlar.'
+      ],
+      whoShouldAvoid: [
+        'Doimiy muloqot va muzokaralardan charchaydigan introvertlar.',
+        'Jadvallar va mayda harfli shartnomalarni yoqtirmaydiganlar.',
+        'Aniq texnik ko‘nikma va darhol ish kafolatini xohlaydiganlar.',
+        'Faqat yakka tartibda ishlashni afzal ko‘radiganlar.'
+      ],
+      careerPaths: {
+        employee: ['Boshqaruv maslahatchisi', 'Marketing menejeri', 'Operatsion direktor'],
+        freelance: ['Biznes strategiyasi bo‘yicha maslahatchi', 'Loyihalar boshqaruvi'],
+        business: ['Tadbirkorlik', 'Chakana savdo yoki xizmat ko‘rsatish biznesi']
       },
-      downsidesExtended: [
-        { category: 'Jismoniy toliqish', content: 'Hamshiralikda bemor ko‘tarish, qurilishda har qanday ob-havoda ishlash. Bu xronik charchoqqa olib keladi.' },
-        { category: 'Vatan sog‘inchi', content: 'O‘zbekistondan 5,000 km uzoqlik. 4 soatlik vaqt farqi. Talabalarning 80% idagi ruhiy siqilishning asosiy sababi.' },
-        { category: 'Diskriminatsiya', content: 'Tadqiqotlar shuni ko‘rsatadiki, chet ellik ismli nomzodlarga nemislarga qaraganda kamroq javob qaytariladi.' },
-        { category: 'Shartnoma xavfi', content: 'Sinov muddati (1-4 oy) ichida sizni sababsiz va ogohlantirishsiz ishdan bo‘shatishlari mumkin.' }
-      ],
-      myths: [
-        { myth: 'B1 darajasi yetarli', reality: 'Qonuniy yetarli, lekin hayotiy emas. Imtihonlardan o‘ta olmay qolishingiz mumkin.' },
-        { myth: 'Tezda boyib ketish', reality: 'Maosh faqat yashashga yetadi. Asosiy daromad o‘qishni bitirgandan keyin boshlanadi.' },
-        { myth: 'Hamma qabul qilinadi', reality: 'Viza berish darajasi 73%. Chet ellik talabalarning 24% i o‘qishni oxirigacha yetkaza olmaydi.' }
-      ],
-      strategicAssessment: {
-        goodMove: [
-          'Sizda 12 oy ichida B2 darajasiga chiqishga xohish va imkoniyat bor.',
-          'Kamida 5,000 – 10,000 yevro zaxira pulingiz bor.',
-          'Siz aynan tanlangan hunarni o‘rganishni chin dildan xohlaysiz.',
-          'Yoshingiz 18-28 oralig‘ida.',
-          'Kadrlar yetishmaydigan sohalarni (Tibbiyot, Texnika) tanlayapsiz.'
-        ],
-        badMove: [
-          'Tilingiz B1 yoki A2 darajasida qolib ketgan bo‘lsa.',
-          'Oilangiz sizdan birinchi yildanoq pul yuborishingizni kutayotgan bo‘lsa.',
-          'Maqsadingiz hunar o‘rganish emas, shunchaki "ketib qolish" bo‘lsa.',
-          'Yoshingiz 35 dan oshgan bo‘lsa.',
-          'Ruhiy holatingiz bunday katta bosimga tayyor bo‘lmasa.'
-        ]
+      uzVsAbroad: {
+        uz: ['Toshkentdagi rivojlanayotgan xususiy sektor uchun juda foydali.', 'Tanish-bilish muhim, lekin hozirda bilim va tajriba birinchi o‘ringa chiqmoqda.'],
+        abroad: ['Nufuzli MBA darajasi bilan juda qadrli.', 'Analitik lavozimlar uchun raqobat juda kuchli.']
       },
-      finalTimeline: [
-        { phase: 'Nemis tili (O‘zbekistonda)', duration: '12 oy (B2 daraja)' },
-        { phase: 'Hujjat topshirish', duration: '6-8 oy' },
-        { phase: 'Viza jarayoni', duration: '3 oy' },
-        { phase: 'O‘qish va ish', duration: '36 oy (3 yil)' },
-        { phase: 'Doimiy yashash (PR)', duration: '5-yildan so‘ng'
-        }
+      realityCheck: [
+        { factor: 'Qiyinchilik', rating: 'PAST-O‘RTA', notes: 'Asosan tushunchalar va munosabatlarga asoslangan.' },
+        { factor: 'Raqobat', rating: 'O‘TA YUQORI', notes: 'Eng ommabop yo‘nalish; ajralib turish qiyin.' },
+        { factor: 'Daromad salohiyati', rating: 'O‘RTA-YUQORI', notes: 'Boshida past, lekin tajriba bilan tez o‘sadi.' },
+        { factor: 'AI xavfi', rating: 'O‘RTA', notes: 'Texnik boshqaruv avtomatlashishi mumkin; yetakchilik esa yo‘q.' }
       ],
-      strategicGood: ['Tilni bilish (B2)', 'Moliyaviy zaxira', 'Hunarga qiziqish'],
-      strategicBad: ['Til bilmaslik', 'Pul yo‘qligi', 'Yosh 30+'],
-      realityCheck: 'Bu hayotingizning 5 yilini berishingiz kerak bo‘lgan jiddiy loyiha. Tez va oson yo‘l emas.'
+      freeResources: [
+        { name: 'MIT Sloan (OCW)', url: 'https://ocw.mit.edu/courses/management/', why: 'Nufuzli universitet materiallari.', whenToStop: 'Case Study uslubini tushungandan keyin.', notFor: 'Yengil motivatsiya qidirayotganlar.' },
+        { name: 'CFI bepul kurslari', url: 'https://corporatefinanceinstitute.com/resources/free-courses/', why: 'Buxgalteriya kabi amaliy ko‘nikmalarni o‘rganish.', whenToStop: '"Accounting Fundamentals" kursini tugatgach.', notFor: 'Matematikadan qochadiganlar.' }
+      ]
+    },
+    {
+      id: 'economics',
+      title: 'Iqtisodiyot',
+      description: 'Qiymat tizimlari va resurslarni taqsimlash tahlili.',
+      actuallyIs: 'Iqtisodiyot — bu odamlar, kompaniyalar va hukumatlarning resurslar bo‘yicha qanday tanlov qilishini o‘rganadigan fan. U ijtimoiy fanlarni yuqori darajadagi matematika va ma’lumotlar tahlili bilan birlashtiradi. Bu shunchaki "pul" haqida emas, balki modellar orqali inson xulq-atvorini bashorat qilish haqidadir.',
+      dailyWork: [
+        'Ma’lumotlarni tozalash va statistik modellashtirish (R, Python yoki Stata).',
+        'Siyosiy sharhlar yoki bozor tadqiqotlari hisobotlarini tayyorlash.',
+        'Tarixiy ma’lumotlar asosida bozor tendentsiyalarini prognoz qilish.',
+        'Murakkab iqtisodiy signallarni tushuntirish uchun uchrashuvlar.',
+        'Haqiqat: Agar siz tadqiqotda bo‘lsangiz, vaqtingizning 90% i kompyuterda ma’lumotlarni tozalash bilan o‘tadi.'
+      ],
+      whoItFits: [
+        'Yashirin sabablarni qidiradigan o‘ta analitik fikrlovchilar.',
+        'Matematikani yaxshi ko‘radigan, lekin uni jamiyatga tatbiq etmoqchi bo‘lganlar.',
+        'Raqamlarni o‘qilishi oson hikoyaga aylantira oladigan kuchli yozuvchilar.',
+        'Global siyosat va makro-tendentsiyalarga qiziqqanlar.'
+      ],
+      whoShouldAvoid: [
+        'Faqat "bankda ishlashni" xohlaydiganlar (Moliya yo‘nalishi yaxshiroq).',
+        'Oliy matematika va statistikani yoqtirmaydiganlar.',
+        'Ijodiy va amaliy ish qidirayotganlar.',
+        'Muammolarga oddiy, oq-qora javob xohlaydiganlar.'
+      ],
+      careerPaths: {
+        employee: ['Siyosiy tahlilchi', 'Data Scientist', 'Moliyaviy tahlilchi', 'Iqtisodiy tadqiqotchi'],
+        freelance: ['Ma’lumotlar tahlili shartnomalari', 'Texnik yozish'],
+        business: ['Venchur kapitali', 'Kompaniyalar uchun strategik rejalashtirish']
+      },
+      uzVsAbroad: {
+        uz: ['Vazirliklar va xalqaro tashkilotlarda (BMT, Jahon banki) talab yuqori.', 'Toshkentdagi makroiqtisodiy tadqiqotlar uchun qadrli.'],
+        abroad: ['Konsalting firmalari (McKinsey, BCG) tomonidan yuqori baholanadi.', 'Yuqori darajadagi tadqiqotlar uchun magistratura yoki PhD talab etiladi.']
+      },
+      realityCheck: [
+        { factor: 'Qiyinchilik', rating: 'YUQORI', notes: 'Kuchli matematika va abstrakt modellashtirish.' },
+        { factor: 'Raqobat', rating: 'YUQORI', notes: 'Moliya va matematika bitiruvchilari bilan raqobatlashasiz.' },
+        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Top tahlilchilar juda yaxshi daromad topishadi.' },
+        { factor: 'AI xavfi', rating: 'O‘RTA', notes: 'Ma’lumotlar bilan bog‘liq vazifalar avtomatlashmoqda; tahliliy xulosa esa insonda qoladi.' }
+      ],
+      freeResources: [
+        { name: 'Marginal Revolution University', url: 'https://mru.org/', why: 'Iqtisodiyotga eng yaxshi vizual kirish.', whenToStop: 'Asosiy prinsiplar modullaridan keyin.', notFor: '"Talab va taklif" haqida gapirishni yoqtirmaydiganlar.' },
+        { name: 'Khan Academy Macroeconomics', url: 'https://www.khanacademy.org/economics-finance-domain/macroeconomics', why: 'Yangiliklar ortidagi matematikani tushuntiradi.', whenToStop: '"Inflyatsiya"ni aniq tushuntira olganingizda.', notFor: 'Matematikasi juda kuchli talabalar uchun (juda sodda).' }
+      ]
+    },
+    {
+      id: 'engineering',
+      title: 'Muhandislik',
+      description: 'Moddiy muammolarni hal qilish uchun fizik qonunlarni qo‘llash.',
+      actuallyIs: 'Muhandislik — bu inshootlar, mashinalar va tizimlarni loyihalash, qurish va saqlash uchun matematika va fizikadan foydalanishdir. U qurilish (ko‘priklar), mexanika (dvigatellar) va elektr (sxemalar) kabi turlarga bo‘linadi. Bu aniq fanlarning eng "amaliy" qismidir.',
+      dailyWork: [
+        'CAD (kompyuter yordamida loyihalash) dasturlarida chizmalar chizish.',
+        'Qurilish yoki ishlab chiqarish maydonlarida tekshiruv o‘tkazish.',
+        'Xavfsizlik hisob-kitoblari va sinovlarini o‘tkazish.',
+        'Ishlab chiqarish jamoalari uchun texnik hujjatlarni tayyorlash.',
+        'Haqiqat: Siz "ijodiy dizayn"dan ko‘ra xavfsizlik qoidalariga ko‘p vaqt sarflaysiz.'
+      ],
+      whoItFits: [
+        'Narsalarni qismlarga ajratib, qayta yig‘ishni yoqtiradiganlar.',
+        'Jismoniy muammolarga nisbatan o‘ta mantiqiy yondashadiganlar.',
+        'Mas’uliyatdan qo‘rqmaydiganlar (muhandis xatosi falokatga olib kelishi mumkin).',
+        'Vizual tasavvur va fazoviy fikrlashi kuchli bo‘lganlar.'
+      ],
+      whoShouldAvoid: [
+        'Fizika va oliy matematikadan qiynaladiganlar.',
+        'Amaliy natijadan ko‘ra mavhum nazariyani afzal ko‘radiganlar.',
+        'Texnik qoidalar va standartlashtirilgan xavfsizlik kodlarini yoqtirmaydiganlar.',
+        'Tez va oson diplom qidirayotganlar.'
+      ],
+      careerPaths: {
+        employee: ['Qurilish muhandisi', 'Mexanik muhandis', 'Ishlab chiqarish menejeri'],
+        freelance: ['Mustaqil CAD dizayni', 'Loyiha maslahatchisi'],
+        business: ['Qurilish kompaniyasi egasi', 'Texnik ishlab chiqarish biznesi']
+      },
+      uzVsAbroad: {
+        uz: ['Toshkentdagi qurilish bumu tufayli talab juda yuqori.', 'Energetika tizimi uchun elektr muhandislari juda zarur.'],
+        abroad: ['Yevropada (ayniqsa Germaniyada) ishchi viza olish uchun yaxshi imkoniyat.', 'Deyarli har qanday davlatda barqaror va kafolatlangan daromad.']
+      },
+      realityCheck: [
+        { factor: 'Qiyinchilik', rating: 'JUDA YUQORI', notes: 'Og‘ir matematika va fizika yuklamasi.' },
+        { factor: 'Raqobat', rating: 'O‘RTA-YUQORI', notes: 'Kirish darajasi balandligi sababli mutaxassislar kam.' },
+        { factor: 'Daromad salohiyati', rating: 'O‘RTA-YUQORI', notes: 'Barqaror, lekin IT’dagi kabi juda tez o‘smaydi.' },
+        { factor: 'AI xavfi', rating: 'PAST', notes: 'Jismoniy mavjudlik va xavfsizlik mas’uliyatini avtomatlashtirish qiyin.' }
+      ],
+      freeResources: [
+        { name: 'The Engineering ToolBox', url: 'https://www.engineeringtoolbox.com/', why: 'Sohada ishlatiladigan haqiqiy formulalar.', whenToStop: 'Faqat ma’lumotnoma sifatida ishlating.', notFor: 'Boshlovchilar uchun (juda texnik).' },
+        { name: 'Brilliant.org (Fizika)', url: 'https://brilliant.org/', why: 'Fizik qonunlarni intuitiv tushunishni shakllantiradi.', whenToStop: 'Mexanika asoslarini tushunganingizda.', notFor: 'Faqat kod yozishni xohlaydiganlar.' }
+      ]
+    },
+    {
+      id: 'medicine',
+      title: 'Tibbiyot',
+      description: 'Biologik xizmat ko‘rsatish va ta’mirlash fani.',
+      actuallyIs: 'Tibbiyot — bu kasalliklarni aniqlash, davolash va oldini olishni o‘rganishdir. Bu 10-15 yillik ta’lim va tayyorgarlik yo‘li. Siz xizmat qilish va doimiy o‘rganishga umringizni bag‘ishlaysiz. Bu shunchaki "hayot qutqarish" emas — bu murakkab biologik tizimni batafsil tahlil qilishdir.',
+      dailyWork: [
+        'Bemorlarni ko‘zdan kechirish (Rounds).',
+        'Tahlil natijalarini ko‘rib chiqish va tashxis qo‘yish.',
+        'Juda ko‘p miqdordagi qog‘ozbozlik va elektron hisobotlar.',
+        'Rezidentura davrida 24+ soatlik navbatchiliklar.',
+        'Haqiqat: Vaqtingizning 40% ini kompyuterga ma’lumot kiritishga sarflaysiz.'
+      ],
+      whoItFits: [
+        'O‘ta yuqori ruhiy chidamlilik (o‘lim va kasallik bilan ishlash).',
+        'Katta hajmdagi ma’lumotlarni yodlay olish qobiliyati.',
+        'Hamdardlik (empathy) va professional sovuqqonlikni birlashtira olish.',
+        'Yuqori daromadgacha bo‘lgan 10+ yillik yo‘lga tayyor bo‘lganlar.'
+      ],
+      whoShouldAvoid: [
+        'Asosan "status" yoki "pul" uchun tanlayotganlar (boshqa yo‘llar tezroq daromad beradi).',
+        'Qon yoki tana suyuqliklarini ko‘rsa o‘zini yo‘qotadiganlar.',
+        'Byurokratiyaga sabri yetmaydiganlar.',
+        'Hayotining boshida erkin vaqt (work-life balance) xohlaydiganlar.'
+      ],
+      careerPaths: {
+        employee: ['Xirurg', 'Terapevt', 'Tibbiy tadqiqotchi', 'Kasalxona administratori'],
+        freelance: ['Xususiy klinika (katta sarmoya talab qiladi)', 'Teletibbiyot'],
+        business: ['Health-tech maslahatchisi', 'Farmatsevtika savdosi']
+      },
+      uzVsAbroad: {
+        uz: ['Davlat sektorida shifokorlar hurmat qilinadi, lekin ko‘pincha maosh kam.', 'Toshkentdagi xususiy klinikalar asosiy daromad manbai.'],
+        abroad: ['Boshqa davlatga o‘tish uchun juda qiyin imtihonlar (USMLE, PLAB) topshirish kerak.', 'Dunyo bo‘ylab eng barqaror ish o‘rni.']
+      },
+      realityCheck: [
+        { factor: 'Qiyinchilik', rating: 'O‘TA YUQORI', notes: 'Ma’lumot hajmi bo‘yicha tengsiz soha.' },
+        { factor: 'Raqobat', rating: 'O‘TA YUQORI', notes: 'O‘qishga kirish — bu faqat birinchi to‘siq.' },
+        { factor: 'Daromad salohiyati', rating: 'YUQORI', notes: 'Faqat 30-35 yoshdan keyin yaxshi daromad kafolatlanadi.' },
+        { factor: 'AI xavfi', rating: 'PAST', notes: 'Insoniy ishonch va jarrohlik mahoratini almashtirib bo‘lmaydi.' }
+      ],
+      freeResources: [
+        { name: 'Khan Academy Medicine', url: 'https://www.khanacademy.org/science/health-and-medicine', why: 'Inson tizimlariga eng yaxshi kirish.', whenToStop: 'Anatomiya va fiziologiyani tugatgach.', notFor: 'Lotincha nomlarni yodlashni yomon ko‘radiganlar.' },
+        { name: 'Kenhub', url: 'https://www.kenhub.com/', why: 'Organlar va suyaklarning joylashuvini o‘rganish.', whenToStop: 'Qo‘shimcha manba sifatida ishlating.', notFor: 'Kitobdan o‘qishni afzal ko‘radiganlar.' }
+      ]
     }
   ]
 };
