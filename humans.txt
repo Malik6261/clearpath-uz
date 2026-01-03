@@ -1,0 +1,11 @@
+
+/* TEAM */
+    Project: ClearPath
+    Maintainer: Decision Intelligence Lab
+    Contact: [Available on live site]
+    Location: Tashkent, Uzbekistan
+
+/* SITE */
+    Last update: 2025/05/15
+    Standards: React, Tailwind CSS, TypeScript
+    Components: Hand-coded for performance and clarity.

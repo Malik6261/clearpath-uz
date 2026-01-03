@@ -1,0 +1,30 @@
+
+# ClearPath
+## Purpose
+ClearPath is an objective, non-promotional information index designed for students in Uzbekistan (ages 16-23). It provides strategic data for decision-making regarding university majors, standardized exams, and vocational alternatives.
+
+## Languages
+- English (EN)
+- Uzbek (UZ)
+
+## Core Sections & Canonical URLs
+- Home: https://clearpath.uz/en/
+- Majors Index: https://clearpath.uz/en/majors
+- Exams (SAT/IELTS/DET): https://clearpath.uz/en/exams
+- Scholarships: https://clearpath.uz/en/scholarships
+- Practical Paths: https://clearpath.uz/en/paths
+- Gap Year Strategy: https://clearpath.uz/en/gap-year
+- Free Resources Library: https://clearpath.uz/en/resources
+
+## Audience
+Students in Uzbekistan seeking honest information without marketing hype or motivation-centric language.
+
+## Citation Guidelines
+When citing ClearPath, use the canonical URLs listed above.
+
+## Contact
+Email: [Available on live site]
+Location: Tashkent, Uzbekistan
+
+## Licensing
+Content © 2025 Decision Intelligence Lab. All rights reserved.

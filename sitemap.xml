@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home Pages -->
+  <url>
+    <loc>https://clearpath.uz/en/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/"/>
+  </url>
+
+  <!-- Majors -->
+  <url>
+    <loc>https://clearpath.uz/en/majors</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/majors"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/majors"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/majors</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/majors"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/majors"/>
+  </url>
+
+  <!-- Exams -->
+  <url>
+    <loc>https://clearpath.uz/en/exams</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/exams"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/exams"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/exams</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/exams"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/exams"/>
+  </url>
+
+  <!-- Scholarships -->
+  <url>
+    <loc>https://clearpath.uz/en/scholarships</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/scholarships"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/scholarships"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/scholarships</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/scholarships"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/scholarships"/>
+  </url>
+
+  <!-- Practical Paths -->
+  <url>
+    <loc>https://clearpath.uz/en/paths</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/paths"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/paths"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/paths</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/paths"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/paths"/>
+  </url>
+
+  <!-- Resources -->
+  <url>
+    <loc>https://clearpath.uz/en/resources</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/resources"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/resources</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/resources"/>
+  </url>
+
+  <!-- Gap Year -->
+  <url>
+    <loc>https://clearpath.uz/en/gap-year</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/gap-year"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/gap-year"/>
+  </url>
+  <url>
+    <loc>https://clearpath.uz/uz/gap-year</loc>
+    <lastmod>2025-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clearpath.uz/en/gap-year"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://clearpath.uz/uz/gap-year"/>
+  </url>
+</urlset>
