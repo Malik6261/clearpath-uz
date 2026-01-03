@@ -459,6 +459,26 @@ const EN_CONTENT: SiteContent = {
       { name: "CLEP Calculus", desc: "Some universities accept this for Calculus I credit." },
       { name: "IB Math HL", desc: "For students in the IB system. Accepted in place of math courses at some universities." }
     ],
+    gapYearWhatIsTitle: "What it is",
+    gapYearWhatIsDesc: "A Gap Year is a strategic pause between high school and university. It is not a vacation; it is a year dedicated to personal and professional growth.",
+    gapYearVerdictTitle: "Verdict",
+    gapYearVerdictDesc: "High value if structured. High risk if aimless.",
+    gapYearStrategicTitle: "Strategic Use Cases",
+    gapYearStrategic1Title: "Profile Building",
+    gapYearStrategic1Desc: "Increasing competitiveness for top-tier scholarships.",
+    gapYearStrategic2Title: "Skill Acquisition",
+    gapYearStrategic2Desc: "Learning a high-income skill like coding or digital marketing.",
+    gapYearStrategic3Title: "Mental Reset",
+    gapYearStrategic3Desc: "Preventing burnout after intense schooling.",
+    gapYearDeceptionTitle: "The Common Deception",
+    gapYearDeception1: "I'll study all day.",
+    gapYearDeception2: "I'll start a business.",
+    gapYearDeception3: "I'll learn three languages.",
+    gapYearRisksBenefitsTitle: "Risks vs Benefits",
+    gapYearUpsideTitle: "Upsides",
+    gapYearUpsideList: ["Maturity", "Better Resume", "Clarity"],
+    gapYearDownsideTitle: "Downsides",
+    gapYearDownsideList: ["Lost Momentum", "Social Isolation", "Late Start"],
     specialistHeader: "Specialists",
     specialistSubtitle: "Real-world Logbooks",
     specialistDesc: "Daily activity logs from senior professionals currently working in target fields.",
@@ -724,244 +744,246 @@ const EN_CONTENT: SiteContent = {
     {
       id: 'sat',
       title: 'SAT',
-      shortDescription: 'AQSHning nufuzli universitetlariga kirish va akademik grantlar yutish uchun kalit imtihon.',
+      shortDescription: 'Essential for elite US admissions and merit-based financial aid strategies.',
       whoNeeds: [
-        'AQSHning top-30 (Ivy League, MIT va h.k.) universitetlariga hujjat topshiruvchilar.',
-        'Akademik yutuqlarga asoslangan katta grantlarni (merit-based scholarship) ko\'zlayotganlar.',
-        'AQSHdagi nufuzli davlat universitetlarini (Purdue, Georgia Tech) nishonga olganlar.'
+        'Applying to top-tier US universities (Ivy League, MIT, etc.).',
+        'Targeting selective state schools (Purdue, Georgia Tech).',
+        'Students looking for merit-based scholarships.'
       ],
       whoDoesNot: [
-        'AQSHdagi ochiq qabulli (community college) maktablariga topshiruvchilar.',
-        'Faqat Buyuk Britaniya, Kanada yoki Yevropada o\'qishni rejalashtirganlar.',
-        'SAT natijasini talab qilmaydigan (test-blind) universitetlarni tanlaganlar.'
+        'Applying to non-selective US schools (community colleges).',
+        'Targeting UK, Canadian, or European universities.',
+        'Applying to schools that are strictly test-blind.'
       ],
       scoreRanges: [
-        { type: 'Top-10 Universitetlar', range: '1540–1600', competitiveness: 'Top 1% o\'quvchilar safi' },
-        { type: 'Top-50 Universitetlar', range: '1480–1530', competitiveness: 'Top 2-3% natija' },
-        { type: 'Nufuzli davlat OTMlari', range: '1300–1450', competitiveness: 'Yaxshi raqobatbardosh daraja' }
+        { type: 'Ivy League', range: '1500–1560', competitiveness: 'Top 1% of test-takers' },
+        { type: 'Elite non-Ivies', range: '1480–1550', competitiveness: 'Top 1-2%' },
+        { type: 'Selective state', range: '1250–1400', competitiveness: 'Top 10-20%' }
       ],
       commonMistakes: [
-        'Vaqt bosimi ostida mashq qilmaslik (eng katta xato).',
-        'Faqat matematikaga e\'tibor qaratib, Reading qismini e\'tiborsiz qoldirish.',
-        'Haddan tashqari ko\'p kitoblardan foydalanish; bitta rasmiy resurs kifoya.',
-        'Matematik mantiqni o\'rganish o\'rniga javoblarni yodlash.',
-        'Xatolar tahliliga tayyorgarlik vaqtining kamida 50 foizini ajratmaslik.'
+        'Not practicing under time pressure.',
+        'Ignoring weak areas (focusing only on math).',
+        'Too many materials; one good resource is enough.',
+        'Memorizing answers instead of concepts.',
+        'Only watching videos without active solving.',
+        'Not analyzing mistakes thoroughly.'
       ],
       resources: [
-        { name: 'Khan Academy SAT Prep', url: 'https://www.khanacademy.org/sat', why: 'College Board rasmiy hamkori. Eng ishonchli va bepul darslik.', whenToStop: 'Mashq testlarida maqsadli ballga doimiy erishganingizda.', notFor: 'O\'zi mustaqil o\'qiy olmaydiganlar.' }
+        { name: 'Khan Academy SAT Prep', url: 'https://www.khanacademy.org/sat', why: 'Official partner of College Board. Best free option.', whenToStop: 'Once you hit your target practice score consistently.', notFor: 'People who need live classroom motivation.' }
       ],
       whenToStop: [
-        'Kamida 3 ta rasmiy mashq testida maqsadli ballingizga erishganingizda.',
-        'Taxminan 80-100 soatlik tayyorgarlikdan so\'ng (samaradorlik pasaya boshlaydi).',
-        'Hujjat topshirish muddatiga 2-3 oy qolganida.'
+        'Once you hit your target score in 3+ practice tests.',
+        'When you reach the "diminishing returns" phase (after 80 hours of study).',
+        '2 months before your application deadline.'
       ],
       officialMaterials: [
-        { name: "Bluebook App", url: "https://bluebook.collegeboard.org/", why: "Rasmiy raqamli test platformasi. Haqiqiy test muhiti.", whenToStop: "Faqat to\'liq test topshirish uchun.", notFor: "Mavzularni noldan o'rganish." },
-        { name: "CB Practice PDFs", url: "https://satsuite.collegeboard.org/sat/practice-preparation/practice-tests", why: "Ko'rib chiqish uchun rasmiy savollar to'plami.", whenToStop: "Barcha testlarni tahlil qilib bo'lgach.", notFor: "Interaktiv tayyorgarlik." }
+        { name: "Bluebook App", url: "https://bluebook.collegeboard.org/", why: "Official digital testing environment. Most accurate practice tests.", whenToStop: "Use for full-length diagnostics only.", notFor: "Quick drill practice." },
+        { name: "CB Practice PDFs", url: "https://satsuite.collegeboard.org/sat/practice-preparation/practice-tests", why: "Static official questions for review.", whenToStop: "After reviewing every official test.", notFor: "Learning new concepts." }
       ],
       commonlyUsedBooks: [
-        "Erica Meltzer (DSAT Reading/Writing - eng yaxshisi)",
-        "College Panda (DSAT Math - mantiq uchun)",
+        "Erica Meltzer (DSAT Reading/Writing)",
+        "College Panda (DSAT Math)",
         "The Official SAT Study Guide"
       ],
       additionalPlatforms: [
-        { name: "1600.io", url: "https://1600.io/", why: "Rasmiy testlarning juda chuqur video tahlili.", whenToStop: "Mantiqni o\'zingiz tushuntira oladigan bo\'lganda.", notFor: "Noldan boshlovchilar." },
-        { name: "UWorld", url: "https://www.uworld.com/collegeprep/sat/sat.aspx", why: "Eng kuchli va sifatli savollar banki (pullik bo'lishi mumkin).", whenToStop: "Savollar tugaganida.", notFor: "Kam byudjetli tayyorgarlik." }
+        { name: "1600.io", url: "https://1600.io/", why: "Detailed video explanations of official tests.", whenToStop: "When you can explain the logic yourself.", notFor: "Absolute beginners." },
+        { name: "UWorld", url: "https://www.uworld.com/collegeprep/sat/sat.aspx", why: "Best practice question bank outside official sources.", whenToStop: "When you run out of new questions.", notFor: "Low-budget prep (Paid)." }
       ],
       scoreMapping: [
-        { range: "1550+", focus: "AQSHning eng kuchli 10 taligiga (Harvard, MIT) real da'vogar." },
-        { range: "1450-1540", focus: "Top-50 universitetlar uchun juda kuchli raqobatbardosh ball." },
-        { range: "1350-1440", focus: "Nufuzli davlat universitetlari uchun yetarli natija." }
+        { range: "1550+", focus: "Targeting top 10 US universities (Harvard, MIT)." },
+        { range: "1450-1530", focus: "Competitive for most top 50 US schools." },
+        { range: "1350-1440", focus: "Solid for selective state universities." }
       ],
       desmosGuidance: {
-        title: "Desmos strategiyasi",
-        description: "Raqamli SATda o'rnatilgan grafik kalkulyatorni o'rganish matematikadan ballni 30% ga o'stiradi. Ko'p savollarni tenglamasiz yechish mumkin.",
+        title: "Desmos Strategy",
+        description: "Mastering the built-in graphing calculator is essential for the Math module. It can solve roughly 30% of questions faster than manual algebra.",
         link: "https://www.youtube.com/results?search_query=sat+desmos+tricks"
       },
       youtubeChannels: [
-        { name: "Scalar Learning", description: "Vaqt ostida real rejimda matematika yechishni ko'rsatadi." },
-        { name: "Strategic Test Prep", description: "Vaqtni boshqarish va strategik yondashuv bo'yicha eng yaxshi tavsiyalar." }
+        { name: "Scalar Learning", description: "Best for real-time math solving under time pressure." },
+        { name: "Strategic Test Prep", description: "Focuses on digital SAT strategies and time management." }
       ]
     },
     {
       id: 'ielts',
       title: 'IELTS (Academic)',
-      shortDescription: "Ingliz tili darajasini tasdiqlovchi dunyo miqyosidagi asosiy o'lchov.",
+      shortDescription: 'The standard metric for English proficiency globally.',
       whoNeeds: [
-        'Buyuk Britaniya, Avstraliya, Kanada yoki Yevropada o\'qishni istaganlar.',
-        'O\'zbekistondagi xalqaro OTM filiallariga (WIUT, Turin, Amity va h.k.) kiruvchilar.',
-        'Magistraturada o\'qish uchun majburiy sertifikat sifatida.'
+        'Applying to universities in the UK, Australia, or Canada.',
+        'Seeking admission to international branch campuses in Uzbekistan (WIUT, Turin, etc.).',
+        'Students targeting European degrees taught in English.'
       ],
       whoDoesNot: [
-        'Faqat mahalliy davlat OTMlariga topshiruvchilar (agar yo\'nalish talab qilmasa).',
-        'AQSHdagi Duolingo (DET) qabul qiladigan universitetlarni tanlaganlar (arzonroq yo\'l).',
-        'Ingliz tilida 4+ yil ta\'lim olganini isbotlovchi hujjati borlar.'
+        'Applying to local UZ state universities (unless specific major requirement).',
+        'Targeting US schools that accept DET/Duolingo (which is cheaper).',
+        'Students who already have evidence of 4+ years of English-medium schooling.'
       ],
       scoreRanges: [
-        { type: 'Global Top-50', range: '7.5 – 8.5', competitiveness: 'Juda yuqori (C1/C2 daraja)' },
-        { type: 'Xalqaro standart', range: '6.5 – 7.0', competitiveness: 'Kutuvdagi minimum (B2/C1)' },
-        { type: 'Mahalliy/Foundation', range: '5.5 – 6.0', competitiveness: 'O\'rtacha daraja (B2)' }
+        { type: 'Elite/Global Top 50', range: '7.5 – 8.5', competitiveness: 'Very High (C1/C2 Level)' },
+        { type: 'Standard International', range: '6.5 – 7.0', competitiveness: 'High (B2/C1 Level)' },
+        { type: 'Foundation/Local', range: '5.5 – 6.0', competitiveness: 'Moderate (B2 Level)' }
       ],
       commonMistakes: [
-        'Writing Task 2 uchun tayyor qoliplarni (templates) ko\'r-ko\'rona yodlash.',
-        'Speakingda aniqlikdan ko\'ra ravonlik (fluency) muhimligini unutish.',
-        'O\'zi tushunmagan "murakkab" so\'zlarni ishlatishga harakat qilish.',
-        'Readingda vaqtni to\'g\'ri taqsimlay olmaslik (oxirgi matnga vaqt qolmasligi).',
-        'Talaffuz o\'rniga aktsentni (accent) o\'zgartirishga urunish.'
+        'Memorizing "templates" for Writing Task 2.',
+        'Ignoring the specific criteria for Speaking (Fluency > Accuracy).',
+        'Using "complex" vocabulary incorrectly instead of being clear.',
+        'Not practicing under real-time constraints for Reading.',
+        'Focusing on accents instead of pronunciation.'
       ],
       resources: [
-        { name: 'IELTS Liz', url: 'https://ieltsliz.com/', why: "Vazifalar bo'yicha eng tushunarli va tizimli qo'llanma.", whenToStop: 'Baholash mezonlarini (marking criteria) to\'liq anglaganingizda.', notFor: 'Interaktiv aloqaga muhtojlar.' },
-        { name: 'Road to IELTS (Bepul)', url: 'https://www.ielts.org/en-us/about-the-test/sample-test-questions', why: 'Imtihon asoschilaridan rasmiy namunalar.', whenToStop: 'Barcha namunaviy testlarni tugatganingizda.', notFor: 'Noldan boshlovchilar.' }
+        { name: 'IELTS Liz', url: 'https://ieltsliz.com/', why: 'Best structured guide for task-specific strategies.', whenToStop: 'Once you understand the marking criteria fully.', notFor: 'Students who need interactive feedback.' },
+        { name: 'Road to IELTS (Free Version)', url: 'https://www.ielts.org/en-us/about-the-test/sample-test-questions', why: 'Official sample questions from the creators.', whenToStop: 'After completing all official sample modules.', notFor: 'Complete beginners.' }
       ],
       whenToStop: [
-        'Mock test natijalaringiz doimiy ravishda maqsadli ballingizdan yuqori bo\'lganda.',
-        "3 oylik intensiv tayyorgarlikdan so'ng (shundan keyin o'sish sezilarli sekinlashadi).",
-        "Oddiy savollar ustida haddan tashqari ko'p bosh qotira boshlaganingizda."
+        'When your mock test results are consistently at or above your target band.',
+        'After 3 months of intensive study (plateaus are common after this).',
+        'When you find yourself over-thinking simple questions.'
       ]
     },
     {
       id: 'det',
       title: 'Duolingo English Test (DET)',
-      shortDescription: 'AQSH universitetlari uchun tezkor, arzon va zamonaviy muqobil.',
+      shortDescription: 'A high-speed, cost-effective alternative for US admissions.',
       whoNeeds: [
-        'Byudjeti cheklanganlar (narxi $59, IELTS\'dan 4 barobar arzon).',
-        'Natijani 48 soat ichida olishi zarur bo\'lganlar.',
-        'Kompyuterga asoslangan va adaptiv test uslubini yoqtiradiganlar.'
+        'Applying to US universities on a tight budget ($59 vs $200+).',
+        'Students who need results in 48 hours.',
+        'Those who prefer an adaptive, computer-based testing style.'
       ],
       whoDoesNot: [
-        'Buyuk Britaniya yoki Avstraliyaning ko\'pgina universitetlariga topshiruvchilar.',
-        'Tezkor savollarga va adaptiv tizimga moslasha olmaydiganlar.',
-        'Faqat "IELTS" talab qiluvchi maxsus davlat grantlari ishtirokchilari.'
+        'Applying to most UK or Australian universities (lower acceptance).',
+        'Students who struggle with fast-paced, adaptive questions.',
+        'Applying to specific "IELTS only" scholarship programs.'
       ],
       scoreRanges: [
-        { type: 'AQSH Elita OTMlari', range: '135 – 150', competitiveness: 'Top natija' },
-        { type: 'Nufuzli OTMlar', range: '120 – 130', competitiveness: 'Raqobatbardosh ball' },
-        { type: 'Standart qabul', range: '105 – 115', competitiveness: 'O\'rtacha daraja' }
+        { type: 'Elite US Admissions', range: '135 – 150', competitiveness: 'Top Tier' },
+        { type: 'Selective US Schools', range: '120 – 130', competitiveness: 'Competitive' },
+        { type: 'Standard Entry', range: '105 – 115', competitiveness: 'Moderate' }
       ],
       commonMistakes: [
-        'Ekrandan chetga qarash (o\'zbek o\'quvchilari shu sabab ko\'p chetlatiladi).',
-        'Mikrofon yoki internet sifatini oldindan tekshirmaslik.',
-        'Yozib olish qismlarida (speaking) juda past ovozda gapirish.',
-        'Savollarning tezligiga tayyor bo\'lmaslik.'
+        'Looking away from the screen (test is invalidated immediately).',
+        'Not checking microphone/internet quality beforehand.',
+        'Speaking too quietly during the recording sections.',
+        'Underestimating the speed required for "Write about a Photo".'
       ],
       resources: [
-        { name: 'DET Rasmiy Qo\'llanma', url: 'https://englishtest.duolingo.com/readiness', why: 'Haqiqiy savollar va test formati bilan tanishish uchun yagona manba.', whenToStop: 'Mashq testida maqsadli ballingizni ikki marta olganingizda.', notFor: 'Oson yo\'l qidiruvchilar.' }
+        { name: 'DET Official Guide', url: 'https://englishtest.duolingo.com/readiness', why: 'The only source for real practice questions.', whenToStop: 'Once you hit your target range in the practice test twice.', notFor: 'People looking for "hacks".' }
       ],
       whenToStop: [
-        'Bepul mashq testida maqsadingizdan 10-15 ball yuqori natija ko\'rsatganingizda.',
-        '"Production" qismi bo\'yicha ko\'nikmalarni egallab bo\'lgach.',
-        'Testdan 3 kun oldin (miyangiz dam olishi tayyorgarlikdan muhimroq).'
+        'When you score 10 points above your target in the free practice test.',
+        'Once you have mastered the "Production" score sub-section.',
+        '3 days before your actual test date (rest is better than cramming here).'
       ]
     }
   ],
   scholarships: [
     {
       id: 'el-yurt-umidi',
-      title: 'El-Yurt Umidi Jamg‘armasi',
+      title: 'El-Yurt Umidi Foundation',
       origin: 'UZBEKISTAN',
-      description: 'Xalqaro ta’lim uchun asosiy davlat granti.',
-      whatItIs: 'Dunyoning eng kuchli 300 ta universitetida bakalavr va magistratura bosqichida o‘qishni to‘liq moliyalashtiruvchi davlat tashabbusi.',
+      description: 'The primary government funding for elite international study.',
+      whatItIs: 'A state-funded initiative providing full financial support for undergraduate and graduate education at top 300 universities globally.',
       whoItsFor: [
-        '25 yoshgacha bo‘lgan O‘zbekiston fuqarolari (Bakalavr) yoki kattalar (Magistr/PhD).',
-        'Top-300 dunyo universitetidan qabul xati (offer) olgan shaxslar.',
-        'Davlat sektorida yetakchilik qilishni maqsad qilganlar.'
+        'Citizens of Uzbekistan under 25 (Bachelors) or older (Masters/PhD).',
+        'Individuals with confirmed admission from a top-300 world university.',
+        'Those aiming for public sector leadership.'
       ],
-      coverage: 'O‘qish puli (kontrakt), aviachiptalar, viza xarajatlari, sug‘urta va oylik stipendiya.',
-      competitiveness: 'EKSTREMAL YUQORI',
+      coverage: 'Full tuition, airfare, visa fees, health insurance, and monthly living stipend.',
+      competitiveness: 'EXTREMELY HIGH',
       obligations: [
-        'O‘qishni tugatgandan so‘ng darhol O‘zbekistonga qaytish.',
-        'Davlat tashkilotlarida 3-5 yil davomida majburiy mehnat qilish.',
-        'O‘qish davrida xorijga chiqish pasportini jamg‘armaga topshirish (ko‘pincha talab qilinadi).'
+        'Return to Uzbekistan immediately after graduation.',
+        'Mandatory work in state organizations for 3-5 years.',
+        'Surrendering passport during the study period (often required for security).'
       ],
       whoShouldNotApply: [
-        'Xorijda doimiy qolishni (PR) xohlaydigan talabalar.',
-        'Karyerasining boshidayoq xususiy sektorda ishlashni afzal ko‘radiganlar.',
-        'Nufuzli universitetdan shartsiz (unconditional) offerga ega bo‘lmaganlar.'
+        'Students wanting to seek permanent residency abroad.',
+        'Those who prefer the flexibility of the private sector early in their career.',
+        'Students without an unconditional offer from a top-tier university.'
       ],
-      realityCheck: 'Eng saxiy grant, lekin bu aslida yillar davomida davlat xizmati bilan qaytariladigan "iste’dodlar krediti"dir.',
+      realityCheck: 'The most generous funding available, but it is effectively a "talent loan" repaid via years of mandatory state service.',
       url: 'https://eyuf.uz/'
     },
     {
       id: 'turkiye-burslari',
-      title: 'Turkiye Burslari (Davlat granti)',
+      title: 'Turkiye Burslari (Government)',
       origin: 'INTERNATIONAL',
-      description: 'Turkiya universitetlari uchun keng qamrovli davlat granti.',
-      whatItIs: 'Turkiyaning nufuzli universitetlarida bakalavr, magistr va PhD darajalari uchun to‘liq moliyaviy ko‘mak.',
+      description: 'Comprehensive government-funded scholarship for Turkey.',
+      whatItIs: 'Full financial support for Bachelor’s, Master’s, and PhD levels at prestigious Turkish universities.',
       whoItsFor: [
-        'Yuqori GPA ko‘rsatkichiga ega talabalar (odatda 70%+).',
-        'Til to‘sig‘ini tezda yenga oladigan o‘zbek zabon yoshlar (o‘xshashlik juda yuqori).',
-        'Ijtimoiy fanlar, muhandislik yoki tibbiyot yo‘nalishini tanlaganlar.'
+        'Students with high GPA (usually 70%+ for undergraduate).',
+        'Uzbek speakers who can rapidly bridge the language gap (very high similarity).',
+        'Individuals aiming for degrees in Social Sciences, Engineering, or Health.'
       ],
-      coverage: 'O‘qish puli, oylik stipendiya, aviachiptalar, sug‘urta va 1 yillik bepul turk tili kursi.',
-      competitiveness: 'YUQORI',
+      coverage: 'University tuition, monthly stipend, flight tickets, health insurance, and 1-year Turkish language course (highly accessible for Uzbek students).',
+      competitiveness: 'HIGH',
       obligations: [
-        'Majburiy 1 yillik turk tili kursini muvaffaqiyatli tugatish.',
-        'O‘qish davomida akademik ko‘rsatkichlarni yuqori darajada saqlash.'
+        'Completion of a mandatory 1-year Turkish language course.',
+        'Maintain academic standards during the study period.'
       ],
       whoShouldNotApply: [
-        'Mintaqaviy madaniyatga moslashishni xohlamay, faqat ingliz tilida o‘qishni istaganlar.',
-        'Yosh chegarasiga tushmaydiganlar (Bakalavr uchun 21 yosh, Magistr uchun 30 yosh).'
+        'Students seeking English-only education without any regional cultural integration.',
+        'Applicants who do not meet the strict age requirements (21 for Bachelor, 30 for Master).'
       ],
-      realityCheck: 'Strategik jihatdan eng qulay yo‘llardan biri. Turk va o‘zbek tillari 80% o‘xshash bo‘lgani uchun, til o‘rganish o‘zbeklar uchun oson g‘alabadir.',
+      realityCheck: 'A strategic all-inclusive path. The language requirement is actually a "low-effort" win for Uzbeks due to the 80% similarity between our languages.',
       url: 'https://www.turkiyeburslari.gov.tr/'
     },
     {
       id: 'daad',
-      title: 'DAAD Granti (Germaniya)',
+      title: 'DAAD Scholarship (Germany)',
       origin: 'INTERNATIONAL',
-      description: 'Germaniyada o‘qish uchun asosiy moliyaviy yo‘l.',
-      whatItIs: 'Xalqaro talabalar va tadqiqotchilarning Germaniya davlat universitetlarida ta’lim olishini qo‘llab-quvvatlovchi grant.',
+      description: 'The main funding path for studying in Germany.',
+      whatItIs: 'Financial support for international students and researchers to pursue higher education at state-recognized German universities.',
       whoItsFor: [
-        'Magistratura yoki PhD darajasini maqsad qilgan yuqori malakali talabalar.',
-        'Ilmiy tadqiqot yoki rivojlanish sohalariga yo‘nalgan shaxslar.',
-        'Ish tajribasiga ega mutaxassislar (ayrim dasturlar uchun).'
+        'Highly qualified students aiming for Master’s or PhD.',
+        'Individuals with a focus on research or development-related fields.',
+        'Students with some professional experience (depending on the specific program).'
       ],
-      coverage: 'Oylik stipendiya (Magistrlar uchun €934, PhD uchun €1,200), yo‘l xarajatlari, sug‘urta va til kurslari uchun subsidiya.',
-      competitiveness: 'JUDA YUQORI',
+      coverage: 'Monthly stipend (€934 for Master’s, €1,200 for PhD), travel allowance, health insurance, and sometimes language course subsidies.',
+      competitiveness: 'VERY HIGH',
       obligations: [
-        'Akademik natijalar bo‘yicha muntazam hisobot berish.',
-        'Ba’zi dasturlar tugatgandan so‘ng o‘z vataniga qaytishni talab qiladi.'
+        'Academic excellence and reporting on progress.',
+        'Some programs require returning to the home country after graduation.'
       ],
       whoShouldNotApply: [
-        'Bakalavr bosqichida o‘qimoqchi bo‘lganlar (DAAD asosan Magistr/PhD uchun).',
-        'Xususiy universitetlarda o‘qishni xohlaydiganlar (odatda qoplanmaydi).',
-        'Akademik profili o‘rtacha bo‘lgan nomzodlar.'
+        'Undergraduate students (most DAAD funding is for Master’s/PhD).',
+        'Students who prefer private universities in Germany (usually not covered).',
+        'Applicants without a strong academic profile.'
       ],
-      realityCheck: 'Germaniyada davlat universitetlari bepul; DAAD — bu yashash xarajatlarini qoplashning eng nufuzli usulidir.',
+      realityCheck: 'Germany offers tuition-free education at public universities; DAAD is the most prestigious way to cover your living costs.',
       url: 'https://www.daad.uz/'
     },
     {
       id: 'chevening',
-      title: 'Chevening Granti (Buyuk Britaniya)',
+      title: 'Chevening Scholarship (UK)',
       origin: 'INTERNATIONAL',
-      description: 'Britaniya Tashqi ishlar vazirligi tomonidan moliyalashtiriladigan global yetakchilik dasturi.',
-      whatItIs: 'Yetakchilik qobiliyatiga ega shaxslar uchun Buyuk Britaniyada bir yillik magistraturada o‘qish uchun to‘liq grant.',
+      description: 'Global leadership program funded by the UK Foreign Office.',
+      whatItIs: 'Full funding for a one-year Master’s degree in the UK for individuals with demonstrable leadership potential.',
       whoItsFor: [
-        'Kamida 2 yillik ish tajribasiga ega O‘zbekiston fuqarolari.',
-        'Kuchli akademik bazaga ega shaxslar.',
-        'Kelajakda siyosat yoki sanoatga ta’sir o‘tkazmoqchi bo‘lgan yetakchilar.'
+        'Uzbek citizens with 2+ years of work experience.',
+        'Individuals with a strong academic background.',
+        'Future leaders aiming to influence policy or industry.'
       ],
-      coverage: 'O‘qish puli, oylik stipendiya, iqtisodiy klass aviachiptalar va qo‘shimcha grantlar.',
-      competitiveness: 'EKSTREMAL YUQORI',
+      coverage: 'University tuition fees, a monthly living stipend, economy class return airfare, and additional grants.',
+      competitiveness: 'EXTREMELY HIGH',
       obligations: [
-        'O‘qish tugagandan so‘ng kamida 2 yil O‘zbekistonda yashash va ishlash.',
-        'Global Chevening bitiruvchilari tarmog‘ida faol ishtirok etish.'
+        'Must return to Uzbekistan for at least two years after the scholarship ends.',
+        'Engagement with the global Chevening alumni network.'
       ],
       whoShouldNotApply: [
-        'Kamida 2,800 soatlik ish tajribasiga ega bo‘lmaganlar.',
-        'Bakalavr yoki PhD darajasini olmoqchi bo‘lganlar.',
-        'O‘zbekistonga qaytish niyati bo‘lmaganlar.'
+        'Individuals without at least 2,800 hours of work experience.',
+        'Those seeking a PhD or undergraduate degree.',
+        'Students who do not intend to return to UZ.'
       ],
-      realityCheck: 'Juda nufuzli tanishlar tarmog‘iga kirish imkoniyati, lekin aniq karyera maqsadlari va yetakchilik tarixini talab qiladi.',
+      realityCheck: 'A highly prestigious networking opportunity, but requires clear career goals and proven leadership history.',
       url: 'https://www.chevening.org/scholarship/uzbekistan/'
     }
   ],
-  paths: [AUSBILDUNG_PATH_UZ]
+  paths: [AUSBILDUNG_PATH_EN]
 };
 
 const UZ_CONTENT: SiteContent = {
   ...EN_CONTENT,
   ui: {
+    ...EN_CONTENT.ui,
     seo: {
       home: { title: "ClearPath — Oʻzbekiston talabalari uchun qaror qabul qilish yoʻriqnomasi", desc: "Oʻzbekistonlik talabalar uchun ochiq ma’lumotlar indeksi. Yo‘nalishlar, imtihonlar va karyera yo‘llari bo‘yicha rostgo‘y ma’lumotlar." },
       majors: { title: "Mutaxassisliklar indeksi — ClearPath", desc: "Oʻzbekiston universitet yoʻnalishlarining xolis tahlili. Kundalik voqelik, daromad salohiyati va stress omillari." },
@@ -1014,7 +1036,7 @@ const UZ_CONTENT: SiteContent = {
     phil3: "Hozir boshingiz qotgan bo‘lsa, bu normal holat. Ushbu indeks sizga bo‘sh va’dalar o‘rniga aniq ma’lumotlar berish orqali chalkashlikdan chiqishga yordam beradi.",
     phil4: "Buni kompas deb tasavvur qiling. Biz sizga narsalar qayerda ekanini ko‘rsatamiz, lekin uni qo‘lda ushlab, yo‘nalishni tanlaydigan sizsiz.",
     methTitle: "Metodologiya",
-    methSub: "Talablarni solishtirish",
+    methSub: "Cross-referencing requirements",
     meth1Title: "Manbani tekshirish",
     meth1Desc: "Qarorlar mustaqil tekshiruvni talab qiladi. Foydalanuvchilarga ushbu indeksni rasmiy muassasa portallari bilan solishtirish tavsiya etiladi.",
     meth2Title: "Hujjatlashtirilgan voqelik",
@@ -1171,6 +1193,26 @@ const UZ_CONTENT: SiteContent = {
       { name: "CLEP Calculus", desc: "Ayrim universitetlar buni Calculus I krediti sifatida qabul qiladi." },
       { name: "IB Math HL", desc: "IB tizimi o‘quvchilari uchun. Ba’zi joylarda matematika kurslari o‘rniga o‘tadi." }
     ],
+    gapYearWhatIsTitle: "Aslida nima u?",
+    gapYearWhatIsDesc: "Gap Year — bu maktab va universitet o'rtasidagi strategik tanaffus. Bu ta'til emas, balki shaxsiy va professional o'sishga bag'ishlangan yildir.",
+    gapYearVerdictTitle: "Xulosa",
+    gapYearVerdictDesc: "Agar tizimli bo'lsa - foydasi katta. Maqsadsiz bo'lsa - xavfi yuqori.",
+    gapYearStrategicTitle: "Strategik maqsadlar",
+    gapYearStrategic1Title: "Profilni kuchaytirish",
+    gapYearStrategic1Desc: "Nufuzli grantlar uchun raqobatbardoshlikni oshirish.",
+    gapYearStrategic2Title: "Ko'nikmalarni egallash",
+    gapYearStrategic2Desc: "Dasturlash yoki marketing kabi daromadli sohalarni o'rganish.",
+    gapYearStrategic3Title: "Ruxiy dam olish",
+    gapYearStrategic3Desc: "Kuchli o'qish jarayonidan keyin 'burnout'ning oldini olish.",
+    gapYearDeceptionTitle: "Keng tarqalgan aldovlar",
+    gapYearDeception1: "Kun bo'yi dars qilaman.",
+    gapYearDeception2: "Biznes boshlayman.",
+    gapYearDeception3: "Uchta til o'rganaman.",
+    gapYearRisksBenefitsTitle: "Xavf va foydalar",
+    gapYearUpsideTitle: "Ijobiy tomonlari",
+    gapYearUpsideList: ["Yetuklik", "Yaxshi rezyume", "Aniq maqsad"],
+    gapYearDownsideTitle: "Salbiy tomonlari",
+    gapYearDownsideList: ["Vaqt boy berish", "Ijtimoiy izolyatsiya", "Kechikish"],
     specialistHeader: "Mutaxassislar",
     specialistSubtitle: "Haqiqiy ishchi daftarlari",
     specialistDesc: "Maqsadli sohalarda ishlayotgan yuqori malakali mutaxassislarning kundalik faoliyat jurnallari.",
@@ -1304,7 +1346,7 @@ const UZ_CONTENT: SiteContent = {
       id: 'economics',
       title: 'Iqtisodiyot',
       description: 'Resurslarni taqsimlash va rag‘batlantirish fanidir.',
-      actuallyIs: 'Iqtisodiyot — jamiyat resurslarni qanday boshqarishini o‘rganishdir. Bu faqat pul haqida emas, baki inson xulq-atvori, rag‘batlar va ma’lumotlar haqidadir. Siz dunyo qanday ishlashini modellashtirishni va siyosatdagi o‘zgarishlar odamlarga qanday ta’sir qilishini bashorat qilishni o‘rganasiz.',
+      actuallyIs: 'Iqtisodiyot — jamiyat resurslarni qanday boshqarishini o‘rganishdir. Bu faqat pul haqida emas, baki inson xulq-atvori, rag‘batlar va ma’lumotlar haqidadir. Siz dunyo qanday ishlashini modellashtirishni va siyosatdagi o‘zgarishlar odamlarga qanday ta’sir qilishini bashorat qilishni o‘rganisiz.',
       dailyWork: [
         'Bozor tendentsiyalarini statistik tahlil qilish.',
         'Siyosiy tavsiyalar yoki tadqiqot hisobotlarini yozish.',
@@ -1430,140 +1472,6 @@ const UZ_CONTENT: SiteContent = {
       freeResources: [
         { name: 'Osmosis (YouTube)', url: 'https://www.youtube.com/c/osmosis', why: 'Eng yaxshi vizual tibbiy ta’lim.', whenToStop: 'Patofiziologiya asoslarini tushungandan keyin.', notFor: 'Chuqur jarrohlik tayyorgarligi.' },
         { name: 'Kenhub Anatomiya asoslari', url: 'https://www.kenhub.com/', why: 'Asosiy tana tuzilmalarini o‘rganish.', whenToStop: 'Anatomik sharhdan keyin.', notFor: 'Tibbiyotdan mutlaqo uzoq bo‘lganlar.' }
-      ]
-    }
-  ],
-  exams: [
-    {
-      id: 'sat',
-      title: 'SAT',
-      shortDescription: 'AQSHning nufuzli universitetlariga kirish va akademik grantlar yutish uchun kalit imtihon.',
-      whoNeeds: [
-        'AQSHning top-30 (Ivy League, MIT va h.k.) universitetlariga hujjat topshiruvchilar.',
-        'Akademik yutuqlarga asoslangan katta grantlarni (merit-based scholarship) ko\'zlayotganlar.',
-        'AQSHdagi nufuzli davlat universitetlarini (Purdue, Georgia Tech) nishonga olganlar.'
-      ],
-      whoDoesNot: [
-        'AQSHdagi ochiq qabulli (community college) maktablariga topshiruvchilar.',
-        'Faqat Buyuk Britaniya, Kanada yoki Yevropada o\'qishni rejalashtirganlar.',
-        'SAT natijasini talab qilmaydigan (test-blind) universitetlarni tanlaganlar.'
-      ],
-      scoreRanges: [
-        { type: 'Top-10 Universitetlar', range: '1540–1600', competitiveness: 'Top 1% o\'quvchilar safi' },
-        { type: 'Top-50 Universitetlar', range: '1480–1530', competitiveness: 'Top 2-3% natija' },
-        { type: 'Nufuzli davlat OTMlari', range: '1300–1450', competitiveness: 'Yaxshi raqobatbardosh daraja' }
-      ],
-      commonMistakes: [
-        'Vaqt bosimi ostida mashq qilmaslik (eng katta xato).',
-        'Faqat matematikaga e\'tibor berib, Reading qismini e\'tiborsiz qoldirish.',
-        'Haddan tashqari ko\'p kitoblardan foydalanish; bitta rasmiy resurs kifoya.',
-        'Matematik mantiqni o\'rganish o\'rniga javoblarni yodlash.',
-        'Xatolar tahliliga tayyorgarlik vaqtining kamida 50 foizini ajratmaslik.'
-      ],
-      resources: [
-        { name: 'Khan Academy SAT Prep', url: 'https://www.khanacademy.org/sat', why: 'College Board rasmiy hamkori. Eng ishonchli va bepul darslik.', whenToStop: 'Mashq testlarida maqsadli ballga doimiy erishganingizda.', notFor: 'O\'zi mustaqil o\'qiy olmaydiganlar.' }
-      ],
-      whenToStop: [
-        'Kamida 3 ta rasmiy mashq testida maqsadli ballingizga erishganingizda.',
-        'Taxminan 80-100 soatlik tayyorgarlikdan so\'ng (samaradorlik pasaya boshlaydi).',
-        'Hujjat topshirish muddatiga 2-3 oy qolganida.'
-      ],
-      officialMaterials: [
-        { name: "Bluebook App", url: "https://bluebook.collegeboard.org/", why: "Rasmiy raqamli test platformasi. Haqiqiy test muhiti.", whenToStop: "Faqat to\'liq test topshirish uchun.", notFor: "Mavzularni noldan o'rganish." },
-        { name: "CB Practice PDFs", url: "https://satsuite.collegeboard.org/sat/practice-preparation/practice-tests", why: "Ko'rib chiqish uchun rasmiy savollar to'plami.", whenToStop: "Barcha testlarni tahlil qilib bo'lgach.", notFor: "Interaktiv tayyorgarlik." }
-      ],
-      commonlyUsedBooks: [
-        "Erica Meltzer (DSAT Reading/Writing - eng yaxshisi)",
-        "College Panda (DSAT Math - mantiq uchun)",
-        "The Official SAT Study Guide"
-      ],
-      additionalPlatforms: [
-        { name: "1600.io", url: "https://1600.io/", why: "Rasmiy testlarning juda chuqur video tahlili.", whenToStop: "Mantiqni o\'zingiz tushuntira oladigan bo\'lganda.", notFor: "Noldan boshlovchilar." },
-        { name: "UWorld", url: "https://www.uworld.com/collegeprep/sat/sat.aspx", why: "Eng kuchli va sifatli savollar banki (pullik bo'lishi mumkin).", whenToStop: "Savollar tugaganida.", notFor: "Kam byudjetli tayyorgarlik." }
-      ],
-      scoreMapping: [
-        { range: "1550+", focus: "AQSHning eng kuchli 10 taligiga (Harvard, MIT) real da'vogar." },
-        { range: "1450-1540", focus: "Top-50 universitetlar uchun juda kuchli raqobatbardosh ball." },
-        { range: "1350-1440", focus: "Nufuzli davlat universitetlari uchun yetarli natija." }
-      ],
-      desmosGuidance: {
-        title: "Desmos strategiyasi",
-        description: "Raqamli SATda o'rnatilgan grafik kalkulyatorni o'rganish matematikadan ballni 30% ga o'stiradi. Ko'p savollarni tenglamasiz yechish mumkin.",
-        link: "https://www.youtube.com/results?search_query=sat+desmos+tricks"
-      },
-      youtubeChannels: [
-        { name: "Scalar Learning", description: "Vaqt ostida real rejimda matematika yechishni ko'rsatadi." },
-        { name: "Strategic Test Prep", description: "Vaqtni boshqarish va strategik yondashuv bo'yicha eng yaxshi tavsiyalar." }
-      ]
-    },
-    {
-      id: 'ielts',
-      title: 'IELTS (Academic)',
-      shortDescription: "Ingliz tili darajasini tasdiqlovchi dunyo miqyosidagi asosiy o'lchov.",
-      whoNeeds: [
-        'Buyuk Britaniya, Avstraliya, Kanada yoki Yevropada o\'qishni istaganlar.',
-        'O\'zbekistondagi xalqaro OTM filiallariga (WIUT, Turin, Amity va h.k.) kiruvchilar.',
-        'Magistraturada o\'qish uchun majburiy sertifikat sifatida.'
-      ],
-      whoDoesNot: [
-        'Faqat mahalliy davlat OTMlariga topshiruvchilar (agar yo\'nalish talab qilmasa).',
-        'AQSHdagi Duolingo (DET) qabul qiladigan universitetlarni tanlaganlar (arzonroq yo\'l).',
-        'Ingliz tilida 4+ yil ta\'lim olganini isbotlovchi hujjati borlar.'
-      ],
-      scoreRanges: [
-        { type: 'Global Top-50', range: '7.5 – 8.5', competitiveness: 'Juda yuqori (C1/C2 daraja)' },
-        { type: 'Xalqaro standart', range: '6.5 – 7.0', competitiveness: 'Kutuvdagi minimum (B2/C1)' },
-        { type: 'Mahalliy/Foundation', range: '5.5 – 6.0', competitiveness: 'O\'rtacha daraja (B2)' }
-      ],
-      commonMistakes: [
-        'Writing Task 2 uchun tayyor qoliplarni (templates) ko\'r-ko\'rona yodlash.',
-        'Speakingda aniqlikdan ko\'ra ravonlik (fluency) muhimligini unutish.',
-        'O\'zi tushunmagan "murakkab" so\'zlarni ishlatishga harakat qilish.',
-        'Readingda vaqtni to\'g\'ri taqsimlay olmaslik (oxirgi matnga vaqt qolmasligi).',
-        'Talaffuz o\'rniga aktsentni (accent) o\'zgartirishga urunish.'
-      ],
-      resources: [
-        { name: 'IELTS Liz', url: 'https://ieltsliz.com/', why: "Vazifalar bo'yicha eng tushunarli va tizimli qo'llanma.", whenToStop: 'Baholash mezonlarini (marking criteria) to\'liq anglaganingizda.', notFor: 'Interaktiv aloqaga muhtojlar.' },
-        { name: 'Road to IELTS (Bepul)', url: 'https://www.ielts.org/en-us/about-the-test/sample-test-questions', why: 'Imtihon asoschilaridan rasmiy namunalar.', whenToStop: 'Barcha namunaviy testlarni tugatganingizda.', notFor: 'Noldan boshlovchilar.' }
-      ],
-      whenToStop: [
-        'Mock test natijalaringiz doimiy ravishda maqsadli ballingizdan yuqori bo\'lganda.',
-        "3 oylik intensiv tayyorgarlikdan so'ng (shundan keyin o'sish sezilarli sekinlashadi).",
-        "Oddiy savollar ustida haddan tashqari ko'p bosh qotira boshlaganingizda."
-      ]
-    },
-    {
-      id: 'det',
-      title: 'Duolingo English Test (DET)',
-      shortDescription: 'AQSH universitetlari uchun tezkor, arzon va zamonaviy muqobil.',
-      whoNeeds: [
-        'Byudjeti cheklanganlar (narxi $59, IELTS\'dan 4 barobar arzon).',
-        'Natijani 48 soat ichida olishi zarur bo\'lganlar.',
-        'Kompyuterga asoslangan va adaptiv test uslubini yoqtiradiganlar.'
-      ],
-      whoDoesNot: [
-        'Buyuk Britaniya yoki Avstraliyaning ko\'pgina universitetlariga topshiruvchilar.',
-        'Tezkor savollarga va adaptiv tizimga moslasha olmaydiganlar.',
-        'Faqat "IELTS" talab qiluvchi maxsus davlat grantlari ishtirokchilari.'
-      ],
-      scoreRanges: [
-        { type: 'AQSH Elita OTMlari', range: '135 – 150', competitiveness: 'Top natija' },
-        { type: 'Nufuzli OTMlar', range: '120 – 130', competitiveness: 'Raqobatbardosh ball' },
-        { type: 'Standart qabul', range: '105 – 115', competitiveness: 'O\'rtacha daraja' }
-      ],
-      commonMistakes: [
-        'Ekrandan chetga qarash (o\'zbek o\'quvchilari shu sabab ko\'p chetlatiladi).',
-        'Mikrofon yoki internet sifatini oldindan tekshirmaslik.',
-        'Yozib olish qismlarida (speaking) juda past ovozda gapirish.',
-        'Savollarning tezligiga tayyor bo\'lmaslik.'
-      ],
-      resources: [
-        { name: 'DET Rasmiy Qo\'llanma', url: 'https://englishtest.duolingo.com/readiness', why: 'Haqiqiy savollar va test formati bilan tanishish uchun yagona manba.', whenToStop: 'Mashq testida maqsadli ballingizni ikki marta olganingizda.', notFor: 'Oson yo\'l qidiruvchilar.' }
-      ],
-      whenToStop: [
-        'Bepul mashq testida maqsadingizdan 10-15 ball yuqori natija ko\'rsatganingizda.',
-        '"Production" qismi bo\'yicha ko\'nikmalarni egallab bo\'lgach.',
-        'Testdan 3 kun oldin (miyangiz dam olishi tayyorgarlikdan muhimroq).'
       ]
     }
   ],

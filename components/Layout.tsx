@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
@@ -98,7 +99,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
   };
 
-  const NavLink = ({ to, children, soon }: { to: string; children: React.ReactNode; soon?: boolean }) => {
+  // Fix: Defining NavLinkProps interface and making children optional to solve TS "missing children" and prop mismatch errors.
+  interface NavLinkProps {
+    to: string;
+    children?: React.ReactNode;
+    soon?: boolean;
+  }
+
+  const NavLink = ({ to, children, soon }: NavLinkProps) => {
     const isActive = pathname.includes(to);
     if (soon) {
       return (
