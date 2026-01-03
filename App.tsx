@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -19,7 +18,10 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <Routes>
+        {/* Root Redirect to default language */}
         <Route path="/" element={<Navigate to="/uz/" replace />} />
+        
+        {/* Main Language Wrapper */}
         <Route path="/:lang/*" element={
           <Layout>
             <Routes>
@@ -35,10 +37,13 @@ const App: React.FC = () => {
               <Route path="gap-year" element={<GapYear />} />
               <Route path="contact" element={<Contact />} />
               <Route path="about" element={<About />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              {/* Internal fallback: redirect back to lang root */}
+              <Route path="*" element={<Navigate to="./" replace />} />
             </Routes>
           </Layout>
         } />
+
+        {/* Catch-all global redirect */}
         <Route path="*" element={<Navigate to="/uz/" replace />} />
       </Routes>
     </HashRouter>

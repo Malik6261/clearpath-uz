@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
@@ -8,7 +7,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { lang } = useParams();
   const navigate = useNavigate();
   
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  // Safe language fallback logic
+  const safeLang: Locale = (lang === 'uz' || lang === 'en') ? (lang as Locale) : 'uz';
   const content = CONTENT[safeLang] || CONTENT.uz;
   const t = content.ui;
 
@@ -60,30 +60,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         }
         hreflangTag.setAttribute('href', `https://clearpath.uz/${l}/${pathPart}`);
       });
-
-      // JSON-LD injection
-      const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": metadata.title,
-        "description": metadata.desc,
-        "url": canonicalUrl,
-        "inLanguage": safeLang,
-        "publisher": {
-          "@type": "Organization",
-          "name": "ClearPath",
-          "url": "https://clearpath.uz"
-        }
-      };
-
-      let scriptTag = document.getElementById('json-ld-seo') as HTMLScriptElement;
-      if (!scriptTag) {
-        scriptTag = document.createElement('script');
-        scriptTag.id = 'json-ld-seo';
-        scriptTag.type = 'application/ld+json';
-        document.head.appendChild(scriptTag);
-      }
-      scriptTag.text = JSON.stringify(structuredData);
     }
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -158,7 +134,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           scrolled ? 'bg-white border-stone-200 shadow-sm' : 'bg-transparent border-transparent'
         }`}>
           <div className="flex items-center shrink-0 min-w-[140px] md:min-w-[180px]">
-            <Link to="/uz/" className="flex items-center gap-3 group transition-opacity hover:opacity-80" title={t.backToOverview}>
+            <Link to={`/${safeLang}/`} className="flex items-center gap-3 group transition-opacity hover:opacity-80" title={t.backToOverview}>
               <div className="w-6 h-6 bg-stone-900 rounded-sm flex items-center justify-center transform rotate-45 group-hover:rotate-90 transition-transform duration-500">
                 <div className="w-2 h-2 bg-stone-50 rounded-full"></div>
               </div>
@@ -281,7 +257,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
             <div className="md:col-span-6">
-              <Link to="/uz/" className="text-3xl font-bold tracking-tighter text-stone-50 mb-8 block">ClearPath</Link>
+              <Link to={`/${safeLang}/`} className="text-3xl font-bold tracking-tighter text-stone-50 mb-8 block">ClearPath</Link>
               <p className="text-lg text-stone-400 max-w-sm leading-relaxed font-medium">{t.footerTagline}</p>
             </div>
             <div className="md:col-span-3">
