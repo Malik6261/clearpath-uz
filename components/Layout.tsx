@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { CONTENT, Locale } from '../constants';
@@ -8,39 +7,41 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { lang } = useParams();
   const navigate = useNavigate();
   
-  // Safe language fallback logic
+  // High-resilience language detection
   const safeLang: Locale = (lang === 'uz' || lang === 'en') ? (lang as Locale) : 'uz';
   const content = CONTENT[safeLang] || CONTENT.uz;
-  const t = content.ui;
+  const t = content.ui || {};
 
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // SEO & Meta Injection Logic
+  // SEO & Head Management
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     
-    // Determine current page key for metadata lookup
+    // Identify page key for SEO metadata lookup
     const segments = pathname.split('/').filter(Boolean);
+    // If /uz/majors -> key is majors. If /uz/ -> key is home.
     const pageKey = segments.length > 1 ? segments[1] : 'home';
-    const metadata = t.seo?.[pageKey] || t.seo?.home;
+    
+    // Normalize hyphenated keys (e.g. gap-year -> gapYear) for object mapping
+    const camelPageKey = pageKey.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    const metadata = t.seo?.[pageKey] || t.seo?.[camelPageKey] || t.seo?.home;
 
     if (metadata) {
+      // 1. Update Tab Title
       document.title = metadata.title;
       document.documentElement.lang = safeLang;
       
-      // Meta description
-      let descTag = document.querySelector('meta[name="description"]');
+      // 2. Update Description
+      const descTag = document.querySelector('meta[name="description"]');
       if (descTag) descTag.setAttribute('content', metadata.desc);
 
-      // OG Tags
-      const canonicalUrl = `https://clearpath.uz/${safeLang}/${segments.slice(1).join('/')}`;
-      document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.title);
-      document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.desc);
-      document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
+      // 3. Update Canonical URL
+      const pathPart = segments.length > 1 ? segments.slice(1).join('/') : '';
+      const canonicalUrl = `https://clearpath.uz/${safeLang}/${pathPart}`;
       
-      // Canonical link
       let canonicalTag = document.querySelector('link[rel="canonical"]');
       if (!canonicalTag) {
         canonicalTag = document.createElement('link');
@@ -49,8 +50,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }
       canonicalTag.setAttribute('href', canonicalUrl);
 
-      // Hreflang Tags
-      const pathPart = segments.slice(1).join('/');
+      // 4. Update Hreflang alternates (SEO standard for multilingual sites)
       ['en', 'uz'].forEach(l => {
         let hreflangTag = document.querySelector(`link[hreflang="${l}"]`);
         if (!hreflangTag) {
@@ -61,11 +61,17 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         }
         hreflangTag.setAttribute('href', `https://clearpath.uz/${l}/${pathPart}`);
       });
+
+      // 5. Update Social Meta (Open Graph)
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.title);
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.desc);
+      document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
     }
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname, safeLang, t.seo]);
 
+  // Close mobile menu on navigate
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
@@ -88,6 +94,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const switchLanguage = (newLang: Locale) => {
     const segments = pathname.split('/').filter(Boolean);
     if (segments.length > 0) {
+      // Swap the lang segment at index 0
       if (segments[0] === 'en' || segments[0] === 'uz') {
         segments[0] = newLang;
       } else {
@@ -99,11 +106,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
   };
 
-  // Fix: Defining NavLinkProps interface and making children optional to solve TS "missing children" and prop mismatch errors.
   interface NavLinkProps {
     to: string;
     children?: React.ReactNode;
     soon?: boolean;
+    key?: React.Key;
   }
 
   const NavLink = ({ to, children, soon }: NavLinkProps) => {
@@ -134,7 +141,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50">
-      {/* Navigation Bar */}
       <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-4 md:px-6 ${
         scrolled ? 'py-3' : 'py-6'
       }`}>

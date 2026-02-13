@@ -992,6 +992,7 @@ const UZ_CONTENT: SiteContent = {
       paths: { title: "Amaliy yoʻllar — ClearPath", desc: "Universitetga muqobil boʻlgan amaliy va ishga yoʻnaltirilgan yo_llar, Ausbildung tahlili." },
       resources: { title: "Bepul o‘quv resurslari — ClearPath", desc: "Talabalar uchun saralangan va sifatli bepul resurslar katalogi." },
       gapYear: { title: "Tanaffus yili strategiyasi — ClearPath", desc: "O‘zbekistonda Gap Year (tanaffus yili) olishning foyda va zararlari haqida rostgo‘y qo‘llanma." },
+      "gap-year": { title: "Tanaffus yili strategiyasi — ClearPath", desc: "O‘zbekistonda Gap Year (tanaffus yili) olishning foyda va zararlari haqida rostgo‘y qo‘llanma." },
       about: { title: "ClearPath loyihasi haqida", desc: "Nima uchun biz O‘zbekiston talabalari uchun ushbu rostgo‘y qo‘llanmani yaratdik." },
       contact: { title: "So‘rovlar va fikr-mulohazalar — ClearPath", desc: "Murakkab qarorlar va loyiha bo‘yicha fikrlar uchun aloqa protokoli." }
     },
@@ -1178,7 +1179,7 @@ const UZ_CONTENT: SiteContent = {
     officialMaterialsLabel: "Rasmiy materiallar",
     prepBooksLabel: "Tayyorgarlik kitoblari",
     additionalPlatformsLabel: "Qo‘shimcha mashq platformalari",
-    scoreGuidanceLabel: "Ball diapazoni bo‘yicha qo‘llanma",
+    scoreGuidanceLabel: "Ball diapazoni bo‘yunda qo‘llanma",
     scoreGuidanceDisclaimer: "Maqsadlar tarixiy tendentsiyalarga asoslangan. Muvaffaqiyat shaxsiy mashg‘ulotlarga bog‘liq. Bu natijalar bo‘yicha va’da emas.",
     desmosTitle: "Desmos kalkulyatori",
     youtubeTitle: "Tekshirilgan YouTube resurslari",
@@ -1245,7 +1246,6 @@ const UZ_CONTENT: SiteContent = {
     deficitRealityLabel: "Taqchillik voqeligi",
     livingExpLabel: "Yashash xarajatlari",
     comparisonUniLabel: "Universitet bilan solishtirganda",
-    splitPointsLabel: "Asosiy mezonlar",
     visaResidenceLabel: "Viza va yashash joyi",
     recognitionBarrierLabel: "Tan olish to‘sig‘i",
     legalRisksSummary: "Huquqiy va tartibga solish xavflari",
@@ -1258,7 +1258,7 @@ const UZ_CONTENT: SiteContent = {
       id: 'computer-science',
       title: 'Computer Science (AT)',
       description: 'Mantiq va avtomatlashtirish arxitekturasi.',
-      actuallyIs: 'CS (Computer Science) — bu kod va tizimlar orqali fikrlashni o‘rganish demakdir. Siz dasturlash, algoritmlar, ma’lumotlar tuzilmasi va arxitekturani o‘rganisiz. Bu shunchaki "kod yozish" emas, balki nima uchun ma’lum yechimlar ishlashi, boshqalari esa buzilishi va millionlab foydanuvchilarga mo‘ljallangan tizimlarni qanday loyihalashni o‘rganishdir.',
+      actuallyIs: 'CS (Computer Science) — bu kod va tizimlar orqali fikrlashni o‘rganish demakdir. Siz darslik, algoritmlar, ma’lumotlar tuzilmasi va arxitekturani o‘rganisiz. Bu shunchaki "kod yozish" emas, balki nima uchun ma’lum yechimlar ishlashi, boshqalari esa buzilishi va millionlab foydanuvchilarga mo‘ljallangan tizimlarni qanday loyihalashni o‘rganishdir.',
       dailyWork: [
         '9:00-10:00: Stand-up yig‘ilishi (progressni kuzatish).',
         '10:00-12:00: Diqqat bilan kod yozish (mantiqiy amalga oshirish).',
@@ -1507,73 +1507,73 @@ const UZ_CONTENT: SiteContent = {
       title: 'Turkiye Burslari (Davlat granti)',
       origin: 'INTERNATIONAL',
       description: 'Turkiya universitetlari uchun keng qamrovli davlat granti.',
-      whatItIs: 'Turkiyaning nufuzli universitetlarida bakalavr, magistr va PhD darajalari uchun to‘liq moliyaviy ko‘mak.',
+      whatItIs: 'Turkiyaning nufuzli universitetlarida bakalavr, magistratura va PhD bosqichlari uchun to‘liq moliyaviy yordam.',
       whoItsFor: [
         'Yuqori GPA ko‘rsatkichiga ega talabalar (odatda 70%+).',
         'Til to‘sig‘ini tezda yenga oladigan o‘zbek zabon yoshlar (o‘xshashlik juda yuqori).',
         'Ijtimoiy fanlar, muhandislik yoki tibbiyot yo‘nalishini tanlaganlar.'
       ],
-      coverage: 'O‘qish puli, oylik stipendiya, aviachiptalar, sug‘urta va 1 yillik bepul turk tili kursi.',
+      coverage: 'O‘qish puli, oylik stipendiya, aviachiptalar, sug‘urta va 1 yillik nemis tili kursi.',
       competitiveness: 'YUQORI',
       obligations: [
-        'Majburiy 1 yillik turk tili kursini muvaffaqiyatli tugatish.',
-        'O‘qish davomida akademik ko‘rsatkichlarni yuqori darajada saqlash.'
+        '1 yillik majburiy turk tili kursini yakunlash.',
+        'O‘qish davomida akademik standartlarni saqlab qolish.'
       ],
       whoShouldNotApply: [
-        'Mintaqaviy madaniyatga moslashishni xohlamay, faqat ingliz tilida o‘qishni istaganlar.',
-        'Yosh chegarasiga tushmaydiganlar (Bakalavr uchun 21 yosh, Magistr uchun 30 yosh).'
+        'Mintaqaviy madaniy moslashuvsiz faqat ingliz tilida o‘qishni xohlovchilar.',
+        'Qat’iy yosh talablariga javob bermaydigan nomzodlar (bakalavr uchun 21, magistr uchun 30).'
       ],
-      realityCheck: 'Strategik jihatdan eng qulay yo‘llardan biri. Turk va o‘zbek tillari 80% o‘xshash bo‘lgani uchun, til o‘rganish o‘zbeklar uchun oson g‘alabadir.',
+      realityCheck: 'Strategik universal yo‘l. O‘zbek talabalari uchun turk tili va o‘zbek tili o‘rtasidagi 80% o‘xshashlik tufayli til to‘sig‘i muammo bo‘lmaydi.',
       url: 'https://www.turkiyeburslari.gov.tr/'
     },
     {
       id: 'daad',
-      title: 'DAAD Granti (Germaniya)',
+      title: 'DAAD Scholarship (Germaniya)',
       origin: 'INTERNATIONAL',
-      description: 'Germaniyada o‘qish uchun asosiy moliyaviy yo‘l.',
-      whatItIs: 'Xalqaro talabalar va tadqiqotchilarning Germaniya davlat universitetlarida ta’lim olishini qo‘llab-quvvatlovchi grant.',
+      description: 'Germaniyada o‘qish uchun asosiy moliyalashtirish yo‘li.',
+      whatItIs: 'Xalqaro talabalar va tadqiqotchilar uchun Germaniya davlat universitetlarida o‘qishni qo‘llab-quvvatlash.',
       whoItsFor: [
         'Magistratura yoki PhD darajasini maqsad qilgan yuqori malakali talabalar.',
-        'Ilmiy tadqiqot yoki rivojlanish sohalariga yo‘nalgan shaxslar.',
-        'Ish tajribasiga ega mutaxassislar (ayrim dasturlar uchun).'
+        'Tadqiqot yoki rivojlanish sohalariga e’tibor qaratgan shaxslar.',
+        'Ma’lum bir kasbiy tajribaga ega bo‘lgan nomzodlar (dasturga qarab).'
       ],
-      coverage: 'Oylik stipendiya (Magistrlar uchun €934, PhD uchun €1,200), yo‘l xarajatlari, sug‘urta va til kurslari uchun subsidiya.',
+      coverage: 'Oylik stipendiya (€934 magistrlar, €1200 PhD uchun), yo‘l xarajatlari, sug‘urta va ba’zan til kursi subsidiyalari.',
       competitiveness: 'JUDA YUQORI',
       obligations: [
-        'Akademik natijalar bo‘yicha muntazam hisobot berish.',
-        'Ba’zi darslar tugatgandan so‘ng o‘z vataniga qaytishni talab qiladi.'
+        'Akademik natijalar va erishilgan yutuqlar bo‘yicha hisobot berish.',
+        'Ayrim dasturlar o‘qishdan so‘ng vataniga qaytishni talab qiladi.'
       ],
       whoShouldNotApply: [
-        'Bakalavr bosqichida o‘qimoqchi bo‘lganlar (DAAD asosan Magistr/PhD uchun).',
-        'Xususiy universitetlarda o‘qishni xohlaydiganlar (odatda qoplanmaydi).',
-        'Akademik profili o‘rtacha bo‘lgan nomzodlar.'
+        'Bakalavr talabalari (ko‘pchilik DAAD grantlari magistratura uchun).',
+        'Xususiy universitetlarda o‘qishni xohlovchilar (odatda qoplanmaydi).',
+        'Kuchli akademik profili bo‘lmagan nomzodlar.'
       ],
-      realityCheck: 'Germaniyada davlat universitetlari bepul; DAAD — bu yashash xarajatlarini qoplashning eng nufuzli usulidir.',
+      realityCheck: 'Germaniya davlat universitetlari bepul; DAAD — bu yashash xarajatlarini qoplashning eng nufuzli usuli.',
       url: 'https://www.daad.uz/'
     },
     {
       id: 'chevening',
-      title: 'Chevening Granti (Buyuk Britaniya)',
+      title: 'Chevening Scholarship (Buyuk Britaniya)',
       origin: 'INTERNATIONAL',
-      description: 'Britaniya Tashqi ishlar vazirligi tomonidan moliyalashtiriladigan global yetakchilik dasturi.',
-      whatItIs: 'Yetakchilik qobiliyatiga ega shaxslar uchun Buyuk Britaniyada bir yillik magistraturada o‘qish uchun to‘liq grant.',
+      description: 'Britaniya hukumati tomonidan moliyalashtiriladigan global yetakchilik dasturi.',
+      whatItIs: 'Yetakchilik salohiyatiga ega shaxslar uchun Britaniyada 1 yillik magistraturada to‘liq bepul o‘qish.',
       whoItsFor: [
         'Kamida 2 yillik ish tajribasiga ega O‘zbekiston fuqarolari.',
-        'Kuchli akademik bazaga ega shaxslar.',
-        'Kelajakda siyosat yoki sanoatga ta’sir o‘tkazmoqchi bo‘lgan yetakchilar.'
+        'Kuchli akademik poydevorga ega shaxslar.',
+        'Siyosat yoki sanoatga ta’sir ko‘rsatishni xohlovchi bo‘lajak yetakchilar.'
       ],
-      coverage: 'O‘qish puli, oylik stipendiya, iqtisodiy klass aviachiptalar va qo‘shimcha grantlar.',
+      coverage: 'O‘qish puli, oylik stipendiya, iqtisod-klass aviachiptalar va qo‘shimcha grantlar.',
       competitiveness: 'EKSTREMAL YUQORI',
       obligations: [
-        'O‘qish tugagandan so‘ng kamida 2 yil O‘zbekistonda yashash va ishlash.',
-        'Global Chevening bitiruvchilari tarmog‘ida faol ishtirok etish.'
+        'O‘qishdan keyin kamida 2 yil O‘zbekistonda yashash va ishlash.',
+        'Global Chevening bitiruvchilari tarmog‘i bilan aloqada bo‘lish.'
       ],
       whoShouldNotApply: [
-        'Kamida 2,800 soatlik ish tajribasiga ega bo‘lmaganlar.',
-        'Bakalavr yoki PhD darajasini olmoqchi bo‘lganlar.',
-        'O‘zbekistonga qaytish niyati bo‘lmaganlar.'
+        'Kamida 2800 soatlik ish tajribasiga ega bo‘lmaganlar.',
+        'Bakalavr yoki PhD darajasini qidirayotganlar.',
+        'O‘zbekistonga qaytish niyati bo‘lmagan shaxslar.'
       ],
-      realityCheck: 'Juda nufuzli tanishlar tarmog‘iga kirish imkoniyati, lekin aniq karyera maqsadlari va yetakchilik tarixini talab qiladi.',
+      realityCheck: 'Nufuzli aloqalar o‘rnatish imkoniyati, lekin qat’iy karyera maqsadlarini talab qiladi.',
       url: 'https://www.chevening.org/scholarship/uzbekistan/'
     }
   ],

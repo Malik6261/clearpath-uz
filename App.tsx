@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Majors from './pages/Majors';
@@ -16,12 +16,16 @@ import About from './pages/About';
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
-        {/* Root Redirect to default language */}
+        {/* Absolute root redirect to Uzbek */}
         <Route path="/" element={<Navigate to="/uz/" replace />} />
         
-        {/* Main Language Wrapper */}
+        {/* Catch legacy hash paths if they exist (optional, but good for migration) */}
+        <Route path="/#/uz/*" element={<Navigate to="/uz/" replace />} />
+        <Route path="/#/en/*" element={<Navigate to="/en/" replace />} />
+
+        {/* Unified Language Route Wrapper */}
         <Route path="/:lang/*" element={
           <Layout>
             <Routes>
@@ -37,16 +41,16 @@ const App: React.FC = () => {
               <Route path="gap-year" element={<GapYear />} />
               <Route path="contact" element={<Contact />} />
               <Route path="about" element={<About />} />
-              {/* Internal fallback: redirect back to lang root */}
-              <Route path="*" element={<Navigate to="./" replace />} />
+              {/* Fallback within the language segment */}
+              <Route path="*" element={<Navigate to="." replace />} />
             </Routes>
           </Layout>
         } />
 
-        {/* Catch-all global redirect */}
+        {/* Global Fallback */}
         <Route path="*" element={<Navigate to="/uz/" replace />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
