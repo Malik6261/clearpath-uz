@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { Link, useLocation } from 'react-router-dom';
+import { CONTENT } from '../constants';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { pathname } = useLocation();
-  const { lang } = useParams();
-  const navigate = useNavigate();
   
-  // High-resilience language detection
-  const safeLang: Locale = (lang === 'uz' || lang === 'en') ? (lang as Locale) : 'uz';
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const content = CONTENT.uz;
   const t = content.ui || {};
 
   const [scrolled, setScrolled] = useState(false);
@@ -22,8 +18,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     
     // Identify page key for SEO metadata lookup
     const segments = pathname.split('/').filter(Boolean);
-    // If /uz/majors -> key is majors. If /uz/ -> key is home.
-    const pageKey = segments.length > 1 ? segments[1] : 'home';
+    const pageKey = segments.length > 0 ? segments[0] : 'home';
     
     // Normalize hyphenated keys (e.g. gap-year -> gapYear) for object mapping
     const camelPageKey = pageKey.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
@@ -32,15 +27,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     if (metadata) {
       // 1. Update Tab Title
       document.title = metadata.title;
-      document.documentElement.lang = safeLang;
+      document.documentElement.lang = 'uz';
       
       // 2. Update Description
       const descTag = document.querySelector('meta[name="description"]');
       if (descTag) descTag.setAttribute('content', metadata.desc);
 
       // 3. Update Canonical URL
-      const pathPart = segments.length > 1 ? segments.slice(1).join('/') : '';
-      const canonicalUrl = `https://clearpath.uz/${safeLang}/${pathPart}`;
+      const pathPart = segments.join('/');
+      const canonicalUrl = `https://clearpath.uz/${pathPart}`;
       
       let canonicalTag = document.querySelector('link[rel="canonical"]');
       if (!canonicalTag) {
@@ -50,18 +45,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }
       canonicalTag.setAttribute('href', canonicalUrl);
 
-      // 4. Update Hreflang alternates (SEO standard for multilingual sites)
-      ['en', 'uz'].forEach(l => {
-        let hreflangTag = document.querySelector(`link[hreflang="${l}"]`);
-        if (!hreflangTag) {
-          hreflangTag = document.createElement('link');
-          hreflangTag.setAttribute('rel', 'alternate');
-          hreflangTag.setAttribute('hreflang', l);
-          document.head.appendChild(hreflangTag);
-        }
-        hreflangTag.setAttribute('href', `https://clearpath.uz/${l}/${pathPart}`);
-      });
-
       // 5. Update Social Meta (Open Graph)
       document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.title);
       document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.desc);
@@ -69,7 +52,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname, safeLang, t.seo]);
+  }, [pathname, t.seo]);
 
   // Close mobile menu on navigate
   useEffect(() => {
@@ -90,21 +73,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     { name: t.resourcesLabel, path: 'resources' },
     { name: t.gapYear, path: 'gap-year' },
   ];
-
-  const switchLanguage = (newLang: Locale) => {
-    const segments = pathname.split('/').filter(Boolean);
-    if (segments.length > 0) {
-      // Swap the lang segment at index 0
-      if (segments[0] === 'en' || segments[0] === 'uz') {
-        segments[0] = newLang;
-      } else {
-        segments.unshift(newLang);
-      }
-      navigate(`/${segments.join('/')}`);
-    } else {
-      navigate(`/${newLang}/`);
-    }
-  };
 
   interface NavLinkProps {
     to: string;
@@ -129,7 +97,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
     return (
       <Link
-        to={`/${safeLang}/${to}`}
+        to={`/${to}`}
         className={`px-4 py-2 rounded-full text-[12px] font-bold uppercase tracking-widest transition-all min-h-[44px] flex items-center whitespace-nowrap shrink-0 ${
           isActive ? 'bg-stone-900 text-stone-50' : 'text-stone-400 hover:text-stone-900'
         }`}
@@ -148,7 +116,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           scrolled ? 'bg-white border-stone-200 shadow-sm' : 'bg-transparent border-transparent'
         }`}>
           <div className="flex items-center shrink-0 min-w-[140px] md:min-w-[180px]">
-            <Link to={`/${safeLang}/`} className="flex items-center gap-3 group transition-opacity hover:opacity-80" title={t.backToOverview}>
+            <Link to={`/`} className="flex items-center gap-3 group transition-opacity hover:opacity-80" title={t.backToOverview}>
               <div className="w-6 h-6 bg-stone-900 rounded-sm flex items-center justify-center transform rotate-45 group-hover:rotate-90 transition-transform duration-500">
                 <div className="w-2 h-2 bg-stone-50 rounded-full"></div>
               </div>
@@ -178,25 +146,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
 
           <div className="flex items-center justify-end gap-4 shrink-0 min-w-[140px] md:min-w-[180px]">
-            <div className="flex items-center bg-stone-100 p-1 rounded-full border border-stone-200 h-[36px] shrink-0">
-              <button 
-                onClick={() => switchLanguage('en')} 
-                className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase transition-all h-full flex items-center ${safeLang === 'en' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-400'}`}
-                aria-label="Switch to English"
-              >
-                EN
-              </button>
-              <button 
-                onClick={() => switchLanguage('uz')} 
-                className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase transition-all h-full flex items-center ${safeLang === 'uz' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-400'}`}
-                aria-label="Switch to Uzbek"
-              >
-                UZ
-              </button>
-            </div>
-
-            <Link to={`/${safeLang}/contact`} className="hidden md:flex px-6 py-2 bg-white border border-stone-200 text-stone-900 text-[11px] font-bold uppercase tracking-widest rounded-full hover:bg-stone-900 hover:text-white transition-all duration-300 shadow-sm min-h-[36px] items-center whitespace-nowrap shrink-0">
-              {t.inquiry || 'Contact'}
+            <Link to={`/contact`} className="hidden md:flex px-6 py-2 bg-white border border-stone-200 text-stone-900 text-[11px] font-bold uppercase tracking-widest rounded-full hover:bg-stone-900 hover:text-white transition-all duration-300 shadow-sm min-h-[36px] items-center whitespace-nowrap shrink-0">
+              {t.inquiry || 'Aloqa'}
             </Link>
 
             <button 
@@ -231,7 +182,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <span className="text-[10px] font-bold text-stone-300 uppercase tracking-[0.3em] font-mono">{t.academicHeader}</span>
               <div className="flex flex-col gap-2">
                 {academicLinks.map((link) => (
-                  <Link key={link.path} to={`/${safeLang}/${link.path}`} className="text-2xl font-bold text-stone-900 hover:translate-x-2 transition-transform">{link.name}</Link>
+                  <Link key={link.path} to={`/${link.path}`} className="text-2xl font-bold text-stone-900 hover:translate-x-2 transition-transform">{link.name}</Link>
                 ))}
               </div>
             </div>
@@ -239,7 +190,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div className="space-y-4">
               <span className="text-[10px] font-bold text-stone-300 uppercase tracking-[0.3em] font-mono">{t.practicalHeader}</span>
               <div className="flex flex-col gap-2">
-                <Link to={`/${safeLang}/${practicalLinks[0].path}`} className="text-2xl font-bold text-stone-900 hover:translate-x-2 transition-transform">{practicalLinks[0].name}</Link>
+                <Link to={`/${practicalLinks[0].path}`} className="text-2xl font-bold text-stone-900 hover:translate-x-2 transition-transform">{practicalLinks[0].name}</Link>
               </div>
             </div>
 
@@ -247,7 +198,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <span className="text-[10px] font-bold text-stone-300 uppercase tracking-[0.3em] font-mono">{t.toolsHeader}</span>
               <div className="flex flex-col gap-2">
                 {toolsLinks.map((link) => (
-                  <Link key={link.path} to={`/${safeLang}/${link.path}`} className="text-2xl font-bold text-stone-900 hover:translate-x-2 transition-transform">{link.name}</Link>
+                  <Link key={link.path} to={`/${link.path}`} className="text-2xl font-bold text-stone-900 hover:translate-x-2 transition-transform">{link.name}</Link>
                 ))}
                 <div className="flex items-center gap-2 text-stone-300 select-none">
                   <span className="text-2xl font-bold">{t.plannerLabel}</span>
@@ -258,7 +209,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
 
           <div className="mt-auto space-y-6 pt-10 border-t border-stone-100">
-            <Link to={`/${safeLang}/contact`} className="w-full py-4 bg-stone-900 text-stone-50 text-[13px] font-bold uppercase tracking-widest rounded-xl text-center block">
+            <Link to={`/contact`} className="w-full py-4 bg-stone-900 text-stone-50 text-[13px] font-bold uppercase tracking-widest rounded-xl text-center block">
               {t.inquiry}
             </Link>
           </div>
@@ -271,21 +222,21 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
             <div className="md:col-span-6">
-              <Link to={`/${safeLang}/`} className="text-3xl font-bold tracking-tighter text-stone-50 mb-8 block">ClearPath</Link>
+              <Link to={`/`} className="text-3xl font-bold tracking-tighter text-stone-50 mb-8 block">ClearPath</Link>
               <p className="text-lg text-stone-400 max-w-sm leading-relaxed font-medium">{t.footerTagline}</p>
             </div>
             <div className="md:col-span-3">
               <h4 className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.3em] mb-8">{t.footerNavHeader}</h4>
               <ul className="space-y-4">
-                <li><Link to={`/${safeLang}/majors`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.academicLibrary}</Link></li>
-                <li><Link to={`/${safeLang}/paths`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.practicalPaths}</Link></li>
-                <li><Link to={`/${safeLang}/exams`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.exams}</Link></li>
+                <li><Link to={`/majors`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.academicLibrary}</Link></li>
+                <li><Link to={`/paths`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.practicalPaths}</Link></li>
+                <li><Link to={`/exams`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.exams}</Link></li>
               </ul>
             </div>
             <div className="md:col-span-3">
               <h4 className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.3em] mb-8">{t.footerInquiryHeader}</h4>
               <ul className="space-y-4">
-                <li><Link to={`/${safeLang}/contact`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.inquiry}</Link></li>
+                <li><Link to={`/contact`} className="text-sm font-semibold hover:text-stone-50 transition-colors">{t.inquiry}</Link></li>
               </ul>
             </div>
           </div>

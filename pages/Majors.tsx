@@ -1,12 +1,10 @@
 
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { Link } from 'react-router-dom';
+import { CONTENT } from '../constants';
 
 const Majors: React.FC = () => {
-  const { lang } = useParams();
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const content = CONTENT.uz;
   const majors = content.majors;
   const t = content.ui;
 
@@ -32,7 +30,7 @@ const Majors: React.FC = () => {
           {majors.map((major, idx) => (
             <Link 
               key={major.id} 
-              to={`/${safeLang}/majors/${major.id}`}
+              to={`/majors/${major.id}`}
               className="group relative flex flex-col md:flex-row md:items-center justify-between p-12 bg-white border border-stone-200 rounded-[3rem] hover:border-stone-900 hover:bg-stone-900 transition-all duration-700 overflow-hidden"
             >
               <div className="relative z-10 md:flex-1">
@@ -44,10 +42,10 @@ const Majors: React.FC = () => {
               </div>
               <div className="relative z-10 mt-8 md:mt-0 flex flex-wrap gap-3">
                 <div className="px-4 py-1.5 bg-stone-50 border border-stone-200 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-400 group-hover:bg-stone-800 group-hover:border-stone-700 group-hover:text-stone-500 transition-all">
-                  {t.riskLabelPrefix} {major.realityCheck.find(r => r.factor === (safeLang === 'uz' ? 'AI xavfi' : 'AI Risk'))?.rating}
+                  {t.riskLabelPrefix} {major.realityCheck.find(r => r.factor === 'AI xavfi')?.rating}
                 </div>
                 <div className="px-4 py-1.5 bg-stone-50 border border-stone-200 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-400 group-hover:bg-stone-800 group-hover:border-stone-700 group-hover:text-stone-500 transition-all">
-                  {t.utilityLabelPrefix} {major.realityCheck.find(r => r.factor === (safeLang === 'uz' ? 'Daromad salohiyati' : 'Income Potential'))?.rating}
+                  {t.utilityLabelPrefix} {major.realityCheck.find(r => r.factor === 'Daromad salohiyati')?.rating}
                 </div>
               </div>
               <div className="absolute top-1/2 right-0 w-64 h-64 bg-stone-50 rounded-full translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-10 transition-opacity duration-1000"></div>

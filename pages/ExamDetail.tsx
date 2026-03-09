@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { CONTENT } from '../constants';
 
 const EditorialSection: React.FC<{ title: string; subtitle: string; children: React.ReactNode }> = ({ title, subtitle, children }) => (
   <section className="py-20 border-t border-stone-200 first:border-t-0">
@@ -24,19 +24,18 @@ const EditorialSection: React.FC<{ title: string; subtitle: string; children: Re
 );
 
 const ExamDetail: React.FC = () => {
-  const { lang, id } = useParams();
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const { id } = useParams();
+  const content = CONTENT.uz;
   const t = content.ui;
   const exam = content.exams.find((e) => e.id === id);
 
-  if (!exam) return <Navigate to={`/${safeLang}/exams`} />;
+  if (!exam) return <Navigate to={`/exams`} />;
 
   return (
     <div className="bg-stone-50 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 py-32 md:py-52">
         <nav className="mb-20">
-          <Link to={`/${safeLang}/exams`} className="group inline-flex items-center gap-2 text-[11px] font-bold text-stone-400 hover:text-stone-900 uppercase tracking-widest transition-colors">
+          <Link to={`/exams`} className="group inline-flex items-center gap-2 text-[11px] font-bold text-stone-400 hover:text-stone-900 uppercase tracking-widest transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
             </svg>
@@ -226,7 +225,7 @@ const ExamDetail: React.FC = () => {
 
         <section className="mt-40 pt-20 border-t border-stone-200 text-center">
           <p className="text-stone-400 font-bold text-[11px] uppercase tracking-[0.3em] mb-10">{t.briefingComplete}</p>
-          <Link to={`/${safeLang}/exams`} className="px-12 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all">
+          <Link to={`/exams`} className="px-12 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all">
             {t.returnToDirectory}
           </Link>
         </section>

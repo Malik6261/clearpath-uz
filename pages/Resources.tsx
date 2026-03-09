@@ -1,12 +1,9 @@
 
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { CONTENT } from '../constants';
 
 const Resources: React.FC = () => {
-  const { lang } = useParams();
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const content = CONTENT.uz;
   const t = content.ui;
 
   const allResources = [

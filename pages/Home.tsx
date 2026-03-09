@@ -1,12 +1,9 @@
-
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { Link } from 'react-router-dom';
+import { CONTENT } from '../constants';
 
 const Home: React.FC = () => {
-  const { lang } = useParams();
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const content = CONTENT.uz;
   const t = content.ui;
 
   return (
@@ -35,7 +32,7 @@ const Home: React.FC = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest pl-2">{t.academicLabel}</span>
                   <Link 
-                    to={`/${safeLang}/majors`} 
+                    to={`/majors`} 
                     className="px-10 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-stone-200"
                   >
                     {t.startBriefing}
@@ -44,7 +41,7 @@ const Home: React.FC = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest pl-2">{t.careerLabel}</span>
                   <Link 
-                    to={`/${safeLang}/paths`} 
+                    to={`/paths`} 
                     className="px-10 py-5 bg-transparent border border-stone-200 text-stone-900 rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-stone-50 transition-all"
                   >
                     {t.practicalAlternatives}
@@ -65,6 +62,22 @@ const Home: React.FC = () => {
         
         {/* Background Accents */}
         <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-stone-100/50 to-transparent pointer-events-none"></div>
+      </section>
+
+      {/* Founder Section */}
+      <section className="py-24 px-6 bg-stone-900 text-stone-50 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-800 border border-stone-700 mb-8">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Asoschi haqida</span>
+          </div>
+          <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight text-balance mb-8">
+            "Men o'z hamyurtlarim ta'limda qimmat xatolar qilayotganini ko'rdim. Bu men kerak bo'lganida mavjud bo'lishini istagan resurs."
+          </h3>
+          <p className="text-stone-400 font-bold uppercase tracking-widest text-sm">Malik</p>
+        </div>
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-stone-800/30 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-stone-800/20 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
       </section>
 
       {/* Philosophy & Boundaries Block */}
@@ -152,7 +165,7 @@ const Home: React.FC = () => {
             ].map((p, i) => (
               <Link 
                 key={i} 
-                to={`/${safeLang}/${p.path}`} 
+                to={`/${p.path}`} 
                 className="group p-8 bg-white rounded-[2.5rem] border border-stone-100 hover:border-stone-900 transition-all duration-700 flex flex-col justify-between"
               >
                 <div>

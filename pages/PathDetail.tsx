@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { CONTENT } from '../constants';
 
 const EditorialSection: React.FC<{ title: string; subtitle: string; children: React.ReactNode }> = ({ title, subtitle, children }) => (
   <section className="py-24 border-t border-stone-200 first:border-t-0">
@@ -20,15 +20,14 @@ const EditorialSection: React.FC<{ title: string; subtitle: string; children: Re
 );
 
 const PathDetail: React.FC = () => {
-  const { lang, id } = useParams();
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
+  const { id } = useParams();
   
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const content = CONTENT.uz;
   const t = content.ui;
   const path = content.paths.find((p) => p.id === id);
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
 
-  if (!path) return <Navigate to={`/${safeLang}/paths`} />;
+  if (!path) return <Navigate to={`/paths`} />;
 
   const handleCopy = (email: string) => {
     navigator.clipboard.writeText(email);
@@ -42,7 +41,7 @@ const PathDetail: React.FC = () => {
     <div className="bg-stone-50 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 py-32 md:py-52">
         <nav className="mb-20">
-          <Link to={`/${safeLang}/paths`} className="group inline-flex items-center gap-2 text-[11px] font-bold text-stone-400 hover:text-stone-900 uppercase tracking-widest transition-colors">
+          <Link to={`/paths`} className="group inline-flex items-center gap-2 text-[11px] font-bold text-stone-400 hover:text-stone-900 uppercase tracking-widest transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
             </svg>
@@ -70,12 +69,12 @@ const PathDetail: React.FC = () => {
                     <div className="flex justify-between items-center mb-6">
                       <h4 className="text-2xl font-bold tracking-tight">{type.name}</h4>
                       <span className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest ${type.realistic ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                        {type.realistic ? (safeLang === 'uz' ? 'REAL' : 'REALISTIC') : (safeLang === 'uz' ? 'UNREALISTIC' : 'UNREALISTIC')}
+                        {type.realistic ? 'REAL' : 'UNREALISTIC'}
                       </span>
                     </div>
                     <p className="text-stone-600 font-medium mb-6">{type.description}</p>
                     <div className="pt-6 border-t border-stone-100">
-                      <p className="text-[11px] font-bold text-stone-400 uppercase tracking-widest mb-2">{safeLang === 'uz' ? 'Xorijliklar uchun haqiqat' : 'Reality for Foreigners'}</p>
+                      <p className="text-[11px] font-bold text-stone-400 uppercase tracking-widest mb-2">Xorijliklar uchun haqiqat</p>
                       <p className="text-sm font-bold text-stone-900 italic">"{type.realityForForeigners}"</p>
                     </div>
                   </div>
@@ -243,7 +242,7 @@ const PathDetail: React.FC = () => {
                           <p className="text-sm font-medium text-stone-400">{path.visaLegal.ageLimits.rule}</p>
                        </div>
                        <div>
-                          <p className="text-[9px] font-bold text-stone-500 uppercase tracking-widest mb-2">{safeLang === 'uz' ? 'Amaliyot' : 'In Practice'}</p>
+                          <p className="text-[9px] font-bold text-stone-500 uppercase tracking-widest mb-2">Amaliyot</p>
                           <p className="text-sm font-bold text-stone-500 italic">{path.visaLegal.ageLimits.practice}</p>
                        </div>
                     </div>
@@ -261,10 +260,10 @@ const PathDetail: React.FC = () => {
                        </ul>
                     </div>
                     <div className="p-10 bg-stone-100 rounded-[3rem] border border-stone-200 flex flex-col justify-between">
-                       <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-8">{safeLang === 'uz' ? 'Viza vaqti' : 'Embassy Timeline'}</h4>
+                       <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-8">Viza vaqti</h4>
                        <div>
                           <p className="text-5xl font-bold text-stone-900 tracking-tighter mb-4">{path.visaLegal.embassyTimeline}</p>
-                          <p className="text-sm font-bold text-stone-400 italic leading-relaxed">{safeLang === 'uz' ? 'Toshkentdagi elchixona uchun 2024-yilgi o\'rtacha ma\'lumotlar.' : '2024 median data for Embassy in Tashkent.'}</p>
+                          <p className="text-sm font-bold text-stone-400 italic leading-relaxed">Toshkentdagi elchixona uchun 2024-yilgi o'rtacha ma'lumotlar.</p>
                        </div>
                     </div>
                  </div>
@@ -364,11 +363,11 @@ const PathDetail: React.FC = () => {
                 {CONTACT_EMAIL_ENV ? (
                   <button onClick={() => handleCopy(path.contactEmail!)} className="mx-auto flex py-6 px-10 bg-stone-900 text-stone-50 rounded-2xl text-[13px] font-bold uppercase tracking-widest border border-stone-100 hover:bg-stone-800 transition-all flex items-center justify-center gap-6 group">
                     <span>{path.contactEmail}</span>
-                    <span className="text-[10px] text-stone-500 group-hover:text-stone-400">{copiedEmail === path.contactEmail ? (safeLang === 'uz' ? 'NUSXALANDI' : 'COPIED') : (safeLang === 'uz' ? 'KO‘CHIRISH' : 'COPY')}</span>
+                    <span className="text-[10px] text-stone-500 group-hover:text-stone-400">{copiedEmail === path.contactEmail ? 'NUSXALANDI' : 'KO‘CHIRISH'}</span>
                   </button>
                 ) : (
                   <div className="p-8 bg-stone-50 rounded-3xl border border-stone-100 text-stone-400 text-sm italic">
-                    {safeLang === 'uz' ? 'Bog‘lanish ma’lumotlari live saytda ko‘rsatiladi.' : 'Contact details are shown on the live site.'}
+                    Bog‘lanish ma’lumotlari live saytda ko‘rsatiladi.
                   </div>
                 )}
               </div>
@@ -378,7 +377,7 @@ const PathDetail: React.FC = () => {
 
         <section className="mt-40 pt-20 border-t border-stone-200 text-center">
           <p className="text-stone-400 font-bold text-[11px] uppercase tracking-[0.3em] mb-10">{t.briefingComplete}</p>
-          <Link to={`/${safeLang}/paths`} className="px-12 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all">{t.returnToDirectory}</Link>
+          <Link to={`/paths`} className="px-12 py-5 bg-stone-900 text-stone-50 rounded-full font-bold text-[13px] uppercase tracking-widest hover:scale-105 transition-all">{t.returnToDirectory}</Link>
         </section>
       </div>
     </div>

@@ -1,12 +1,10 @@
 
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { CONTENT, Locale } from '../constants';
+import { Link } from 'react-router-dom';
+import { CONTENT } from '../constants';
 
 const PracticalPaths: React.FC = () => {
-  const { lang } = useParams();
-  const safeLang: Locale = lang === 'uz' || lang === 'en' ? (lang as Locale) : 'uz';
-  const content = CONTENT[safeLang] || CONTENT.uz;
+  const content = CONTENT.uz;
   const t = content.ui;
   const activePaths = content.paths;
   
@@ -23,7 +21,7 @@ const PracticalPaths: React.FC = () => {
       title: t.specialistHeader,
       subtitle: t.specialistSubtitle,
       description: t.specialistDesc,
-      status: safeLang === 'uz' ? 'Tekshirilmoqda' : 'Verification'
+      status: 'Tekshirilmoqda'
     }
   ];
 
@@ -47,7 +45,7 @@ const PracticalPaths: React.FC = () => {
             {activePaths.map((path) => (
               <Link 
                 key={path.id} 
-                to={`/${safeLang}/paths/${path.id}`}
+                to={`/paths/${path.id}`}
                 className="group p-12 bg-white border border-stone-200 rounded-[3.5rem] hover:border-stone-900 transition-all duration-700 min-h-[450px] flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-stone-200/40 relative overflow-hidden"
               >
                 <div>
