@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 type Result = {
   profile?: string;
   tag?: string;
+  countryId?: string;
   primary: {
     name: string;
     university: string;
@@ -33,6 +34,7 @@ type Answers = {
 
 function getDefaultResult(): Result {
   return {
+    countryId: 'europe',
     primary: {
       name: 'Stipendium Hungaricum (eng real Evropa varianti)',
       university: 'Corvinus University, Vengriya 🇭🇺',
@@ -58,12 +60,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
   if (a.country === 'russia') {
     if (a.interest === 'Medicine') {
       return {
+        countryId: 'russia',
         primary: {
           name: 'Rossiya Hukumati Kvotasi — Tibbiyot',
           university: 'Kazan Davlat Tibbiyot Universiteti 🇷🇺',
           chance: '40%',
           deadline: 'Dekabr',
           stipend: 'Bepul ta\'lim',
+          englishReq: 'Shart emas',
           benefits: ['800 ta kvota — eng ko\'p', 'Ingliz tili shart emas', 'Rus tibbiyot diplomi xalqaro tan olinadi']
         },
         backup: { name: 'Belarus Tibbiyot Universiteti', chance: '35%' },
@@ -74,12 +78,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
     }
     if (a.interest === 'IT') {
       return {
+        countryId: 'russia',
         primary: {
           name: 'Rossiya Hukumati Kvotasi — IT',
           university: 'ITMO University yoki Innopolis, Rossiya 🇷🇺',
           chance: '40%',
           deadline: 'Dekabr',
           stipend: 'Bepul ta\'lim',
+          englishReq: 'Shart emas',
           benefits: ['IT sohasida kuchli universitetlar', 'Ingliz tili shart emas', 'Stipend past lekin ta\'lim bepul']
         },
         backup: { name: 'Xitoy CSC → BUPT', chance: '15%' },
@@ -89,12 +95,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
       }
     }
     return {
+      countryId: 'russia',
       primary: {
         name: 'Rossiya Hukumati Kvotasi',
         university: 'Siz tanlagan yo\'nalish bo\'yicha Rossiya universiteti 🇷🇺',
         chance: '40%',
         deadline: 'Dekabr',
         stipend: 'Bepul ta\'lim',
+        englishReq: 'Shart emas',
         benefits: ['800 ta kvota — barcha yo\'nalishlar', 'Ingliz tili shart emas', 'Yashash xarajatlari past']
       },
       backup: { name: 'Xitoy Hukumati CSC', chance: '15%' },
@@ -107,12 +115,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
   if (a.country === 'china') {
     if (a.interest === 'Medicine') {
       return {
+        countryId: 'china',
         primary: {
           name: 'Xitoy Hukumati Stipendiyasi (CSC) — Tibbiyot',
           university: 'Jilin University Medical School 🇨🇳',
           chance: '15%',
           deadline: 'Fevral–Mart',
           stipend: '$400/oy',
+          englishReq: 'IELTS: 5.5 yoki HSK 3',
           benefits: ['50–100 ta kvota o\'zbeklar uchun', 'Xalqaro tan olingan tibbiyot diplomi', 'Yashash arzon']
         },
         backup: { name: 'Rossiya Tibbiyot Kvotasi → Kazan', chance: '40%' },
@@ -123,12 +133,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
     }
     if (a.interest === 'IT') {
       return {
+        countryId: 'china',
         primary: {
           name: 'Xitoy Hukumati Stipendiyasi (CSC) — IT',
           university: 'BUPT yoki Zhejiang University 🇨🇳',
           chance: '15%',
           deadline: 'Fevral–Mart',
           stipend: '$400/oy',
+          englishReq: 'IELTS: 6.0 yoki HSK 4',
           benefits: ['Dunyoning eng yirik IT bozori', 'Huawei, Alibaba, Tencent internship imkoniyatlari', 'Stipendiya + yotoqxona']
         },
         backup: { name: 'Rossiya Kvotasi → ITMO', chance: '40%' },
@@ -138,12 +150,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
       }
     }
     return {
+      countryId: 'china',
       primary: {
         name: 'Xitoy Hukumati Stipendiyasi (CSC)',
         university: 'Siz tanlagan yo\'nalish bo\'yicha Xitoy universiteti 🇨🇳',
         chance: '15%',
         deadline: 'Fevral–Mart',
         stipend: '$400/oy',
+        englishReq: 'IELTS: 5.5 yoki HSK 3',
         benefits: ['50–100 ta o\'zbek kvotasi', 'Stipendiya + yotoqxona + sug\'urta', 'Xitoy iqtisodiyotiga kirish imkoni']
       },
       backup: { name: 'Rossiya Hukumati Kvotasi', chance: '40%' },
@@ -155,12 +169,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
 
   if (a.country === 'turkey') {
     return {
+      countryId: 'turkey',
       primary: {
         name: 'Turkiye Burslari',
         university: 'Ankara yoki Istanbul universiteti 🇹🇷',
         chance: a.interest === 'Medicine' ? '2.4% (GPA 90% shart!)' : '2.4%',
         deadline: 'Yanvar–Fevral',
         stipend: '$120/oy + 1 yillik til kursi',
+        englishReq: 'Shart emas (Turk tili)',
         benefits: ['O\'zbek tiliga yaqin — til oson o\'rganiladi', '1 yil turk tili kursi kiritilgan', 'Toshkentdan yaqin — oila bilan aloqa oson']
       },
       backup: { name: 'Stipendium Hungaricum → Evropa', chance: '25%' },
@@ -173,12 +189,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
   if (a.country === 'asia') {
     if (a.english === 'C1C2' || a.english === 'B1B2') {
       return {
+        countryId: 'korea/japan',
         primary: {
           name: 'GKS Koreya (Global Korea Scholarship)',
           university: 'KAIST yoki Yonsei University 🇰🇷',
           chance: '2–3%',
           deadline: 'Fevral',
           stipend: '$750/oy',
+          englishReq: 'IELTS: 6.5+',
           benefits: ['Samsung, LG, Hyundai internship imkoniyatlari', 'IT va muhandislikda dunyo darajasi', 'Koreya — tez rivojlanayotgan texnologiya markazi']
         },
         backup: { name: 'Xitoy CSC → BUPT', chance: '15%' },
@@ -188,12 +206,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
       }
     }
     return {
+      countryId: 'china',
       primary: {
         name: 'Xitoy CSC (Osiyo — eng real variant)',
         university: 'Zhejiang University yoki BUPT 🇨🇳',
         chance: '15%',
         deadline: 'Fevral–Mart',
         stipend: '$400/oy',
+        englishReq: 'IELTS: 5.5 yoki HSK 3',
         benefits: ['Osiyo — lekin ingliz tili kam talab qilinadi', 'GKS Koreya dan ancha real (15% vs 2%)', 'Katta Osiyo iqtisodiyotiga kirish']
       },
       backup: { name: 'GKS Koreya (ingliz C1 ga yetgach)', chance: '2–3%' },
@@ -206,12 +226,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
   if (a.country === 'uzbekistan') {
     if (a.english === 'C1C2' && a.income === 'over1000') {
       return {
+        countryId: 'uzbekistan',
         primary: {
           name: 'WIUT — Westminster International University',
           university: 'Westminster International University Tashkent 🇺🇿',
           chance: '90%',
           deadline: 'Doimiy qabul',
           stipend: '~36 mln UZS/yil (o\'z mablag\')',
+          englishReq: 'IELTS: 5.5+ / Math',
           benefits: ['Britaniya diplomi — Toshkentda', 'Ingliz tilida to\'liq ta\'lim', 'Korporativ karyera uchun eng kuchli lokal variant']
         },
         backup: { name: 'NUUz yoki TSUE — davlat granti uchun', chance: '60%' },
@@ -221,12 +243,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
       }
     }
     return {
+      countryId: 'uzbekistan',
       primary: {
         name: 'DTM — Davlat granti yoki kontrakt',
         university: 'NUUz, TUIT, TSUE yoki TSUL 🇺🇿',
         chance: '70%',
         deadline: 'Iyun–Avgust (DTM)',
         stipend: 'Bepul (grant) yoki 10–20 mln UZS/yil',
+        englishReq: 'Shart emas',
         benefits: ['Toshkentda qolish — xarajat past', 'Oila bilan yaqin', 'DTM natijasi asosida grant imkoni']
       },
       backup: { name: 'WIUT yoki Inha University — ingliz tilida', chance: '60%' },
@@ -239,12 +263,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
   if (a.country === 'europe') {
     if (a.english === 'A1A2') {
       return {
+        countryId: 'europe',
         primary: {
           name: 'Stipendium Hungaricum (18 oy tayyorgarlik)',
           university: 'Corvinus University, Vengriya 🇭🇺',
           chance: '25% (IELTS 5.5 ga yetgach)',
           deadline: 'Yanvar (keyingi tsikl)',
           stipend: '$120/oy + to\'liq ta\'lim',
+          englishReq: 'IELTS: 5.5+',
           benefits: ['Schengen — 26 mamlakat', 'O\'zbekistonliklar uchun 170 ta kafolatlangan kvota', 'IELTS 5.5 — erishish mumkin']
         },
         backup: { name: 'Rossiya Hukumati Kvotasi (hoziroq boshlash mumkin)', chance: '40%' },
@@ -255,12 +281,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
     }
     if (a.interest === 'Medicine') {
       return {
+        countryId: 'europe',
         primary: {
           name: 'Stipendium Hungaricum — Tibbiyot',
           university: 'University of Pécs yoki Semmelweis University, Vengriya 🇭🇺',
           chance: '20%',
           deadline: 'Yanvar',
           stipend: '$120/oy + to\'liq ta\'lim',
+          englishReq: 'IELTS: 5.5+',
           benefits: ['Yevropa tibbiyot diplomi — xalqaro tan olinadi', 'Ingliz tilida o\'qitish', 'Kafolatlangan kvota']
         },
         backup: { name: 'DAAD Germaniya (magistr uchun, 2 yil ish keyin)', chance: '10%' },
@@ -270,12 +298,14 @@ function getResult(answersRaw: string[]): Result | Result[] {
       }
     }
     return {
+      countryId: 'europe',
       primary: {
         name: 'Stipendium Hungaricum',
         university: 'Corvinus University of Budapest, Vengriya 🇭🇺',
         chance: '25%',
         deadline: 'Yanvar',
         stipend: '$120/oy + to\'liq ta\'lim',
+        englishReq: 'IELTS: 5.5+',
         benefits: ['Schengen zonasi — 26 mamlakat erkin', 'Yevropa diplomi — global tan olinadi', '170 ta kafolatlangan kvota']
       },
       backup: { name: 'Chexiya Hukumati → $600/oy', chance: '10%' },
@@ -286,62 +316,338 @@ function getResult(answersRaw: string[]): Result | Result[] {
   }
 
   if (a.country === 'dontknow') {
-    return [
-      {
-        tag: '🇷🇺 ENG OSON',
-        primary: {
-          name: 'Rossiya Kvotasi',
-          university: 'Rossiya universitetlari 🇷🇺',
-          chance: '40%',
-          deadline: 'Dekabr',
-          stipend: 'Bepul ta\'lim',
-          englishReq: 'Shart emas',
-          benefits: ['Eng oson kirish', 'Ingliz tili shart emas', '800 ta kvota']
+    let options: Result[] = [];
+
+    if (a.interest === 'Medicine') {
+      options = [
+        {
+          tag: '🇷🇺 ENG OSON',
+          countryId: 'russia',
+          primary: {
+            name: 'Rossiya Kvotasi — Tibbiyot',
+            university: 'Kazan Davlat Tibbiyot Universiteti 🇷🇺',
+            chance: '40%',
+            deadline: 'Dekabr',
+            stipend: 'Bepul ta\'lim',
+            englishReq: 'Shart emas',
+            benefits: ['Eng oson kirish', 'Ingliz tili shart emas', '800 ta kvota']
+          },
+          backup: { name: 'Belarus Tibbiyot Universiteti', chance: '35%' },
+          plan: ['Hafta 1: russia.study ro\'yxat', 'Hafta 2: Rus tili boshlang', 'Hafta 3: DTM mock testlar', 'Hafta 4: 3 ta mintaqaviy universitet tanlang'],
+          mistake: 'Faqat Moskva tanlash',
+          resources: [{ name: 'russia.study', url: 'https://russia.study' }]
         },
-        backup: { name: 'Xitoy CSC', chance: '15%' },
-        plan: ['Hafta 1: russia.study ro\'yxat', 'Hafta 2: Rus tili boshlang', 'Hafta 3: DTM mock testlar', 'Hafta 4: 3 ta mintaqaviy universitet tanlang'],
-        mistake: 'Faqat Moskva tanlash',
-        resources: [{ name: 'russia.study', url: 'https://russia.study' }]
-      },
-      {
-        tag: '🇭🇺 OPTIMAL',
-        primary: {
-          name: 'Stipendium Hungaricum',
-          university: 'Vengriya universitetlari 🇭🇺',
-          chance: '25%',
-          deadline: 'Yanvar',
-          stipend: '$120/oy + ta\'lim',
-          englishReq: 'IELTS: 5.5',
-          benefits: ['Schengen zonasi', 'Yevropa diplomi', '170 ta kvota']
+        {
+          tag: '🇨🇳 ALTERNATIV',
+          countryId: 'china',
+          primary: {
+            name: 'Xitoy CSC — Tibbiyot',
+            university: 'Jilin University 🇨🇳',
+            chance: '15%',
+            deadline: 'Fevral',
+            stipend: '$400/oy',
+            englishReq: 'IELTS: 5.5 yoki HSK 3',
+            benefits: ['Stipendiya + yotoqxona', 'Xalqaro diplom', 'Yashash arzon']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: csc.edu.cn ro\'yxat', 'Hafta 2: Professor bilan aloqa', 'Hafta 3: HSK 3 tayyorgarlik', 'Hafta 4: IELTS 5.5 mock test'],
+          mistake: 'Professor bilan oldindan aloqa qilmaslik',
+          resources: [{ name: 'CSC Scholarship', url: 'https://csc.edu.cn' }]
         },
-        backup: { name: 'Rossiya Kvotasi', chance: '40%' },
-        plan: ['Hafta 1: stipendiumhungaricum.hu ro\'yxat', 'Hafta 2: IELTS 5.5 tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: 3 universitet tanlang'],
-        mistake: 'Intervyuga tayyorgarliksiz borish',
-        resources: [{ name: 'Stipendium Hungaricum', url: 'https://stipendiumhungaricum.hu' }]
-      },
-      {
-        tag: '🇩🇪 ENG PRESTIJLI',
-        primary: {
-          name: 'DAAD Germaniya',
-          university: 'Germaniya universitetlari 🇩🇪',
-          chance: '10%',
-          deadline: 'Noyabr',
-          stipend: '$1,000/oy',
-          englishReq: 'IELTS: 6.5 + 2 yil ish',
-          benefits: ['To\'liq moliyalashtirish', 'Kuchli iqtisodiyot', 'Ishlash imkoniyati']
+        {
+          tag: '🇭🇺 YEVROPA',
+          countryId: 'europe',
+          primary: {
+            name: 'Stipendium Hungaricum',
+            university: 'University of Pécs 🇭🇺',
+            chance: '20%',
+            deadline: 'Yanvar',
+            stipend: '$120/oy + ta\'lim',
+            englishReq: 'IELTS: 5.5+',
+            benefits: ['Schengen zonasi', 'Yevropa diplomi', 'Kafolatlangan kvota']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: stipendiumhungaricum.hu ro\'yxat', 'Hafta 2: IELTS 5.5 tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: Tibbiy ko\'rik hujjatlari'],
+          mistake: 'Tibbiy ko\'rikdan o\'tmaslik',
+          resources: [{ name: 'Stipendium Hungaricum', url: 'https://stipendiumhungaricum.hu' }]
+        }
+      ];
+    } else if (a.interest === 'IT') {
+      options = [
+        {
+          tag: '🇭🇺 OPTIMAL',
+          countryId: 'europe',
+          primary: {
+            name: 'Stipendium Hungaricum — IT',
+            university: 'ELTE yoki BME 🇭🇺',
+            chance: '25%',
+            deadline: 'Yanvar',
+            stipend: '$120/oy + ta\'lim',
+            englishReq: 'IELTS: 5.5+',
+            benefits: ['Schengen zonasi', 'Kuchli IT ta\'lim', '170 ta kvota']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: stipendiumhungaricum.hu ro\'yxat', 'Hafta 2: IELTS 5.5 tayyorgarlik', 'Hafta 3: GitHub loyiha', 'Hafta 4: Motivatsiya xati'],
+          mistake: 'Intervyuga tayyorgarliksiz borish',
+          resources: [{ name: 'Stipendium Hungaricum', url: 'https://stipendiumhungaricum.hu' }]
         },
-        backup: { name: 'El-Yurt Umidi', chance: '5-10%' },
-        plan: ['Hafta 1: IELTS 6.5 tayyorgarlik', 'Hafta 2: DAAD portalida dasturlar', 'Hafta 3: 2 yillik ish tajribasi hujjatlari', 'Hafta 4: Motivatsiya xati va CV'],
-        mistake: 'Ish tajribasisiz ariza berish',
-        resources: [{ name: 'DAAD', url: 'https://daad.de' }]
+        {
+          tag: '🇨🇳 KATTA BOZOR',
+          countryId: 'china',
+          primary: {
+            name: 'Xitoy CSC — IT',
+            university: 'BUPT 🇨🇳',
+            chance: '15%',
+            deadline: 'Fevral',
+            stipend: '$400/oy',
+            englishReq: 'IELTS: 6.0 yoki HSK 4',
+            benefits: ['Alibaba/Tencent internship', 'Katta IT bozor', 'Stipendiya + yotoqxona']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: csc.edu.cn ro\'yxat', 'Hafta 2: BUPT professori bilan aloqa', 'Hafta 3: GitHub loyiha', 'Hafta 4: HSK/IELTS tayyorgarlik'],
+          mistake: 'Professor bilan aloqa qilmaslik',
+          resources: [{ name: 'CSC Scholarship', url: 'https://csc.edu.cn' }]
+        },
+        {
+          tag: '🇷🇺 ENG OSON',
+          countryId: 'russia',
+          primary: {
+            name: 'Rossiya Kvotasi — IT',
+            university: 'ITMO yoki Innopolis 🇷🇺',
+            chance: '40%',
+            deadline: 'Dekabr',
+            stipend: 'Bepul ta\'lim',
+            englishReq: 'Shart emas',
+            benefits: ['Kuchli IT maktab', 'Ingliz tili shart emas', 'Oson kirish']
+          },
+          backup: { name: 'Xitoy CSC', chance: '15%' },
+          plan: ['Hafta 1: russia.study ro\'yxat', 'Hafta 2: Rus tili boshlang', 'Hafta 3: GitHub loyiha', 'Hafta 4: ITMO/Innopolis tanlash'],
+          mistake: 'Faqat Moskva tanlash',
+          resources: [{ name: 'russia.study', url: 'https://russia.study' }]
+        }
+      ];
+    } else if (a.interest === 'Business') {
+      options = [
+        {
+          tag: '🇭🇺 YEVROPA',
+          countryId: 'europe',
+          primary: {
+            name: 'Stipendium Hungaricum',
+            university: 'Corvinus University 🇭🇺',
+            chance: '25%',
+            deadline: 'Yanvar',
+            stipend: '$120/oy + ta\'lim',
+            englishReq: 'IELTS: 5.5+',
+            benefits: ['Schengen zonasi', 'Kuchli biznes maktab', '170 ta kvota']
+          },
+          backup: { name: 'Turkiye Burslari', chance: '10%' },
+          plan: ['Hafta 1: stipendiumhungaricum.hu ro\'yxat', 'Hafta 2: IELTS 5.5 tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: Intervyu tayyorgarlik'],
+          mistake: 'Intervyuga tayyorgarliksiz borish',
+          resources: [{ name: 'Stipendium Hungaricum', url: 'https://stipendiumhungaricum.hu' }]
+        },
+        {
+          tag: '🇹🇷 QARINDOSH',
+          countryId: 'turkey',
+          primary: {
+            name: 'Turkiye Burslari',
+            university: 'Istanbul University 🇹🇷',
+            chance: '5%',
+            deadline: 'Yanvar',
+            stipend: '$120/oy + ta\'lim',
+            englishReq: 'Shart emas (Turk tili)',
+            benefits: ['O\'zbek tiliga yaqin', '1 yil til kursi', 'Yashash arzon']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: turkiyeburslari.gov.tr ro\'yxat', 'Hafta 2: TR-YOS tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: Hujjatlarni to\'plash'],
+          mistake: 'Generic motivatsiya xati',
+          resources: [{ name: 'Turkiye Burslari', url: 'https://turkiyeburslari.gov.tr' }]
+        },
+        {
+          tag: '🇨🇿 ALTERNATIV',
+          countryId: 'europe',
+          primary: {
+            name: 'Chexiya Hukumati',
+            university: 'Prague University of Economics 🇨🇿',
+            chance: '10%',
+            deadline: 'Sentyabr',
+            stipend: '$600/oy',
+            englishReq: 'IELTS: 6.0+',
+            benefits: ['Yevropa markazi', 'Yuqori stipendiya', 'Ingliz tilida ta\'lim']
+          },
+          backup: { name: 'Stipendium Hungaricum', chance: '25%' },
+          plan: ['Hafta 1: dzs.cz ro\'yxat', 'Hafta 2: IELTS 6.0 tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: Universitet tanlash'],
+          mistake: 'Deadline ni o\'tkazib yuborish',
+          resources: [{ name: 'Chexiya stipendiya', url: 'https://dzs.cz' }]
+        }
+      ];
+    } else if (a.interest === 'Law') {
+      options = [
+        {
+          tag: '🇺🇿 LOKAL PRESTIJ',
+          countryId: 'uzbekistan',
+          primary: {
+            name: 'WIUT — Westminster',
+            university: 'Westminster International University Tashkent 🇺🇿',
+            chance: '90%',
+            deadline: 'Doimiy',
+            stipend: 'O\'z mablag\'',
+            englishReq: 'IELTS: 5.5+ / Math',
+            benefits: ['Britaniya diplomi', 'Toshkentda qolish', 'Kuchli korporativ tarmoq']
+          },
+          backup: { name: 'TSUL', chance: '80%' },
+          plan: ['Hafta 1: WIUT ro\'yxat', 'Hafta 2: Math imtihon tayyorgarlik', 'Hafta 3: IELTS tayyorgarlik', 'Hafta 4: Debate Society'],
+          mistake: 'Math imtihoniga tayyorlanmaslik',
+          resources: [{ name: 'WIUT', url: 'https://wiut.uz' }]
+        },
+        {
+          tag: '🇭🇺 YEVROPA',
+          countryId: 'europe',
+          primary: {
+            name: 'Stipendium Hungaricum',
+            university: 'ELTE 🇭🇺',
+            chance: '20%',
+            deadline: 'Yanvar',
+            stipend: '$120/oy + ta\'lim',
+            englishReq: 'IELTS: 6.0+',
+            benefits: ['Schengen zonasi', 'Xalqaro huquq', '170 ta kvota']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: stipendiumhungaricum.hu ro\'yxat', 'Hafta 2: IELTS 6.0 tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: Intervyu tayyorgarlik'],
+          mistake: 'Intervyuga tayyorgarliksiz borish',
+          resources: [{ name: 'Stipendium Hungaricum', url: 'https://stipendiumhungaricum.hu' }]
+        },
+        {
+          tag: '🇷🇺 ENG OSON',
+          countryId: 'russia',
+          primary: {
+            name: 'Rossiya Kvotasi — Huquq',
+            university: 'Kazan Federal University 🇷🇺',
+            chance: '40%',
+            deadline: 'Dekabr',
+            stipend: 'Bepul ta\'lim',
+            englishReq: 'Shart emas',
+            benefits: ['Oson kirish', 'Ingliz tili shart emas', 'Rus huquq tizimi']
+          },
+          backup: { name: 'TSUL', chance: '80%' },
+          plan: ['Hafta 1: russia.study ro\'yxat', 'Hafta 2: Rus tili boshlang', 'Hafta 3: DTM mock testlar', 'Hafta 4: Universitet tanlash'],
+          mistake: 'Faqat Moskva tanlash',
+          resources: [{ name: 'russia.study', url: 'https://russia.study' }]
+        }
+      ];
+    } else {
+      options = [
+        {
+          tag: '🇷🇺 ENG OSON',
+          countryId: 'russia',
+          primary: {
+            name: 'Rossiya Kvotasi',
+            university: 'Rossiya universitetlari 🇷🇺',
+            chance: '40%',
+            deadline: 'Dekabr',
+            stipend: 'Bepul ta\'lim',
+            englishReq: 'Shart emas',
+            benefits: ['Eng oson kirish', 'Ingliz tili shart emas', '800 ta kvota']
+          },
+          backup: { name: 'Xitoy CSC', chance: '15%' },
+          plan: ['Hafta 1: russia.study ro\'yxat', 'Hafta 2: Rus tili boshlang', 'Hafta 3: DTM mock testlar', 'Hafta 4: 3 ta mintaqaviy universitet tanlang'],
+          mistake: 'Faqat Moskva tanlash',
+          resources: [{ name: 'russia.study', url: 'https://russia.study' }]
+        },
+        {
+          tag: '🇭🇺 OPTIMAL',
+          countryId: 'europe',
+          primary: {
+            name: 'Stipendium Hungaricum',
+            university: 'Vengriya universitetlari 🇭🇺',
+            chance: '25%',
+            deadline: 'Yanvar',
+            stipend: '$120/oy + ta\'lim',
+            englishReq: 'IELTS: 5.5+',
+            benefits: ['Schengen zonasi', 'Yevropa diplomi', '170 ta kvota']
+          },
+          backup: { name: 'Rossiya Kvotasi', chance: '40%' },
+          plan: ['Hafta 1: stipendiumhungaricum.hu ro\'yxat', 'Hafta 2: IELTS 5.5 tayyorgarlik', 'Hafta 3: Motivatsiya xati', 'Hafta 4: 3 universitet tanlang'],
+          mistake: 'Intervyuga tayyorgarliksiz borish',
+          resources: [{ name: 'Stipendium Hungaricum', url: 'https://stipendiumhungaricum.hu' }]
+        },
+        {
+          tag: '🇩🇪 ENG PRESTIJLI',
+          countryId: 'europe',
+          primary: {
+            name: 'DAAD Germaniya',
+            university: 'Germaniya universitetlari 🇩🇪',
+            chance: '10%',
+            deadline: 'Noyabr',
+            stipend: '$1,000/oy',
+            englishReq: 'IELTS: 6.5 + 2 yil ish',
+            benefits: ['To\'liq moliyalashtirish', 'Kuchli iqtisodiyot', 'Ishlash imkoniyati']
+          },
+          backup: { name: 'El-Yurt Umidi', chance: '5-10%' },
+          plan: ['Hafta 1: IELTS 6.5 tayyorgarlik', 'Hafta 2: DAAD portalida dasturlar', 'Hafta 3: 2 yillik ish tajribasi hujjatlari', 'Hafta 4: Motivatsiya xati va CV'],
+          mistake: 'Ish tajribasisiz ariza berish',
+          resources: [{ name: 'DAAD', url: 'https://daad.de' }]
+        }
+      ];
+    }
+
+    if (a.income === 'under200' && a.english === 'A1A2') {
+      const hasRussia = options.some(o => o.countryId === 'russia');
+      if (!hasRussia) {
+        options[0] = {
+          tag: '🇷🇺 ENG OSON',
+          countryId: 'russia',
+          primary: {
+            name: 'Rossiya Kvotasi',
+            university: 'Rossiya universitetlari 🇷🇺',
+            chance: '40%',
+            deadline: 'Dekabr',
+            stipend: 'Bepul ta\'lim',
+            englishReq: 'Shart emas',
+            benefits: ['Eng oson kirish', 'Ingliz tili shart emas', '800 ta kvota']
+          },
+          backup: { name: 'Xitoy CSC', chance: '15%' },
+          plan: ['Hafta 1: russia.study ro\'yxat', 'Hafta 2: Rus tili boshlang', 'Hafta 3: DTM mock testlar', 'Hafta 4: 3 ta mintaqaviy universitet tanlang'],
+          mistake: 'Faqat Moskva tanlash',
+          resources: [{ name: 'russia.study', url: 'https://russia.study' }]
+        };
       }
-    ];
+    }
+
+    if (a.income === 'over1000' || a.situation === 'working') {
+      const hasUzbekistan = options.some(o => o.countryId === 'uzbekistan');
+      if (!hasUzbekistan) {
+        options[2] = {
+          tag: '🇺🇿 LOKAL PRESTIJ',
+          countryId: 'uzbekistan',
+          primary: {
+            name: 'WIUT yoki Inha',
+            university: 'Toshkentdagi xalqaro universitetlar 🇺🇿',
+            chance: '90%',
+            deadline: 'Doimiy',
+            stipend: 'O\'z mablag\'',
+            englishReq: 'IELTS: 5.5+',
+            benefits: ['Oila bilan qolish', 'Xalqaro diplom', 'Ishlash imkoniyati']
+          },
+          backup: { name: 'DTM Davlat granti', chance: '70%' },
+          plan: ['Hafta 1: Universitet tanlash', 'Hafta 2: IELTS tayyorgarlik', 'Hafta 3: Kirish imtihonlari', 'Hafta 4: Hujjat topshirish'],
+          mistake: 'Kirish imtihoniga tayyorlanmaslik',
+          resources: [{ name: 'WIUT', url: 'https://wiut.uz' }, { name: 'Inha', url: 'https://inha.uz' }]
+        };
+      }
+    }
+
+    return options;
   }
 
   return getDefaultResult();
 }
 
-function ResultView({ result, onBack }: { result: Result, onBack?: () => void }) {
+function ResultView({ result, onBack, answers }: { result: Result, onBack?: () => void, answers: string[] }) {
+  const englishAnswer = answers[3];
+  const requiresIelts = result.primary.englishReq && result.primary.englishReq.includes('IELTS');
+  const showEnglishWarning = englishAnswer === 'A1A2' && requiresIelts;
+  const countryId = result.countryId || 'europe';
+
   return (
     <div className="space-y-10">
       {onBack && (
@@ -349,6 +655,23 @@ function ResultView({ result, onBack }: { result: Result, onBack?: () => void })
           ← Variantlarga qaytish
         </button>
       )}
+
+      {/* English Warning */}
+      {showEnglishWarning && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6">
+          <h3 className="text-xs font-bold text-yellow-800 uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="text-lg">⚠️</span> Ingliz tili talabi
+          </h3>
+          <p className="text-sm text-yellow-900 font-medium mb-2">
+            Bu stipendiya {result.primary.englishReq} talab qiladi. Sizning hozirgi darajangiz: A1/A2.
+          </p>
+          <p className="text-sm text-yellow-800">
+            Tavsiya: 12 oy davomida <a href="https://britishcouncil.uz" target="_blank" rel="noopener noreferrer" className="underline font-bold">britishcouncil.uz</a> bepul materiallar bilan tayyorlaning.<br/>
+            Yoki hoziroq boshlash uchun: Rossiya Hukumati Kvotasi (ingliz tili shart emas).
+          </p>
+        </div>
+      )}
+
       {/* Primary Path */}
       <div>
         <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4 flex items-center gap-2">
@@ -432,6 +755,80 @@ function ResultView({ result, onBack }: { result: Result, onBack?: () => void })
           <span className="text-lg">⚠️</span> Eng ko'p qilingan xato
         </h3>
         <p className="text-sm text-red-900 font-medium">{result.mistake}</p>
+      </div>
+
+      {/* Qo'shimcha tayyorgarlik */}
+      <div>
+        <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+          <span className="text-lg">🚀</span> Qo'shimcha tayyorgarlik
+        </h3>
+        <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 space-y-4">
+          <ul className="space-y-3">
+            {(countryId === 'russia' || result.backup.name.includes('Rossiya')) && (
+              <>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 🇷🇺 Rus tili: A1 dan boshlang — YouTube 'Russian with Max' (bepul)
+                </li>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> ТРКИ sertifikat olsangiz — ariza kuchliroq bo'ladi
+                </li>
+              </>
+            )}
+            {countryId === 'china' && (
+              <>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 🇨🇳 Xitoy tili: HSK 3 → HSK 4 (stipendiya uchun minimal)
+                </li>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> csc.edu.cn — rasmiy bepul materiallar
+                </li>
+              </>
+            )}
+            {countryId === 'korea/japan' && (
+              <>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 🇰🇷 TOPIK 3+ — GKS uchun kuchli foyda (topikguide.com)
+                </li>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 🇯🇵 JLPT N3 — MEXT uchun tavsiya etiladi
+                </li>
+              </>
+            )}
+            {countryId === 'turkey' && (
+              <>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 🇹🇷 Turk tili: 1 yillik kurs kiritilgan — lekin oldindan bilsang afzal
+                </li>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> TR-YOS imtihoni — SAT o'rniga (Toshkentda topshirish mumkin)
+                </li>
+              </>
+            )}
+            {(countryId === 'europe' || countryId === 'uzbekistan' || countryId === 'global') && (
+              <>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 📝 IELTS: britishcouncil.uz — bepul materiallar
+                </li>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 📝 SAT: khanacademy.org/sat — bepul, rasmiy College Board bilan
+                </li>
+                <li className="text-sm text-stone-700 flex items-start gap-2">
+                  <span className="text-stone-400 mt-0.5">→</span> 📝 Duolingo English Test: $59 — tezroq va arzonroq IELTS alternativasi
+                </li>
+              </>
+            )}
+            
+            <li className="text-sm text-stone-700 flex items-start gap-2 mt-4 pt-4 border-t border-stone-200">
+              <span className="text-stone-400 mt-0.5">→</span> 💼 Portfolio: GitHub (IT), Behance (Dizayn), Uzum Market (Biznes)
+            </li>
+            <li className="text-sm text-stone-700 flex items-start gap-2">
+              <span className="text-stone-400 mt-0.5">→</span> 🏆 Musobaqalar: xalqaro olimpiadalar — stipendiya arizasini kuchaytiradi
+            </li>
+            <li className="text-sm text-stone-700 flex items-start gap-2">
+              <span className="text-stone-400 mt-0.5">→</span> 📄 Sertifikatlar: Google, Coursera, edX — bepul, tan olinadi
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Resources */}
@@ -678,6 +1075,7 @@ const Home: React.FC = () => {
 
                     <ResultView 
                       result={selectedResult!} 
+                      answers={answers}
                       onBack={Array.isArray(result) ? () => setSelectedResult(null) : undefined} 
                     />
 
