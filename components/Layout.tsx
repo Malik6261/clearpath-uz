@@ -44,7 +44,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               Ko'proq o'rganish
             </Link>
             <button onClick={() => document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' })} className="px-6 py-2 bg-stone-900 border border-stone-900 text-stone-50 text-[11px] font-bold uppercase tracking-widest rounded-full hover:bg-stone-800 transition-all duration-300 shadow-sm min-h-[36px] flex items-center whitespace-nowrap">
-              Malik bilan bog'lanish
+              Bog'lanish
             </button>
           </div>
         </div>
