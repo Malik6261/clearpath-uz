@@ -1101,6 +1101,29 @@ const Home: React.FC = () => {
         </section>
       )}
 
+      {/* GRANT MANBALARI SECTION */}
+      <section className="px-6 py-12 max-w-4xl mx-auto">
+        <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-4">Grantlarni qayerdan topasiz?</h2>
+          <p className="text-stone-600 leading-relaxed mb-8 max-w-2xl mx-auto text-lg">
+            O'zbekistondagi eng to'liq grant ma'lumotlari — grantlar.uz da.
+            <br className="hidden md:block" />
+            ClearPath sizga ulardan qaysi biri mos kelishini aniqlaydi.
+          </p>
+          <a 
+            href="https://grantlar.uz" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 bg-stone-900 text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-stone-800 transition-colors mb-4"
+          >
+            Grantlar.uz ga o'tish →
+          </a>
+          <p className="text-xs font-bold text-stone-400 uppercase tracking-widest">
+            Manba: grantlar.uz
+          </p>
+        </div>
+      </section>
+
       {/* MINIMAL SECTIONS */}
       <section className="px-6 py-24 max-w-6xl mx-auto">
         
