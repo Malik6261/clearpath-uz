@@ -973,6 +973,29 @@ const Home: React.FC = () => {
         </p>
       </section>
 
+      {/* PATHFINDER AI PREVIEW */}
+      <section className="px-6 py-12 max-w-4xl mx-auto">
+        <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-center gap-8 justify-between border-dashed">
+          <div className="space-y-4 text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl font-bold text-stone-900">PathFinder AI</h2>
+            <p className="text-stone-600 leading-relaxed max-w-lg">
+              Scholarship finder, personalized prep plans, and essay suggestions — built for students who want to take charge of their own journey.
+            </p>
+          </div>
+          <div className="shrink-0 space-y-3 text-center">
+            <button 
+              disabled
+              className="w-full sm:w-auto px-8 py-4 bg-stone-100 text-stone-400 rounded-full font-bold uppercase tracking-widest text-sm cursor-not-allowed border border-stone-200"
+            >
+              Coming Soon
+            </button>
+            <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">
+              zerosleep.dn.uz
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* QUIZ SECTION */}
       {showQuiz && (
         <section id="quiz-section" className="px-6 py-16 bg-stone-100/50 border-y border-stone-200 min-h-[60vh] flex items-center">
